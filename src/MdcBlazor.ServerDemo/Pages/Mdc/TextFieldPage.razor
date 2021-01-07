@@ -1,0 +1,21 @@
+﻿@page "/textinputs"
+
+<p>
+    <MdcTextField Label="My label" @bind-Value="text" />
+    <MdcTextField Label="My label" @bind-Value="text" Outlined="true" />
+    <MdcTextField Label="My label" @bind-Value="text" Disabled="true" />
+    <MdcTextField Label="My label" @bind-Value="text" Outlined="true" Disabled="true" />
+</p>
+<p>
+    <MdcTextarea Label="My label" @bind-Value="textarea" />
+    <MdcTextarea Label="My label" @bind-Value="textarea" Outlined="true" />
+    <MdcTextarea Label="My label" @bind-Value="textarea" Disabled="true" />
+    <MdcTextarea Label="My label" @bind-Value="textarea" Outlined="true" Disabled="true" />
+</p>
+
+@code
+{
+    string text;
+    string textarea;
+
+}

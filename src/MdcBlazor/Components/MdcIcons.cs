@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exentials.MdcBlazor.Components
+namespace Exentials.MdcBlazor
 {
     public class MdcIcons
     {

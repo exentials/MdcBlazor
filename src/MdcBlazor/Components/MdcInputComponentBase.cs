@@ -9,6 +9,7 @@ namespace Exentials.MdcBlazor
     {
         protected TValue _value;
 
+        [Parameter] public string Label { get; set; }
         [Parameter]
         public virtual TValue Value
         {
@@ -26,8 +27,8 @@ namespace Exentials.MdcBlazor
                 }
             }
         }
-
         [Parameter] public EventCallback<TValue> ValueChanged { get; set; }
+        [Parameter] public bool Disabled { get; set; }
 
         protected abstract ValueTask<TValue> GetInputValue();
 

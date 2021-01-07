@@ -10,9 +10,7 @@ namespace Exentials.MdcBlazor
     public partial class MdcCheckbox : MdcInputComponentBase<bool?>
     {
         [CascadingParameter(Name = "MdcTouchTargetWrapper")] protected bool Touchable { get; set; }
-        [Parameter] public string Label { get; set; }
         [Parameter] public bool Indeterminate { get; set; }
-        [Parameter] public bool Disabled { get; set; }
 
         private string IndeterminateString
         {

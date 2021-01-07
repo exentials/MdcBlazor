@@ -8,6 +8,8 @@ import * as MdcFab from "./mdcFab/mdcFab";
 import * as MdcIcon from "./mdcIcon/mdcIcon";
 import * as MdcIconButtonToggle from "./mdcButton/mdcIconButtonToggle";
 import * as MdcList from "./mdcList/mdcList";
+import * as MdcTextarea from "./mdcTextInput/mdcTextarea";
+import * as MdcTextField from "./mdcTextInput/mdcTextField";
 import * as MdcTooltip from "./mdcTooltip/mdcTooltip";
 import * as MdcTopAppBar from "./mdcTopAppBar/mdcTopAppBar";
 
@@ -22,6 +24,8 @@ window.exentials.mdcBlazor = {
     MdcIcon,
     MdcIconButtonToggle,
     MdcList,
+    MdcTextarea,
+    MdcTextField,
     MdcTooltip,
     MdcTopAppBar
 };
