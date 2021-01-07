@@ -11,8 +11,14 @@ Inspired by [SamProf/MatBlazor] I decided to build my own library for Blazor bas
 
 ## How to use the library
 
-Add in de services registration section in your Startup.cs file
+#### Download the project or the nuget package
+#
+```sh
+Install-Package Exentials.MdcBlazor
 ```
+
+Add on the service registration section of your Startup.cs file
+```csharp
 services.AddMdcBlazor();    // Enable MdcBlazor services
 ```
 
