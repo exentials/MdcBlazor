@@ -11,7 +11,9 @@ Inspired by [SamProf/MatBlazor] I decided to build my own library for Blazor bas
 
 ## How to use the library
 
-#### Download the project or the nuget package
+### Blazor Server App
+
+#### Install the library on the Server project
 #
 ```sh
 Install-Package Exentials.MdcBlazor
@@ -22,13 +24,19 @@ Add on the service registration section of your Startup.cs file
 services.AddMdcBlazor();    // Enable MdcBlazor services
 ```
 
+##### In your _Imports.razor add the components namespace:
+#
+```csharp
+@using Exentials.MdcBlazor
+```
+
 ##### In your _Host.cshtml add a link reference to:
 #
 ```html
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />
 ```
 
-##### Optionally for use the embedded Roboto fonts and Material Icons 
+##### Optionally to use the embedded Roboto fonts and Material Icons 
 #
 ```html
 <link href="_content/Exentials.MdcBlazor/roboto/roboto.css" rel="stylesheet" />
@@ -37,6 +45,48 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 ##### and at the end after the blazor js script
 ```html
 <script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.js"></script>
+```
+
+### Blazor WebAssembly App
+
+#### Install the library on both Server and Client project
+#
+```sh
+Install-Package Exentials.MdcBlazor
+```
+
+Server project: Add on the service registration section of Startup.cs file
+```csharp
+services.AddMdcBlazor();    // Enable MdcBlazor services
+```
+
+##### In _Imports.razor add the components namespace:
+#
+```csharp
+@using Exentials.MdcBlazor
+```
+
+##### On Index.html (Client project) add a link reference to:
+#
+```html
+<link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />
+```
+
+##### Optionally to use the embedded Roboto fonts and Material Icons 
+#
+```html
+<link href="_content/Exentials.MdcBlazor/roboto/roboto.css" rel="stylesheet" />
+<link href="_content/Exentials.MdcBlazor/material-icons/material-icons.css" rel="stylesheet" />
+```
+##### and at the end after the blazor js script
+```html
+<script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.js"></script>
+```
+
+##### On _Imports.razor (Client project) add the components namespace:
+#
+```csharp
+@using Exentials.MdcBlazor
 ```
 
 ### Developed controls
