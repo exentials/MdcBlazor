@@ -1,0 +1,39 @@
+﻿@page "/fabs"
+<MdcHeadline4>Fabs</MdcHeadline4>
+<p>
+    <MdcFab Label="Favorite" Icon="favorite" OnClick='() => FabHandler("FAB")' />
+    <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Mini" OnClick='() => FabHandler("Mini FAB")' />
+    <MdcFab Label="Favorite" Style="MdcFabStyle.Extended" OnClick='() => FabHandler("Extended FAB")' />
+    <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Extended" OnClick='() => FabHandler("Iconed Extended FAB")' />
+</p>
+<MdcHeadline4>FAB has not a disabled state</MdcHeadline4>
+<p>
+    <MdcFab Label="Favorite" Icon="favorite" Disabled="true" />
+    <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Mini" Disabled="true" />
+    <MdcFab Label="Favorite" Style="MdcFabStyle.Extended" Disabled="true" />
+    <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Extended" Disabled="true" />
+</p>
+<MdcHeadline4>Touchable fabs</MdcHeadline4>
+<p>
+    <MdcTouch>
+        <MdcFab Label="Favorite" Icon="favorite" OnClick='() => FabHandler("Touch FAB")' />
+    </MdcTouch>
+    <MdcTouch>
+        <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Mini" OnClick='() => FabHandler("Touch Mini FAB")' />
+    </MdcTouch>
+</p>
+
+<p>
+    <span>@message</span>
+</p>
+
+@code {
+    string message;
+
+    private Task FabHandler(string command)
+    {
+        message = command + " clicked!";
+        return Task.CompletedTask;
+    }
+
+}

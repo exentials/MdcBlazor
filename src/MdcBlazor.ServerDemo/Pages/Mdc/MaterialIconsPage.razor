@@ -1,0 +1,18 @@
+﻿@page "/materialicons"
+
+<p>
+    <MdcButton Label="Filled" OnClick="() => ChangeIcons(MdcCss.MaterialIconsFilled)" />
+    <MdcButton Label="Outlined" OnClick="() => ChangeIcons(MdcCss.MaterialIconsOutlined)" />
+    <MdcButton Label="Rounded" OnClick="() => ChangeIcons(MdcCss.MaterialIconsRounded)" />
+    <MdcButton Label="Sharp" OnClick="() => ChangeIcons(MdcCss.MaterialIconsSharp)" />
+    <MdcButton Label="Two Tone" OnClick="() => ChangeIcons(MdcCss.MaterialIconsTwoTone)" />
+</p>
+
+<p>
+    <span>Current Material Incons: @MdcCss.MaterialIcons</span>
+</p>
+
+@foreach (string icon in icons)
+{
+<MdcIcon>@icon</MdcIcon>
+}

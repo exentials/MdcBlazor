@@ -1,0 +1,43 @@
+﻿:root {
+    /* Default color scheme
+        
+    --mdc-theme-primary: #6200ee; 
+    --mdc-theme-on-primary: #ffffff;
+    --mdc-theme-secondary: #03dac6;
+    --mdc-theme-on-secondary: #000000;
+    --mdc-theme-error: #b00020;
+    --mdc-theme-on-error: #ffffff;
+    --mdc-theme-surface: #ffffff;
+    --mdc-theme-on-surface: #000000;
+    --mdc-theme-background: #ffffff;
+
+    /* Default SHAPE SYSTEM
+
+    --mdc-shape-small-component-radius: 4px;
+    --mdc-shape-medium-component-radius: 4px;
+    --mdc-shape-large-component-radius: 0px;
+    
+    */
+    --mdc-theme-primary: #ac0000;
+    --mdc-theme-secondary: #ac3333;
+}
+
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }

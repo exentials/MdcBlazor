@@ -1,0 +1,37 @@
+﻿@page "/"
+@namespace Exentials.MdcBlazor.ServerDemo.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exentials MdcBlazor ServerDemo</title>
+    <base href="~/" />
+    <link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />
+    <link href="_content/Exentials.MdcBlazor/roboto/roboto.css" rel="stylesheet" />
+    <link href="_content/Exentials.MdcBlazor/material-icons/material-icons.css" rel="stylesheet" />
+    <link href="/theme.css" rel="stylesheet" />
+</head>
+<body class="@MdcStyle.Typography">
+    <component type="typeof(App)" render-mode="ServerPrerendered" />
+
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.server.js"></script>
+    <script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.js"></script>
+
+</body>
+</html>

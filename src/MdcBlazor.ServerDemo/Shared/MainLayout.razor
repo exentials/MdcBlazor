@@ -1,0 +1,43 @@
+﻿@inherits LayoutComponentBase
+<MdcTopAppBarContainer Fixed="true">
+    <MdcTopAppBar>
+        <MdcTopAppBarRow>
+            <MdcTopAppBarSectionStart>
+                <MdcTopAppBarNavIcon Icon="menu" Label="Open navigation menu" />
+                <MdcTopAppBarTitle>MdcBlazor Demo</MdcTopAppBarTitle>
+            </MdcTopAppBarSectionStart>
+            <MdcTopAppBarSectionEnd>
+                <MdcTopAppBarActionButton Label="Favorite" Icon="favorite" />
+                <MdcTopAppBarActionButton Label="Search" Icon="search" />
+                <MdcTopAppBarActionButton Label="Options" Icon="more_vert" />
+            </MdcTopAppBarSectionEnd>
+        </MdcTopAppBarRow>
+    </MdcTopAppBar>
+    <MdcDrawer Mode="MdcDrawerMode.Dismissible" @bind-Open="drawerOpened">
+        <MdcDrawerHeader>
+            <MdcDrawerTitle>Components</MdcDrawerTitle>
+            <MdcDrawerSubtitle>by MdcBlazor</MdcDrawerSubtitle>
+        </MdcDrawerHeader>
+        <MdcDrawerContent>
+            <MdcDrawerNav>
+                <MdcDrawerNavItem Href="/buttons">Buttons</MdcDrawerNavItem>
+                <MdcDrawerNavItem Href="/cards">Cards</MdcDrawerNavItem>
+                <MdcDrawerNavItem Href="/checkboxes">Checkboxes</MdcDrawerNavItem>
+                <MdcDrawerNavItem Href="/fabs">FABs</MdcDrawerNavItem>
+                <MdcDrawerNavItem Href="/typography">Tipography</MdcDrawerNavItem>
+                <MdcDrawerNavItem Href="/materialicons">Material Icons</MdcDrawerNavItem>                
+            </MdcDrawerNav>
+        </MdcDrawerContent>
+    </MdcDrawer>
+    <MdcDrawerAppContent>
+        <MdcBody1>
+            <div style="padding: 16px;">
+                @Body
+            </div>
+        </MdcBody1>
+    </MdcDrawerAppContent>
+</MdcTopAppBarContainer>
+
+@code  {
+    bool drawerOpened = true;
+}

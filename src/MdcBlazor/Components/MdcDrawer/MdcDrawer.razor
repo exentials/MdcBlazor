@@ -1,0 +1,9 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcContainerComponentBase
+<aside @ref=Ref class="mdc-drawer @CssAttributes">
+    @ChildContent
+</aside>
+@if (Mode == MdcDrawerMode.Modal)
+{
+    <div class="mdc-drawer-scrim"></div>
+}

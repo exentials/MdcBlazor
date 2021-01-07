@@ -1,0 +1,63 @@
+﻿@page "/buttons"
+
+<MdcHeadline3>Buttons</MdcHeadline3>
+<p>
+    <MdcTouch>
+        <MdcButton Label="TEXT BUTTON WITH TOUCH" OnClick='() => ClickHandler("TEXT BUTTON WITH TOUCH")' />
+    </MdcTouch>
+    <MdcButton Label="TEXT BUTTON" OnClick='() => ClickHandler("TEXT BUTTON")' />
+    <MdcButton Label="TEXT BUTTON DISABLED" Disabled="true" OnClick='() => ClickHandler("TEXT BUTTON DISABLED")' />
+    <MdcButton Icon="bookmark" Label="TEXT BUTTON PLUS ICON" OnClick='() => ClickHandler("TEXT BUTTON PLUS ICON")' />
+    <MdcButton Icon="bookmark" Label="TEXT BUTTON PLUS TAILING ICON" TrailingIcon="true" OnClick='() => ClickHandler("TEXT BUTTON PLUS TAILING ICON")' />
+</p>
+
+<p>
+    <MdcTouch>
+        <MdcButton ButtonStyle="MdcButtonStyle.Outlined" Label="OUTLINED BUTTON WITH TOUCH" OnClick='() => ClickHandler("OUTLINED BUTTON WITH TOUCH")' />
+    </MdcTouch>
+    <MdcButton ButtonStyle="MdcButtonStyle.Outlined" Label="OUTLINED BUTTON" OnClick='() => ClickHandler("OUTLINED BUTTON")' />
+    <MdcButton ButtonStyle="MdcButtonStyle.Outlined" Label="OUTLINED BUTTON DISABLED" Disabled="true" OnClick='() => ClickHandler("OUTLINED BUTTON DISABLED")' />
+    <MdcButton ButtonStyle="MdcButtonStyle.Outlined" Icon="bookmark" Label="OUTLINED BUTTON PLUS ICON" OnClick='() => ClickHandler("OUTLINED BUTTON PLUS ICON")' />
+    <MdcButton ButtonStyle="MdcButtonStyle.Outlined" Icon="bookmark" Label="OUTLINED BUTTON PLUS TRALING ICON" TrailingIcon="true" OnClick='() => ClickHandler("OUTLINED BUTTON PLUS TRALING ICON")' />
+</p>
+
+<p>
+    <MdcTouch>
+        <MdcButton ButtonStyle="MdcButtonStyle.Outlined" Label="CONTAINED BUTTON WITH TOUCH" OnClick='() => ClickHandler("CONTAINED BUTTON WITH TOUCH")' />
+    </MdcTouch>
+    <MdcButton ButtonStyle="MdcButtonStyle.Contained" Label="CONTAINED BUTTON" OnClick='() => ClickHandler("CONTAINED BUTTON")' />
+    <MdcButton ButtonStyle="MdcButtonStyle.Contained" Label="CONTAINED BUTTON DISABLED" Disabled="true" OnClick='() => ClickHandler("CONTAINED BUTTON DISABLED")' />
+    <MdcButton ButtonStyle="MdcButtonStyle.Contained" Icon="bookmark" Label="CONTAINED BUTTON PLUS ICON" OnClick='() => ClickHandler("CONTAINED BUTTON PLUS ICON")' />
+    <MdcButton ButtonStyle="MdcButtonStyle.Contained" Icon="bookmark" Label="CONTAINED BUTTON PLUS TRAILING ICON" TrailingIcon="true" OnClick='() => ClickHandler("CONTAINED BUTTON PLUS TRAILING ICON")' />
+</p>
+
+<MdcHeadline3>Icon Buttons</MdcHeadline3>
+<p>
+    <MdcIconButton Icon="favorite" OnClick='() => ClickHandler("ICON BUTTON")' />
+    <MdcIconButton Icon="favorite" Disabled="true" OnClick='() => ClickHandler("ICON BUTTON DISABLED")' />
+</p>
+<MdcHeadline3>Icon Buttons Toggle</MdcHeadline3>
+<p>
+    <MdcIconButtonToggle Icon="favorite" ToggleIcon="favorite_bordered" Title="Favorite" Label="Favorite " @bind-Selected="toggleSelected" OnClick='() => ClickHandler("TOGGLE")' />
+    <MdcIconButtonToggle Icon="favorite" ToggleIcon="favorite_bordered" Title="Favorite" Label="Favorite" @bind-Selected="toggleSelected" Disabled="true" OnClick='() => ClickHandler("TOGGLE DISABLED")' />
+</p>
+
+<p>
+    <span>@message</span>
+</p>
+<p>
+    <span>Toggle selected: @toggleSelected</span>
+</p>
+
+@code {
+    string message;
+
+    bool toggleSelected;
+
+    private Task ClickHandler(string command)
+    {
+        message = $"Pressed: {command}";
+        return Task.CompletedTask;
+    }
+
+}

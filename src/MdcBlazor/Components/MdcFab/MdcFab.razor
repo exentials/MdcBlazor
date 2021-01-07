@@ -1,0 +1,17 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcButtonComponentBase
+<button @ref="Ref" class="mdc-fab @CssAttributes" disabled="@Disabled" @onclick="ClickHandler">
+    <div class="mdc-fab__ripple"></div>
+    @if(Icon != null)
+    {
+    <i class="@MdcCss.MaterialIcons mdc-fab__icon" aria-hidden="true">@Icon</i>
+    }
+    @if((Label != null) && (Style == MdcFabStyle.Extended))
+    {
+    <span class="mdc-fab__label">@Label</span>
+    }
+    @if (Touchable)
+    {
+    <div class="mdc-fab__touch"></div>
+    }
+</button>

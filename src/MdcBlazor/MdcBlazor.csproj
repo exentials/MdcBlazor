@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Exentials.MdcBlazor</RootNamespace>
+    <AssemblyName>Exentials.MdcBlazor</AssemblyName>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/exentials/MdcBlazor</RepositoryUrl>
+    <Authors>Gambarotto Damiano</Authors>
+    <Company>Exentials</Company>
+    <PackageProjectUrl>https://github.com/exentials/MdcBlazor</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>blazor, material, design, component</PackageTags>
+    <Description>Blazor library based on Material Design Component</Description>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <FileVersion>0.1.0.0</FileVersion>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <PackageIcon>MdcBlazor-icon.png</PackageIcon>
+  </PropertyGroup>
+ 
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\material-icons\" />
+    <Folder Include="wwwroot\roboto\" />
+  </ItemGroup>
+
+</Project>

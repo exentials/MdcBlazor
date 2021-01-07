@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Exentials.MdcBlazor.ServerDemo</RootNamespace>
+    <AssemblyName>Exentials.MdcBlazor.ServerDemo</AssemblyName>
+    <Authors>Gambarotto Damiano</Authors>
+    <Company>Exentials</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MdcBlazor\MdcBlazor.csproj" />
+  </ItemGroup>
+
+</Project>

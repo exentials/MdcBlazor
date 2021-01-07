@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "module": "ES2015",
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "ES2015",
+    "rootDir": "./src",
+    "moduleResolution": "Node"    
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
