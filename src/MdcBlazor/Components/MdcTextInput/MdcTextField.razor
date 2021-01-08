@@ -1,8 +1,8 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcInputTextComponentBase
-@if (Outlined)
-{
-<label @ref="Ref" class="mdc-text-field mdc-text-field--outlined @CssAttributes">
+<label @ref="Ref" class="mdc-text-field @CssAttributes">
+    @if (Outlined)
+    {
     <span class="mdc-notched-outline">
         <span class="mdc-notched-outline__leading"></span>
         <span class="mdc-notched-outline__notch">
@@ -13,35 +13,53 @@
         </span>
         <span class="mdc-notched-outline__trailing"></span>
     </span>
-    @if (!string.IsNullOrEmpty(Prefix))
+    @if (!string.IsNullOrEmpty(LeadingIcon))
     {
-    <span class="mdc-text-field__affix mdc-text-field__affix--prefix">@Prefix</span>
+    <i class="@MdcCss.MaterialIcons mdc-text-field__icon mdc-text-field__icon--leading" aria-hidden="true" tabindex="0" role="button">@LeadingIcon</i>
     }
-    <input type="text" class="mdc-text-field__input" aria-labelledby="@LabelId" disabled="@Disabled" />
-    @if (!string.IsNullOrEmpty(Suffix))
+    }
+    else
     {
-    <span class="mdc-text-field__affix mdc-text-field__affix--suffix">@Suffix</span>
-    }
-
-</label>
-}
-else
-{
-<label @ref="Ref" class="mdc-text-field mdc-text-field--filled @CssAttributes">
     <span class="mdc-text-field__ripple"></span>
+    @if (!string.IsNullOrEmpty(LeadingIcon))
+    {
+    <i class="@MdcCss.MaterialIcons mdc-text-field__icon mdc-text-field__icon--leading" aria-hidden="true" tabindex="0" role="button">@LeadingIcon</i>
+    }
     @if (!NoLabel)
         {
     <span class="mdc-floating-label" id="@LabelId">@Label</span>
     }
+    }
     @if (!string.IsNullOrEmpty(Prefix))
     {
     <span class="mdc-text-field__affix mdc-text-field__affix--prefix">@Prefix</span>
     }
-    <input class="mdc-text-field__input" type="text" aria-labelledby="@( NoLabel? null: Id)" disabled="@Disabled" />
+    <input class="mdc-text-field__input" type="text"
+    aria-labelledby="@(NoLabel? null: LabelId)"
+    aria-controls="@HelperId"
+    aria-describedby="@HelperId"
+    disabled="@Disabled"
+    required="@Required"
+    maxlength="@Maxlength" />
     @if (!string.IsNullOrEmpty(Suffix))
     {
     <span class="mdc-text-field__affix mdc-text-field__affix--suffix">@Suffix</span>
     }
+    @if (!string.IsNullOrEmpty(TrailingIcon)){
+    <i class="@MdcCss.MaterialIcons mdc-text-field__icon mdc-text-field__icon--trailing" aria-hidden="true" tabindex="0" role="button">@TrailingIcon</i>
+    }
+    @if (ShowCounter)
+    {
+    <span class="mdc-text-field-character-counter"></span>
+    }
+    @if (!Outlined)
+    {
     <span class="mdc-line-ripple"></span>
+    }
 </label>
+@if (HelperType != MdcTextFieldHelperType.None)
+{
+<div class="mdc-text-field-helper-line">
+    <div id="@HelperId" class="mdc-text-field-helper-text @CssHelperAttributes">@HelperMessage</div>
+</div>
 }
