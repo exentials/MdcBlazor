@@ -1,8 +1,8 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcInputTextComponentBase
-@if (Outlined)
-{
-<label @ref="Ref" class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea @CssAttributes">
+<label @ref="Ref" class="mdc-text-field mdc-text-field--textarea @CssAttributes">
+    @if (Outlined)
+    {
     <span class="mdc-notched-outline">
         <span class="mdc-notched-outline__leading"></span>
         @if (!NoLabel)
@@ -13,38 +13,53 @@
         }
         <span class="mdc-notched-outline__trailing"></span>
     </span>
-    @if (Resizable)
-        {
-    <span class="mdc-text-field__resizer">
-        <textarea class="mdc-text-field__input" rows="8" cols="40" aria-label="@Label" aria-labelledby="@LabelId" disabled="@Disabled"></textarea>
-    </span>
     }
-        else
-        {
-    <textarea class="mdc-text-field__input" rows="8" cols="40" aria-label="@Label" disabled="@Disabled"></textarea>
-    }
-</label>
-}
-else
-{
-<label @ref="Ref" class="mdc-text-field mdc-text-field--filled mdc-text-field--textarea @CssAttributes">
+    else
+    {
     <span class="mdc-text-field__ripple"></span>
     @if (!NoLabel)
         {
     <span class="mdc-floating-label" id="@LabelId">@Label</span>
     }
+    }
     @if (Resizable)
-        {
+    {
     <span class="mdc-text-field__resizer">
-        <textarea class="mdc-text-field__input" rows="8" cols="40" aria-label="@Label" disabled="@Disabled"></textarea>
+        <textarea class="mdc-text-field__input" rows="8" cols="40"
+        aria-label="@Label"
+        aria-labelledby="@(NoLabel? null: LabelId)"
+        aria-controls="@HelperId"
+        aria-describedby="@HelperId"
+        disabled="@Disabled"
+        required="@Required"
+        maxlength="@Maxlength">            
+        </textarea>
     </span>
     }
-        else
-        {
-    <textarea class="mdc-text-field__input" rows="8" cols="40" aria-label="@Label" disabled="@Disabled"></textarea>
+    else
+    {
+    <textarea class="mdc-text-field__input" rows="8" cols="40"
+    aria-label="@Label"
+    aria-labelledby="@(NoLabel? null: LabelId)"
+    aria-controls="@HelperId"
+    aria-describedby="@HelperId"
+    disabled="@Disabled"
+    required="@Required"
+    maxlength="@Maxlength">        
+    </textarea>
     }
+    @if (ShowCounter)
+    {
+    <span class="mdc-text-field-character-counter"></span>
+    }
+    @if (!Outlined)
+    {
     <span class="mdc-line-ripple"></span>
+    }
 </label>
+@if (HelperType != MdcTextFieldHelperType.None)
+{
+<div class="mdc-text-field-helper-line">
+    <div id="@HelperId" class="mdc-text-field-helper-text @CssHelperAttributes">@HelperMessage</div>
+</div>
 }
-
-
