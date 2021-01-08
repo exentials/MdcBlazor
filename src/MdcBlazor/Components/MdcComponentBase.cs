@@ -13,14 +13,9 @@ namespace Exentials.MdcBlazor
         protected ElementReference? Ref { get; set; }
 
         [Inject] protected IJSRuntime Js { get; set; }
-        [Parameter] public string Id { get; set; } = CreateId("_mdc_");
+        [Parameter] public string Id { get; set; } = MdcComponentHelper.CreateId();
         [Parameter] public string CssClass { get; set; }
 
-
-        private static string CreateId(string prefix)
-        {
-            return $"{prefix}{Guid.NewGuid()}";
-        }
 
         private string GetJsFunctionNamespace(string functioName)
         {

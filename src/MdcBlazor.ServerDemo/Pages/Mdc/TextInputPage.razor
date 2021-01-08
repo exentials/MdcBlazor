@@ -1,0 +1,67 @@
+﻿@page "/textinputs"
+
+<label>
+    <input type="checkbox" @onchange="args => {outlined = Convert.ToBoolean(args.Value); Refresh(); }" />
+    Outlined
+</label>
+<label>
+    <input type="checkbox" @onchange="args => {disabled = Convert.ToBoolean(args.Value); Refresh(); }" />
+    Disabled
+</label>
+
+<label>
+    <input type="checkbox" @onchange="args => {resizable = Convert.ToBoolean(args.Value); Refresh(); }" />
+    Resizable
+</label>
+<label>
+    <input type="checkbox" @onchange="args => {nolabel = Convert.ToBoolean(args.Value); Refresh(); }" />
+    No label
+</label>
+<label>
+    Prefix
+    <input type="text"  @onchange="args => {prefix = Convert.ToString(args.Value); Refresh(); }" />
+</label>
+<label>
+    Suffix
+    <input type="text"  @onchange="args => {suffix = Convert.ToString(args.Value); Refresh(); }" />
+</label>
+<label>
+    <input type="checkbox" @onchange="args => {alignEnd = Convert.ToBoolean(args.Value); Refresh(); }" />
+    Align End
+</label>
+<MdcHeadline4>Text field</MdcHeadline4>
+<DemoComponent>
+    <DemoComponentContainer @ref="demo1">
+        <MdcTextField Label="My label" @bind-Value="text" Outlined="@outlined" Disabled="@disabled" NoLabel="@nolabel" Prefix="@prefix" Suffix="@suffix" AlignEnd="alignEnd" />
+    </DemoComponentContainer>
+</DemoComponent>
+<MdcHeadline4>Text area</MdcHeadline4>
+<DemoComponent>
+    <DemoComponentContainer @ref="demo2">
+        <MdcTextarea Label="My label" @bind-Value="textarea" Outlined="@outlined" Disabled="@disabled" Resizable="@resizable" NoLabel="@nolabel" />
+    </DemoComponentContainer>
+</DemoComponent>
+
+@code
+{
+    DemoComponentContainer demo1;
+    DemoComponentContainer demo2;
+
+    string text;
+    string textarea;
+    string prefix;
+    string suffix;
+
+    bool outlined;
+    bool disabled;
+    bool resizable;
+    bool nolabel;
+    bool alignEnd;
+
+    void Refresh()
+    {
+        demo1.Refresh();    
+        demo2.Refresh();
+    }
+
+}

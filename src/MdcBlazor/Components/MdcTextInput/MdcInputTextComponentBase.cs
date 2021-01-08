@@ -6,10 +6,23 @@ namespace Exentials.MdcBlazor
     public abstract class MdcInputTextComponentBase : MdcInputComponentBase<string>
     {
         [Parameter] public bool Outlined { get; set; }
+        [Parameter] public bool NoLabel { get; set; }
 
         protected override void OnInitialized()
         {
             base.OnInitialized();
+            if (NoLabel)
+            {
+                CssAttributes.Add("mdc-text-field--no-label");
+            }
+            if (Outlined)
+            {
+                CssAttributes.Add("mdc-text-field--outlined");
+            }
+            else
+            {
+                CssAttributes.Add("mdc-text-field--filled");
+            }
             if (Disabled)
             {
                 CssAttributes.Add("mdc-text-field--disabled");

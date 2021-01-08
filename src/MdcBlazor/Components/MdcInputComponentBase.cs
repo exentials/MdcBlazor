@@ -7,6 +7,8 @@ namespace Exentials.MdcBlazor
 {
     public abstract class MdcInputComponentBase<TValue> : MdcComponentBase
     {
+        protected string LabelId { get; set; } = MdcComponentHelper.CreateId();
+
         protected TValue _value;
 
         [Parameter] public string Label { get; set; }
