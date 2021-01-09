@@ -53,6 +53,7 @@
     <Content Include="src\mdcCard\mdcCard.scss" />
     <Content Include="src\mdcCheckbox\mdcCheckbox.scss" />
     <Content Include="src\mdcCheckbox\mdcCheckbox.ts" />
+    <Content Include="src\mdcChip\mdcChip.scss" />
     <Content Include="src\mdcDrawer\mdcDrawer.ts">
       <SubType>Code</SubType>
     </Content>
@@ -94,10 +95,13 @@
     <Folder Include="src\mdcCard\" />
     <Folder Include="src\mdcIcon\" />
     <Folder Include="src\mdcTextInput\" />
+    <Folder Include="src\mdcChip\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcCard\mdcCard.ts" />
     <TypeScriptCompile Include="src\mdcButton\mdcIconButtonToggle.ts" />
+    <TypeScriptCompile Include="src\mdcChip\mdcChip.ts" />
+    <TypeScriptCompile Include="src\mdcChip\mdcChipset.ts" />
     <TypeScriptCompile Include="src\mdcIcon\mdcIcon.ts" />
     <TypeScriptCompile Include="src\mdcTextInput\mdcTextarea.ts" />
     <TypeScriptCompile Include="src\mdcTextInput\mdcTextField.ts" />

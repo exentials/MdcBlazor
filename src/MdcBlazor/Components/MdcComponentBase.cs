@@ -8,12 +8,30 @@ namespace Exentials.MdcBlazor
 {
     public abstract class MdcComponentBase : ComponentBase, IAsyncDisposable
     {
+        private string _id;
         private DotNetObjectReference<MdcComponentBase> dotNetObjectRef;
         protected CssAttributes CssAttributes { get; private set; } = new CssAttributes();
         protected ElementReference? Ref { get; set; }
 
         [Inject] protected IJSRuntime Js { get; set; }
-        [Parameter] public string Id { get; set; } = MdcComponentHelper.CreateId();
+        [Parameter] public string Id 
+        {
+            get 
+            { 
+                if (!Has(_id))
+                {
+                    _id = MdcComponentHelper.CreateId();
+                }
+                return _id;
+            } 
+            set
+            {
+                if (Has(value))
+                {
+                    _id = value;
+                }
+            }
+        } 
         [Parameter] public string CssClass { get; set; }
 
 
@@ -29,6 +47,11 @@ namespace Exentials.MdcBlazor
             parameters.Add(Ref);
             parameters.AddRange(args);
             return parameters.ToArray();
+        }
+
+        protected static bool Has(string value)
+        {
+            return !string.IsNullOrEmpty(value);
         }
 
         protected ValueTask JsInvokeVoidAsync(string function, params object[] args)

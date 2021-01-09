@@ -3,6 +3,8 @@
 import { elements } from "./mdc/mdcBlazor"; // TODO: Should remove
 import * as MdcButton from "./mdcButton/mdcButton";
 import * as MdcCheckbox from "./mdcCheckbox/mdcCheckbox";
+import * as MdcChip from "./mdcChip/mdcChip";
+import * as MdcChipset from "./mdcChip/mdcChipSet";
 import * as MdcDrawer from "./mdcDrawer/mdcDrawer";
 import * as MdcFab from "./mdcFab/mdcFab";
 import * as MdcIcon from "./mdcIcon/mdcIcon";
@@ -19,6 +21,8 @@ window.exentials.mdcBlazor = {
     elements, // TODO: Should remove
     MdcButton,
     MdcCheckbox,
+    MdcChip,
+    MdcChipset,
     MdcDrawer,
     MdcFab,
     MdcIcon,

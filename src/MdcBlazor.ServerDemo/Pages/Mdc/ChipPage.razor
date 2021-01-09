@@ -1,0 +1,37 @@
+﻿@page "/chips"
+
+<MdcHeadline4>Chips</MdcHeadline4>
+<MdcChipset>
+    <MdcChip Text="Hello"/>
+    <MdcChip Text="World"/>
+</MdcChipset>
+
+<MdcHeadline4>Options Chipset</MdcHeadline4>
+<MdcChipset Type="@MdcChipsetType.Choice">
+    <ChipDataset DataSource="chips" />
+</MdcChipset>
+
+
+<MdcHeadline4>Filter Chipset</MdcHeadline4>
+<MdcChipset Type="@MdcChipsetType.Filter">
+    <ChipDataset DataSource="chips" />
+</MdcChipset>
+
+<MdcHeadline4>Input Chipset</MdcHeadline4>
+<MdcChipset Type="@MdcChipsetType.Input">    
+    <ChipDataset DataSource="chips" />
+</MdcChipset>
+
+<MdcHeadline4>Action Chipset</MdcHeadline4>
+<MdcChipset Type="@MdcChipsetType.Action">   
+    <ChipDataset DataSource="chips" />
+</MdcChipset>
+
+@code {
+    List<Chip> chips = new List<Chip>(new Chip[] {
+        new Chip { Icon= MdcIcons.Favorite, Text = "Banana" },
+        new Chip { Icon= MdcIcons.Favorite, Text = "Orange" },
+        new Chip { Icon= MdcIcons.Favorite, Text = "Apple" },
+        new Chip { Icon= MdcIcons.Favorite, Text = "Pear" },
+    });
+}

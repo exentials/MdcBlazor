@@ -1,0 +1,5 @@
+﻿@namespace Exentials.MdcBlazor
+@foreach(var chip in DataSource)
+{
+    <MdcChip Id="@chip.Id" LeadingIcon="@chip.Icon" Text="@chip.Text" />
+}    
