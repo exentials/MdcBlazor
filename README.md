@@ -9,6 +9,11 @@ Inspired by [SamProf/MatBlazor] I decided to build my own library for Blazor bas
 - Source of javascript code build in Typescript
 - Embedded Google Roboto Fonts and Material Icons for scenarios with no Internet access
 
+## Demo server application is available as docker container 
+```
+docker run -it exentials/mdc-blazor-server-demo:latest
+```
+
 ## How to use the library
 
 ### Blazor Server App
