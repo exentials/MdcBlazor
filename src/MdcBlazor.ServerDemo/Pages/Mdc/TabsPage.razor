@@ -1,0 +1,35 @@
+﻿@page "/tabs"
+
+<MdcHeadline6>Tabs</MdcHeadline6>
+
+<MdcSubtitle1>Tabs with icons next to labels</MdcSubtitle1>
+<MdcTabBar @bind-ActiveTab="activeTab">
+    <MdcTab Icon="access_time" Label="Recents"/>    
+    <MdcTab Icon="near_me" Label="Nearby"/>    
+    <MdcTab Icon="favorite" Label="Favorite" />
+</MdcTabBar>
+
+<MdcSubtitle1>Tabs with icons above labels and indicators restricted to content</MdcSubtitle1>
+<MdcTabBar Stacked="true" @bind-ActiveTab="activeTab">
+    <MdcTab Icon="access_time" Label="Recents" />
+    <MdcTab Icon="near_me" Label="Nearby"/>    
+    <MdcTab Icon="favorite" Label="Favorite" />
+</MdcTabBar>
+
+<MdcSubtitle1>Scrolling tabs</MdcSubtitle1>
+<MdcTabBar>
+    <MdcTab Label="TAB ONE" />
+    <MdcTab Label="TAB TWO" />
+    <MdcTab Label="TAB THREE" />
+    <MdcTab Label="TAB FOUR" />
+    <MdcTab Label="TAB FIVE" />
+    <MdcTab Label="TAB SIX" />
+    <MdcTab Label="TAB SEVEN" />
+    <MdcTab Label="TAB EIGHT" />
+    <MdcTab Label="TAB NINE" />
+    <MdcTab Label="TAB TEN" />
+</MdcTabBar>
+
+@code {
+    int activeTab = 0;
+}

@@ -19,7 +19,7 @@ docker run -it exentials/mdc-blazor-server-demo:latest
 ### Blazor Server App
 
 #### Install the library on the Server project
-#
+
 ```sh
 Install-Package Exentials.MdcBlazor
 ```
@@ -30,20 +30,20 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 ```
 
 ##### In your _Imports.razor add the components namespace:
-#
+
 ```csharp
 @using Exentials.MdcBlazor
 ```
 
 ##### In your _Host.cshtml add a link reference to:
-#
+
 ```html
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />  <!-- develop -->
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.min.css" rel="stylesheet" />  <!-- production -->
 ```
 
 ##### Optionally to use the embedded Roboto fonts and Material Icons 
-#
+
 ```html
 <link href="_content/Exentials.MdcBlazor/roboto/roboto.css" rel="stylesheet" />
 <link href="_content/Exentials.MdcBlazor/material-icons/material-icons.css" rel="stylesheet" />
@@ -57,7 +57,7 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 ### Blazor WebAssembly App
 
 #### Install the library on both Server and Client project
-#
+
 ```sh
 Install-Package Exentials.MdcBlazor
 ```
@@ -68,20 +68,20 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 ```
 
 ##### In _Imports.razor add the components namespace:
-#
+
 ```csharp
 @using Exentials.MdcBlazor
 ```
 
 ##### On Index.html (Client project) add a link reference to:
-#
+
 ```html
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />  <!-- develop -->
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.min.css" rel="stylesheet" />  <!-- production -->
 ```
 
 ##### Optionally to use the embedded Roboto fonts and Material Icons 
-#
+
 ```html
 <link href="_content/Exentials.MdcBlazor/roboto/roboto.css" rel="stylesheet" />
 <link href="_content/Exentials.MdcBlazor/material-icons/material-icons.css" rel="stylesheet" />
@@ -94,7 +94,7 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 ```
 
 ##### On _Imports.razor (Client project) add the components namespace:
-#
+
 ```csharp
 @using Exentials.MdcBlazor
 ```
@@ -111,6 +111,7 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 |MdcFab|
 |MdcIcon|
 |MdcIconButton|
+|MdcTabBar|
 |MdcTopAppBar|
 |MdcTypography|
 

@@ -1,0 +1,27 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcComponentBase
+<button @ref="Ref" class="mdc-tab @CssAttributes" role="tab" aria-selected="false" tabindex="-1" id="@Id">
+    <span class="mdc-tab__content">
+        @if (Has(Icon))
+        {
+        <span class="@MdcCss.MaterialIcons mdc-tab__icon" aria-hidden="true">@Icon</span>
+        }
+        @if (Has(Label))
+        {
+        <span class="mdc-tab__text-label">@Label</span>
+        }
+        @if (MdcTabStacked)
+        {
+        <span class="mdc-tab-indicator">
+            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+        </span>
+        }
+    </span>
+    @if (!MdcTabStacked)
+    {
+    <span class="mdc-tab-indicator">
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+    </span>
+    }
+    <span class="mdc-tab__ripple"></span>
+</button>

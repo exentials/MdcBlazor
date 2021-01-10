@@ -1,0 +1,13 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcContainerComponentBase
+<div @ref="Ref" class="mdc-tab-bar" role="tablist">
+    <div class="mdc-tab-scroller">
+        <div class="mdc-tab-scroller__scroll-area">
+            <div class="mdc-tab-scroller__scroll-content">
+                <CascadingValue Name="MdcTabStacked" Value="Stacked">
+                    @ChildContent
+                </CascadingValue>
+            </div>
+        </div>
+    </div>
+</div>

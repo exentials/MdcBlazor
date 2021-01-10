@@ -69,6 +69,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\mdcList\mdcList.scss" />
+    <Content Include="src\mdcTabBar\mdcTabBar.scss" />
     <Content Include="src\mdcTextInput\mdcTextInput.scss" />
     <Content Include="src\mdcTooltip\mdcTooltip.ts" />
     <Content Include="src\mdcTooltip\mdcTooltip.scss" />
@@ -98,6 +99,7 @@
     <Folder Include="src\mdcIcon\" />
     <Folder Include="src\mdcTextInput\" />
     <Folder Include="src\mdcChip\" />
+    <Folder Include="src\mdcTabBar\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcCard\mdcCard.ts" />
@@ -105,6 +107,8 @@
     <TypeScriptCompile Include="src\mdcChip\mdcChip.ts" />
     <TypeScriptCompile Include="src\mdcChip\mdcChipset.ts" />
     <TypeScriptCompile Include="src\mdcIcon\mdcIcon.ts" />
+    <TypeScriptCompile Include="src\mdcTabBar\mdcTab.ts" />
+    <TypeScriptCompile Include="src\mdcTabBar\mdcTabBar.ts" />
     <TypeScriptCompile Include="src\mdcTextInput\mdcTextarea.ts" />
     <TypeScriptCompile Include="src\mdcTextInput\mdcTextField.ts" />
     <TypeScriptCompile Include="src\mdc\mdcBlazor.ts" />
