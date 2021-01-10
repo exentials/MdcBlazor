@@ -10,11 +10,10 @@ namespace Exentials.MdcBlazor
     public partial class MdcChip
     {
         [CascadingParameter(Name = "MdcChipsetType")] protected MdcChipsetType MdcChipsetType { get; set; }
-        [CascadingParameter(Name = "MdcChipTrailingIcon")] protected string TrailingIcon { get; set; }
         [Parameter] public bool Selected { get; set; }
         [Parameter] public string LeadingIcon { get; set; }
         [Parameter] public string Text { get; set; }
-
+        
         private Dictionary<string, object> PrimaryActionAttributes { get; set; } = new Dictionary<string, object>();
 
         protected override void OnInitialized()
@@ -34,7 +33,6 @@ namespace Exentials.MdcBlazor
                     break;
                 case MdcChipsetType.Input:
                     CssAttributes.Add("mdc-chip-set--input");
-                    TrailingIcon = MdcIcons.Cancel;
                     break;
                 case MdcChipsetType.Action:
                     PrimaryActionAttributes.Add("role", "button");

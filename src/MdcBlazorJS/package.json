@@ -3,14 +3,22 @@
   "version": "0.0.2",
   "description": "Material Design Component for Exentials.MdcBlazor",
   "scripts": {
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=production && webpack --mode=development",
+    "prod": "webpack --mode=production ",
     "dev": "webpack --mode=development",
     "fonts": "node extract-google-fonts.js"
   },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/exentials/MdcBlazor/issues"
+  },
   "author": {
     "name": "Gambarotto Damiano",
     "email": "damiano@exentials.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exentials/MdcBlazor"
   },
   "dependencies": {
     "@material/animation": "^9.0.0",

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
-    public partial class MdcChipset
+    public partial class MdcChipset : MdcContainerComponentBase
     {
         [Parameter] public MdcChipsetType Type { get; set; }
         protected string TrailingIcon { get; set; }

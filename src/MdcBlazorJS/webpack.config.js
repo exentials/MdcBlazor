@@ -5,6 +5,7 @@ const dest = "../MdcBlazor/wwwroot";
 
 module.exports = function (env, { mode }) {
     const production = mode === 'production';
+    const out_filename = (production) ? 'mdcBlazor.min' : 'mdcBlazor';
     return {
         entry: {
             app: [
@@ -13,9 +14,12 @@ module.exports = function (env, { mode }) {
             ]
         },
         mode: production ? 'production' : 'development',
+        optimization: {
+            minimize: production
+        },
         output: {
             path: path.resolve(__dirname, dest),
-            filename: 'mdcBlazor.js'
+            filename: out_filename + '.js'
         },
 
         resolve: {
@@ -53,8 +57,10 @@ module.exports = function (env, { mode }) {
                 },
             ],
         },
-        plugins: [new MiniCssExtractPlugin({
-            filename: 'mdcBlazor.css',
-        })],
+        plugins: [
+            new MiniCssExtractPlugin({
+                filename: out_filename + '.css',
+            })
+        ],
     };
 }

@@ -37,6 +37,7 @@
     <Content Include="extract-google-fonts.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="LICENSE" />
     <Content Include="src\index.ts">
       <SubType>Code</SubType>
     </Content>
@@ -54,6 +55,7 @@
     <Content Include="src\mdcCheckbox\mdcCheckbox.scss" />
     <Content Include="src\mdcCheckbox\mdcCheckbox.ts" />
     <Content Include="src\mdcChip\mdcChip.scss" />
+    <Content Include="src\mdcChip\README.md" />
     <Content Include="src\mdcDrawer\mdcDrawer.ts">
       <SubType>Code</SubType>
     </Content>

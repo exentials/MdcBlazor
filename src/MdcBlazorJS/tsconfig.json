@@ -7,7 +7,7 @@
     "sourceMap": true,
     "target": "ES2015",
     "rootDir": "./src",
-    "moduleResolution": "Node"    
+    "moduleResolution": "Node"
   },
   "exclude": [
     "node_modules"

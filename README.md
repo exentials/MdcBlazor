@@ -33,7 +33,8 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 ##### In your _Host.cshtml add a link reference to:
 #
 ```html
-<link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />
+<link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />  <!-- develop -->
+<link href="_content/Exentials.MdcBlazor/mdcBlazor.min.css" rel="stylesheet" />  <!-- production -->
 ```
 
 ##### Optionally to use the embedded Roboto fonts and Material Icons 
@@ -44,7 +45,8 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 ```
 ##### and at the end after the blazor js script
 ```html
-<script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.js"></script>
+<script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.js"></script> <!-- develop -->
+<script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.min.js"></script> <!-- production -->
 ```
 
 ### Blazor WebAssembly App
@@ -69,7 +71,8 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 ##### On Index.html (Client project) add a link reference to:
 #
 ```html
-<link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />
+<link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />  <!-- develop -->
+<link href="_content/Exentials.MdcBlazor/mdcBlazor.min.css" rel="stylesheet" />  <!-- production -->
 ```
 
 ##### Optionally to use the embedded Roboto fonts and Material Icons 
@@ -80,7 +83,9 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 ```
 ##### and at the end after the blazor js script
 ```html
-<script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.js"></script>
+<script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.js"></script> <!-- develop -->
+
+<script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.min.js"></script> <!-- production -->
 ```
 
 ##### On _Imports.razor (Client project) add the components namespace:

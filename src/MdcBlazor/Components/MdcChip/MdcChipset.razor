@@ -2,8 +2,9 @@
 @inherits MdcContainerComponentBase
 <div @ref="Ref" class="mdc-chip-set @CssAttributes" role="grid">
     <CascadingValue Value="Type" Name="MdcChipsetType">
-        <CascadingValue Value="TrailingIcon" Name="MdcChipTrailingIcon">
-            @ChildContent
-        </CascadingValue>
+        @ChildContent
     </CascadingValue>
+    @if (Type == MdcChipsetType.Input)
+    {
+    }
 </div>
