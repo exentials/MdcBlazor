@@ -1,11 +1,10 @@
 import { MDCTopAppBar } from '@material/top-app-bar';
 import { dotnetInvokeMethodAsync, mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
-class MDCAppBar extends MDCTopAppBar {
+class MdcTopAppBar extends MDCTopAppBar {
 
     constructor(ref: Element) {
         super(ref);
-
         this.listen("MDCTopAppBar:nav", this.navHandler);
     }
 
@@ -20,7 +19,7 @@ class MDCAppBar extends MDCTopAppBar {
 }
 
 export function init(ref: Element) {
-    mdcInit(ref, new MDCAppBar(ref));
+    mdcInit(ref, new MdcTopAppBar(ref));
 }
 
 export function destroy(ref: Element) {
@@ -28,5 +27,5 @@ export function destroy(ref: Element) {
 }
 
 export function setScrollTarget(ref: Element, element: Element) {
-    mdc<MDCAppBar>(ref).setScrollTarget(element);
+    mdc<MdcTopAppBar>(ref).setScrollTarget(element);
 }

@@ -104,6 +104,7 @@
     <Folder Include="src\mdcSwitch\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\mdcButton\mdcIconButton.ts" />
     <TypeScriptCompile Include="src\mdcCard\mdcCard.ts" />
     <TypeScriptCompile Include="src\mdcButton\mdcIconButtonToggle.ts" />
     <TypeScriptCompile Include="src\mdcChip\mdcChip.ts" />

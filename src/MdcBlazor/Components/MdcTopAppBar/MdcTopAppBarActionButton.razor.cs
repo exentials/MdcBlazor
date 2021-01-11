@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
-    public partial class MdcTopAppBarNavIcon
+    public partial class MdcTopAppBarActionButton
     {
         [Parameter] public string Label { get; set; }
         [Parameter] public string Icon { get; set; }

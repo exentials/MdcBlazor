@@ -7,20 +7,21 @@ namespace Exentials.MdcBlazor
     public partial class MdcFab
     {
         [CascadingParameter(Name = "MdcTouchTargetWrapper")] protected bool Touchable { get; set; }
-        [Parameter] public MdcFabStyle Style { get; set; }
+        [Parameter] public MdcFabType FabType { get; set; }
         [Parameter] public RenderFragment ChildContent { get; set; }
         [Parameter] public bool Exited { get; set; }
 
         protected override void OnInitialized()
         {
-            switch (Style)
+            base.OnInitialized();
+            switch (FabType)
             {
-                case MdcFabStyle.Regular:
+                case MdcFabType.Regular:
                     break;
-                case MdcFabStyle.Mini:
+                case MdcFabType.Mini:
                     CssAttributes.Add("mdc-fab--mini");
                     break;
-                case MdcFabStyle.Extended:
+                case MdcFabType.Extended:
                     CssAttributes.Add("mdc-fab--extended");
                     break;
             }
@@ -32,7 +33,6 @@ namespace Exentials.MdcBlazor
             {
                 CssAttributes.Add("mdc-fab--exited");
             }
-            base.OnInitialized();
         }
 
     }

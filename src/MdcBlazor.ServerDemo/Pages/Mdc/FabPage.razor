@@ -2,16 +2,16 @@
 <MdcHeadline4>Fabs</MdcHeadline4>
 <p>
     <MdcFab Label="Favorite" Icon="favorite" OnClick='() => FabHandler("FAB")' />
-    <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Mini" OnClick='() => FabHandler("Mini FAB")' />
-    <MdcFab Label="Favorite" Style="MdcFabStyle.Extended" OnClick='() => FabHandler("Extended FAB")' />
-    <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Extended" OnClick='() => FabHandler("Iconed Extended FAB")' />
+    <MdcFab Label="Favorite" Icon="favorite" FabType="MdcFabType.Mini" OnClick='() => FabHandler("Mini FAB")' />
+    <MdcFab Label="Favorite" FabType="MdcFabType.Extended" OnClick='() => FabHandler("Extended FAB")' />
+    <MdcFab Label="Favorite" Icon="favorite" FabType="MdcFabType.Extended" OnClick='() => FabHandler("Iconed Extended FAB")' />
 </p>
 <MdcHeadline4>FAB has not a disabled state</MdcHeadline4>
 <p>
     <MdcFab Label="Favorite" Icon="favorite" Disabled="true" />
-    <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Mini" Disabled="true" />
-    <MdcFab Label="Favorite" Style="MdcFabStyle.Extended" Disabled="true" />
-    <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Extended" Disabled="true" />
+    <MdcFab Label="Favorite" Icon="favorite" FabType="MdcFabType.Mini" Disabled="true" />
+    <MdcFab Label="Favorite" FabType="MdcFabType.Extended" Disabled="true" />
+    <MdcFab Label="Favorite" Icon="favorite" FabType="MdcFabType.Extended" Disabled="true" />
 </p>
 <MdcHeadline4>Touchable fabs</MdcHeadline4>
 <p>
@@ -19,7 +19,7 @@
         <MdcFab Label="Favorite" Icon="favorite" OnClick='() => FabHandler("Touch FAB")' />
     </MdcTouch>
     <MdcTouch>
-        <MdcFab Label="Favorite" Icon="favorite" Style="MdcFabStyle.Mini" OnClick='() => FabHandler("Touch Mini FAB")' />
+        <MdcFab Label="Favorite" Icon="favorite" FabType="MdcFabType.Mini" OnClick='() => FabHandler("Touch Mini FAB")' />
     </MdcTouch>
 </p>
 

@@ -111,6 +111,7 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 |MdcFab|
 |MdcIcon|
 |MdcIconButton|
+|NdcSwitch|
 |MdcTabBar|
 |MdcTopAppBar|
 |MdcTypography|

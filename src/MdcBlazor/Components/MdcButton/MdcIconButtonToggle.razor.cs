@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
-    public partial class MdcIconButtonToggle
+    public partial class MdcIconButtonToggle : MdcButtonComponentBase
     {
         private bool _selected;
 
-        [CascadingParameter(Name = "MdcParentContainerType")] protected Type ContainerType { get; set; }
+        [CascadingParameter(Name = "MdcParentContainerType")] Type ParentContainerType { get; set; }
         [Parameter] public string ToggleIcon { get; set; }
         [Parameter]
         public bool Selected
@@ -33,7 +33,7 @@ namespace Exentials.MdcBlazor
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            if (ContainerType == typeof(MdcCardActions))
+            if (ParentContainerType == typeof(MdcCardActions))
             {
                 CssAttributes.Add("mdc-card__action");
                 CssAttributes.Add("mdc-card__action--icon");
@@ -49,16 +49,20 @@ namespace Exentials.MdcBlazor
             }
         }
 
-        [JSInvokable("ChangeFromNative")]
-        public ValueTask ChangeFromNative(bool value)
+        [JSInvokable("NativeToggle")]
+        public ValueTask NativeToggle(bool value)
         {
-            Selected = value;
+            if (Selected != value)
+            {
+                Selected = value;
+                StateHasChanged();
+            }
             return ValueTask.CompletedTask;
         }
 
-        private async ValueTask SetSelected(bool value)
+        private ValueTask SetSelected(bool value)
         {
-            await JsInvokeVoidAsync("setSelect", value);
+            return JsInvokeVoidAsync("setSelect", value);
         }
     }
 }

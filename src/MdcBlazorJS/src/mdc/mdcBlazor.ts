@@ -38,3 +38,6 @@ export function mdc<T extends MDCComponent<any>>(ref: Element): T {
 export function dotnetInvokeMethodAsync<T>(methodIdentifier: string, ...args: any[]): Promise<T> {
     return DotNet.invokeMethodAsync<T>(AssemblyName, methodIdentifier, args);
 }
+
+export const NATIVE_CLICK = "NativeClick";
+export const NATIVE_CHANGE = "NativeChange";

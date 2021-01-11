@@ -1,15 +1,20 @@
 import { MDCDrawer } from "@material/drawer";
 import { dotnetInvokeMethodAsync, mdc, mdcDestroy, mdcInit } from "../mdc/mdcBlazor";
 
-export function init(ref: Element) {
-    const mdcComponent = mdcInit(ref, new MDCDrawer(ref));
+class MdcDrawer extends MDCDrawer {
+    constructor(ref: Element) {
+        super(ref);
+        this.listen("MDCDrawer:closed", async () => {
+            await dotnetInvokeMethodAsync("MDCDrawerClosedHandler");
+        });
+        this.listen("MDCDrawer:opened", async () => {
+            await dotnetInvokeMethodAsync("MDCDrawerOpenedHandler");
+        });
+    }
+}
 
-    mdcComponent.listen("MDCDrawer:closed", async () => {
-        await dotnetInvokeMethodAsync("MDCDrawerClosedHandler");
-    });
-    mdcComponent.listen("MDCDrawer:opened", async () => {
-        await dotnetInvokeMethodAsync("MDCDrawerOpenedHandler");
-    });
+export function init(ref: Element) {
+    mdcInit(ref, new MdcDrawer(ref));
 }
 
 export function destroy(ref: Element): void {
@@ -17,9 +22,9 @@ export function destroy(ref: Element): void {
 }
 
 export function getOpen(ref: Element): boolean {
-    return mdc<MDCDrawer>(ref).open;
+    return mdc<MdcDrawer>(ref).open;
 }
 
 export function setOpen(ref: Element, value: boolean): void {
-    mdc<MDCDrawer>(ref).open = value;
+    mdc<MdcDrawer>(ref).open = value;
 }

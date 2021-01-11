@@ -8,6 +8,7 @@ import * as MdcChipset from "./mdcChip/mdcChipSet";
 import * as MdcDrawer from "./mdcDrawer/mdcDrawer";
 import * as MdcFab from "./mdcFab/mdcFab";
 import * as MdcIcon from "./mdcIcon/mdcIcon";
+import * as MdcIconButton from "./mdcButton/mdcIconButton";
 import * as MdcIconButtonToggle from "./mdcButton/mdcIconButtonToggle";
 import * as MdcList from "./mdcList/mdcList";
 import * as MdcSwitch from "./mdcSwitch/mdcSwitch";
@@ -29,6 +30,7 @@ window.exentials.mdcBlazor = {
     MdcDrawer,
     MdcFab,
     MdcIcon,
+    MdcIconButton,
     MdcIconButtonToggle,
     MdcList,
     MdcSwitch,

@@ -1,16 +1,16 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcButtonComponentBase
-<button @ref="Ref" id="@Id" class="mdc-button @CssAttributes" aria-describedby="@TooltipId" disabled="@Disabled" @onclick="ClickHandler">
+<button @ref="Ref" id="@Id" class="mdc-button @CssAttributes" aria-describedby="@TooltipId">
     <div class="mdc-button__ripple"></div>
-    @if((Icon != null) & !TrailingIcon)
+    @if ((Icon != null) & !TrailingIcon)
     {
     <i class="@MdcCss.MaterialIcons mdc-button__icon" aria-hidden="true">@Icon</i>
     }
-    @if(Label != null)
+    @if (Label != null)
     {
     <span class="mdc-button__label">@Label</span>
     }
-    @if((Icon != null) & TrailingIcon)
+    @if ((Icon != null) & TrailingIcon)
     {
     <i class="@MdcCss.MaterialIcons mdc-button__icon" aria-hidden="true">@Icon</i>
     }

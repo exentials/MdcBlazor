@@ -36,24 +36,32 @@ namespace Exentials.MdcBlazor
             get => _disabled;
             set
             {
-                if (_disabled == value) return;
-                _disabled = value;
-                InvokeAsync(async () => await JSSetDisabled(_disabled));
+                if (_disabled != value)
+                {
+                    _disabled = value;
+                    InvokeAsync(async () => await JSSetDisabled(_disabled));
+                }
             }
         }
 
-        protected abstract ValueTask<TValue> JSGetInputValue();
-
-        protected abstract ValueTask JSSetInputValue(TValue value);
-
-        protected virtual ValueTask<bool> JSGetDisabled()
+        protected ValueTask<TValue> JSGetInputValue()
         {
-            return ValueTask.FromResult(false);
+            return JsInvokeAsync<TValue>("getValue");
         }
 
-        protected virtual ValueTask JSSetDisabled(bool value)
+        protected ValueTask JSSetInputValue(TValue value)
         {
-            return ValueTask.CompletedTask;
+            return JsInvokeVoidAsync("setValue", value);
+        }
+
+        protected  ValueTask<bool> JSGetDisabled()
+        {
+            return JsInvokeAsync<bool>("geDisabled");
+        }
+
+        protected ValueTask JSSetDisabled(bool value)
+        {
+            return JsInvokeVoidAsync("setDisabled",value);
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -61,12 +69,13 @@ namespace Exentials.MdcBlazor
             await base.OnAfterRenderAsync(firstRender);
             if (firstRender)
             {
+                await JSSetDisabled(Disabled);
                 await JSSetInputValue(Value);
             }
         }
 
-        [JSInvokable("ChangeFromNative")]
-        public ValueTask ChangeFromNative(TValue value)
+        [JSInvokable("NativeChange")]
+        public ValueTask NativeChange(TValue value)
         {
             if (!EqualityComparer<TValue>.Default.Equals(Value, value))
             {

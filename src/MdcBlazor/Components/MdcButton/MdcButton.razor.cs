@@ -4,20 +4,21 @@ using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
-    public partial class MdcButton
+    public partial class MdcButton : MdcButtonComponentBase
     {
-        [CascadingParameter(Name = "MdcParentContainerType")] protected Type ParentContainerType { get; set; }
-        [CascadingParameter(Name = "MdcTouchTargetWrapper")] protected bool Touchable { get; set; }
-        [Parameter] public MdcButtonStyle ButtonStyle { get; set; }
+        [CascadingParameter(Name = "MdcParentContainerType")] Type ParentContainerType { get; set; }
+        [CascadingParameter(Name = "MdcTouchTargetWrapper")]  bool Touchable { get; set; }
+        [Parameter] public MdcButtonType ButtonType { get; set; }
         [Parameter] public bool TrailingIcon { get; set; }
 
         protected override void OnInitialized()
         {
-            switch (ButtonStyle)
+            base.OnInitialized();
+            switch (ButtonType)
             {
-                case MdcButtonStyle.Outlined: CssAttributes.Add("mdc-button--outlined"); break;
-                case MdcButtonStyle.Contained: CssAttributes.Add("mdc-button--raised"); break;
-                case MdcButtonStyle.Text:
+                case MdcButtonType.Outlined: CssAttributes.Add("mdc-button--outlined"); break;
+                case MdcButtonType.Contained: CssAttributes.Add("mdc-button--raised"); break;
+                case MdcButtonType.Text:
                     break;
             }
             if (ParentContainerType == typeof(MdcCardActions))

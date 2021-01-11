@@ -1,6 +1,6 @@
 ﻿namespace Exentials.MdcBlazor
 {
-    public enum MdcFabStyle
+    public enum MdcFabType
     {
         Regular = 0,
         Mini,

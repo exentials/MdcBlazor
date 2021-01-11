@@ -1,17 +1,18 @@
 import { MDCRipple } from "@material/ripple";
 import { mdc, mdcDestroy, mdcInit, NATIVE_CLICK } from "../mdc/mdcBlazor";
 
-class MdcButton extends MDCRipple {
-    constructor(ref: Element, private component: DotNet.DotNetObject) {
-        super(ref);
+class MdcIconButton extends MDCRipple {
+    constructor(private ref: HTMLButtonElement, private component: DotNet.DotNetObject) {
+        super(ref);      
+        this.unbounded = true;
         this.listen("click", () => {
-            this.component.invokeMethodAsync(NATIVE_CLICK, null);
+            this.component.invokeMethodAsync(NATIVE_CLICK);
         });
     }
 }
 
-export function init(ref: Element, component: DotNet.DotNetObject): void {
-    mdcInit(ref, new MdcButton(ref, component));
+export function init(ref: HTMLButtonElement, component: DotNet.DotNetObject): void {
+    mdcInit(ref, new MdcIconButton(ref, component));
 }
 
 export function destroy(ref: Element): void {

@@ -31,10 +31,6 @@ namespace Exentials.MdcBlazor
             {
                 CssAttributes.Add("mdc-text-field--no-label");
             }
-            if (Disabled)
-            {
-                CssAttributes.Add("mdc-text-field--disabled");
-            }
             if (ShowCounter)
             {
                 CssAttributes.Add("mdc-text-field--with-internal-counter");
@@ -51,16 +47,6 @@ namespace Exentials.MdcBlazor
                         break;
                 }
             }
-        }
-
-        protected override ValueTask<string> JSGetInputValue()
-        {
-            return JsInvokeAsync<string>("getValue");
-        }
-
-        protected override ValueTask JSSetInputValue(string value)
-        {
-            return JsInvokeVoidAsync("setValue", value);
         }
     }
 }

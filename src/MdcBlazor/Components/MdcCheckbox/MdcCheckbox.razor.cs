@@ -9,83 +9,15 @@ namespace Exentials.MdcBlazor
 {
     public partial class MdcCheckbox : MdcInputComponentBase<bool?>
     {
-        [CascadingParameter(Name = "MdcTouchTargetWrapper")] protected bool Touchable { get; set; }
-        [Parameter] public bool Indeterminate { get; set; }
-
-        private string IndeterminateString
-        {
-            get { return (Indeterminate && (Value == null)) ? "true" : null; }
-        }
-
-        private async Task InputChangeHandler()
-        {
-            Indeterminate = await GetIndeterminate();
-            Value = await JSGetInputValue();
-        }
-
-        private ValueTask<bool> GetIndeterminate()
-        {
-            return JsInvokeAsync<bool>("getIndeterminate");
-        }
-
-        private ValueTask SetIndeterminate(bool value)
-        {
-            return JsInvokeVoidAsync("setIndeterminate", value);
-        }
-
-        private ValueTask<bool> GetChecked()
-        {
-            return JsInvokeAsync<bool>("getChecked");
-        }
-
-        private ValueTask SetChecked(bool value)
-        {
-            return JsInvokeVoidAsync("setChecked", value);
-        }
+        [CascadingParameter(Name = "MdcTouchTargetWrapper")] bool Touchable { get; set; }
 
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            if (Disabled)
-            {
-                CssAttributes.Add("mdc-checkbox--disabled");
-            }
             if (Touchable)
             {
                 CssAttributes.Add("mdc-checkbox--touch");
             }
         }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await base.OnAfterRenderAsync(firstRender);
-            if (firstRender)
-            {
-                await JSSetInputValue(Value);
-            }
-        }
-
-        protected override async ValueTask<bool?> JSGetInputValue()
-        {
-            return (await GetIndeterminate()) ? null : await GetChecked();
-        }
-
-        protected override async ValueTask JSSetInputValue(bool? value)
-        {
-            bool? inputValue = await JSGetInputValue();
-            if (inputValue != value)
-            {
-                if (value.HasValue)
-                {
-                    await SetChecked(value.Value);
-                }
-                else
-                {
-                    await SetIndeterminate(true);
-                    await SetChecked(false);
-                }
-            }
-        }
-
     }
 }

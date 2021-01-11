@@ -1,6 +1,6 @@
 ﻿namespace Exentials.MdcBlazor
 {
-    public enum MdcButtonStyle
+    public enum MdcButtonType
     {
         Text = 0,
         Outlined,

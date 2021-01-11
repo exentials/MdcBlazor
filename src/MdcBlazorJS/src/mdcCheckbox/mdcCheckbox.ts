@@ -1,12 +1,12 @@
 import { MDCCheckbox } from '@material/checkbox';
-import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
+import { mdc, mdcDestroy, mdcInit, NATIVE_CHANGE } from '../mdc/mdcBlazor';
 
 class MdcCheckbox extends MDCCheckbox {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
 
-        this.listen("change", (evt) => {            
-            this.component.invokeMethodAsync("ChangeFromNative", this.indeterminate ? null : this.checked);
+        this.listen("change", (evt) => {
+            this.component.invokeMethodAsync(NATIVE_CHANGE, this.indeterminate ? null : this.checked);
         });
     }
 }
@@ -19,20 +19,15 @@ export function destroy(ref: Element): void {
     mdcDestroy(ref);
 }
 
-export function getChecked(ref: Element): boolean {
-    return mdc<MdcCheckbox>(ref).checked;
+export function getValue(ref: Element): boolean | null {
+    const checked = mdc<MdcCheckbox>(ref).checked;
+    const indeterminate = mdc<MdcCheckbox>(ref).indeterminate;
+    return (indeterminate) ? null : checked;
 }
 
-export function setChecked(ref: Element, value: boolean): void {
-    mdc<MdcCheckbox>(ref).checked = value;
-}
-
-export function getIndeterminate(ref: Element): boolean {
-    return mdc<MdcCheckbox>(ref).indeterminate;
-}
-
-export function setIndeterminate(ref: Element, value: boolean): void {
-    mdc<MdcCheckbox>(ref).indeterminate = value;
+export function setValue(ref: Element, value: boolean | null): void {
+    mdc<MdcCheckbox>(ref).checked = !!value;
+    mdc<MdcCheckbox>(ref).indeterminate = (value == null);
 }
 
 export function getDisabled(ref: Element): boolean {
@@ -40,5 +35,6 @@ export function getDisabled(ref: Element): boolean {
 }
 
 export function setDisabled(ref: Element, value: boolean): void {
+    console.info(ref, "disable set to: ", value);
     mdc<MdcCheckbox>(ref).disabled = value;
 }

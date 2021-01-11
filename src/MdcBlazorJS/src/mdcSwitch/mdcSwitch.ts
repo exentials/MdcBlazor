@@ -1,11 +1,11 @@
 import { MDCSwitch } from '@material/switch';
-import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
+import { mdc, mdcDestroy, mdcInit, NATIVE_CHANGE } from '../mdc/mdcBlazor';
 
 class Switch extends MDCSwitch {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
         this.listen("change", (event) => {
-            this.component.invokeMethodAsync<void>("ChangeFromNative", this.checked);
+            this.component.invokeMethodAsync<void>(NATIVE_CHANGE, this.checked);
         });        
     }
 }
@@ -18,11 +18,11 @@ export function destroy(ref: Element): void {
     mdcDestroy(ref);
 }
 
-export function getChecked(ref: Element) {
+export function getValue(ref: Element) {
     return mdc<Switch>(ref).checked;
 }
 
-export function setChecked(ref: Element, checked: boolean): void {
+export function setValue(ref: Element, checked: boolean): void {
     mdc<Switch>(ref).checked = checked;
 }
 

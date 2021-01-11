@@ -80,6 +80,7 @@ namespace Exentials.MdcBlazor
                     await JsInvokeVoidAsync("init", dotNetObjectRef);
                 }
             }
+            await base.OnInitializedAsync();
         }
 
         public virtual ValueTask DisposeAsync()
