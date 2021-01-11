@@ -1,0 +1,31 @@
+﻿@page "/switches"
+
+<MdcHeadline6>Switches</MdcHeadline6>
+
+<MdcSubtitle1>Switch</MdcSubtitle1>
+<p>
+    <MdcSwitch @bind-Value=switchValue Label="on/off" />
+</p>
+<MdcSubtitle1>Disabled Switch</MdcSubtitle1>
+<p>
+    <MdcSwitch @bind-Value=switchValue Label="on/off" Disabled=true />
+</p>
+<MdcSubtitle1>This Switch disable next switch</MdcSubtitle1>
+<p>
+    <MdcSwitch @bind-Value=disabledValue Label="Disable" />
+</p>
+<p>
+    <MdcSwitch @bind-Value=switchValue Disabled=disabledValue />
+</p>
+
+<p>
+    <span>Switch Value: @switchValue</span>
+</p>
+<p>
+    <span>Switch Disabled: @disabledValue</span>
+</p>
+
+@code {
+    bool switchValue;
+    bool disabledValue;
+}

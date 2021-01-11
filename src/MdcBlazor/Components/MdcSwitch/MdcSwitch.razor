@@ -1,0 +1,13 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcInputComponentBase<bool>
+<div @ref="Ref" class="mdc-switch @CssAttributes">
+  <div class="mdc-switch__track"></div>
+  <div class="mdc-switch__thumb-underlay">
+    <div class="mdc-switch__thumb"></div>
+    <input type="checkbox" id="@Id" class="mdc-switch__native-control" role="switch" aria-checked="false" />
+  </div>
+</div>
+@if(Has(Label))
+{
+<label for="@Id">@Label</label>
+}

@@ -20,7 +20,7 @@ namespace Exentials.MdcBlazor
         private async Task InputChangeHandler()
         {
             Indeterminate = await GetIndeterminate();
-            Value = await GetInputValue();
+            Value = await JSGetInputValue();
         }
 
         private ValueTask<bool> GetIndeterminate()
@@ -61,18 +61,18 @@ namespace Exentials.MdcBlazor
             await base.OnAfterRenderAsync(firstRender);
             if (firstRender)
             {
-                await SetInputValue(Value);
+                await JSSetInputValue(Value);
             }
         }
 
-        protected override async ValueTask<bool?> GetInputValue()
+        protected override async ValueTask<bool?> JSGetInputValue()
         {
             return (await GetIndeterminate()) ? null : await GetChecked();
         }
 
-        protected override async ValueTask SetInputValue(bool? value)
+        protected override async ValueTask JSSetInputValue(bool? value)
         {
-            bool? inputValue = await GetInputValue();
+            bool? inputValue = await JSGetInputValue();
             if (inputValue != value)
             {
                 if (value.HasValue)

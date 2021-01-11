@@ -53,12 +53,12 @@ namespace Exentials.MdcBlazor
             }
         }
 
-        protected override ValueTask<string> GetInputValue()
+        protected override ValueTask<string> JSGetInputValue()
         {
             return JsInvokeAsync<string>("getValue");
         }
 
-        protected override ValueTask SetInputValue(string value)
+        protected override ValueTask JSSetInputValue(string value)
         {
             return JsInvokeVoidAsync("setValue", value);
         }
