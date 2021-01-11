@@ -105,14 +105,15 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 |MdcButton| 
 |MdcCard|
 |MdcCheckbox|
-|MdcTextField|
-|MdcTextarea|
 |MdcDrawer|
+|MdcElevation|
 |MdcFab|
 |MdcIcon|
 |MdcIconButton|
 |NdcSwitch|
 |MdcTabBar|
+|MdcTextField|
+|MdcTextarea|
 |MdcTopAppBar|
 |MdcTypography|
 

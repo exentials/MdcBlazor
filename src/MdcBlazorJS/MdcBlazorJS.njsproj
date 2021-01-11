@@ -60,6 +60,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\mdcDrawer\mdcDrawer.scss" />
+    <Content Include="src\mdcElevation\mdcElevation.scss" />
     <Content Include="src\mdcFab\mdcFab.ts">
       <SubType>Code</SubType>
     </Content>
@@ -102,6 +103,7 @@
     <Folder Include="src\mdcChip\" />
     <Folder Include="src\mdcTabBar\" />
     <Folder Include="src\mdcSwitch\" />
+    <Folder Include="src\mdcElevation\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcButton\mdcIconButton.ts" />
