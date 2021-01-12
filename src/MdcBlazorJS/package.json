@@ -1,6 +1,6 @@
 {
   "name": "mdc-blazor-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Material Design Component for Exentials.MdcBlazor",
   "scripts": {
     "build": "webpack --mode=production && webpack --mode=development",

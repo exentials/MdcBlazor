@@ -72,6 +72,7 @@
     <Content Include="src\mdcList\mdcList.scss" />
     <Content Include="src\mdcProgressIndicator\mdcCircularProgress.scss" />
     <Content Include="src\mdcProgressIndicator\mdcLinearProgress.scss" />
+    <Content Include="src\mdcSlider\mdcSlider.scss" />
     <Content Include="src\mdcSwitch\mdcSwitch.scss" />
     <Content Include="src\mdcTabBar\mdcTabBar.scss" />
     <Content Include="src\mdcTextInput\mdcTextInput.scss" />
@@ -107,6 +108,7 @@
     <Folder Include="src\mdcSwitch\" />
     <Folder Include="src\mdcElevation\" />
     <Folder Include="src\mdcProgressIndicator\" />
+    <Folder Include="src\mdcSlider\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcButton\mdcIconButton.ts" />
@@ -117,6 +119,7 @@
     <TypeScriptCompile Include="src\mdcIcon\mdcIcon.ts" />
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcCircularProgress.ts" />
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcLinearProgress.ts" />
+    <TypeScriptCompile Include="src\mdcSlider\mdcSlider.ts" />
     <TypeScriptCompile Include="src\mdcSwitch\mdcSwitch.ts" />
     <TypeScriptCompile Include="src\mdcTabBar\mdcTab.ts" />
     <TypeScriptCompile Include="src\mdcTabBar\mdcTabBar.ts" />

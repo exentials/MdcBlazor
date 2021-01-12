@@ -42,3 +42,4 @@ export function dotnetInvokeMethodAsync<T>(methodIdentifier: string, ...args: an
 
 export const NATIVE_CLICK = "NativeClick";
 export const NATIVE_CHANGE = "NativeChange";
+export const NATIVE_INPUT = "NativeInput";

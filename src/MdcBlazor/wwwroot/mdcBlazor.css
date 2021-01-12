@@ -6294,6 +6294,7 @@ a.mdc-evolution-list-item {
   left: auto;
 }
 
+/*@include slider.core-styles;*/
 .mdc-switch__thumb-underlay {
   /* @noflip */
   left: -14px;
