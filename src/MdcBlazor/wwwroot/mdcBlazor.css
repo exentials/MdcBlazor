@@ -5787,6 +5787,513 @@ a.mdc-evolution-list-item {
   pointer-events: none;
 }
 
+.mdc-circular-progress__determinate-circle,
+.mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: #6200ee;
+  /* @alternate */
+  stroke: var(--mdc-theme-primary, #6200ee);
+}
+
+.mdc-circular-progress__determinate-track {
+  stroke: transparent;
+}
+
+@keyframes mdc-circular-progress-container-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes mdc-circular-progress-spinner-layer-rotate {
+  12.5% {
+    transform: rotate(135deg);
+  }
+  25% {
+    transform: rotate(270deg);
+  }
+  37.5% {
+    transform: rotate(405deg);
+  }
+  50% {
+    transform: rotate(540deg);
+  }
+  62.5% {
+    transform: rotate(675deg);
+  }
+  75% {
+    transform: rotate(810deg);
+  }
+  87.5% {
+    transform: rotate(945deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+@keyframes mdc-circular-progress-color-1-fade-in-out {
+  from {
+    opacity: 0.99;
+  }
+  25% {
+    opacity: 0.99;
+  }
+  26% {
+    opacity: 0;
+  }
+  89% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.99;
+  }
+  to {
+    opacity: 0.99;
+  }
+}
+@keyframes mdc-circular-progress-color-2-fade-in-out {
+  from {
+    opacity: 0;
+  }
+  15% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.99;
+  }
+  50% {
+    opacity: 0.99;
+  }
+  51% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mdc-circular-progress-color-3-fade-in-out {
+  from {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.99;
+  }
+  75% {
+    opacity: 0.99;
+  }
+  76% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mdc-circular-progress-color-4-fade-in-out {
+  from {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.99;
+  }
+  90% {
+    opacity: 0.99;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mdc-circular-progress-left-spin {
+  from {
+    transform: rotate(265deg);
+  }
+  50% {
+    transform: rotate(130deg);
+  }
+  to {
+    transform: rotate(265deg);
+  }
+}
+@keyframes mdc-circular-progress-right-spin {
+  from {
+    transform: rotate(-265deg);
+  }
+  50% {
+    transform: rotate(-130deg);
+  }
+  to {
+    transform: rotate(-265deg);
+  }
+}
+.mdc-circular-progress {
+  display: inline-flex;
+  position: relative;
+  /* @noflip */
+  direction: ltr;
+  transition: opacity 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.mdc-circular-progress__determinate-container,
+.mdc-circular-progress__indeterminate-circle-graphic,
+.mdc-circular-progress__indeterminate-container,
+.mdc-circular-progress__spinner-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.mdc-circular-progress__determinate-container {
+  transform: rotate(-90deg);
+}
+
+.mdc-circular-progress__indeterminate-container {
+  font-size: 0;
+  letter-spacing: 0;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.mdc-circular-progress__determinate-circle-graphic,
+.mdc-circular-progress__indeterminate-circle-graphic {
+  fill: transparent;
+}
+
+.mdc-circular-progress__determinate-circle {
+  transition: stroke-dashoffset 500ms 0ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.mdc-circular-progress__gap-patch {
+  position: absolute;
+  top: 0;
+  /* @noflip */
+  left: 47.5%;
+  box-sizing: border-box;
+  width: 5%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mdc-circular-progress__gap-patch .mdc-circular-progress__indeterminate-circle-graphic {
+  /* @noflip */
+  left: -900%;
+  width: 2000%;
+  transform: rotate(180deg);
+}
+
+.mdc-circular-progress__circle-clipper {
+  display: inline-flex;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mdc-circular-progress__circle-clipper .mdc-circular-progress__indeterminate-circle-graphic {
+  width: 200%;
+}
+
+.mdc-circular-progress__circle-right .mdc-circular-progress__indeterminate-circle-graphic {
+  /* @noflip */
+  left: -100%;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__determinate-container {
+  opacity: 0;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__indeterminate-container {
+  opacity: 1;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__indeterminate-container {
+  animation: mdc-circular-progress-container-rotate 1568.2352941176ms linear infinite;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__spinner-layer {
+  animation: mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__color-1 {
+  animation: mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdc-circular-progress-color-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__color-2 {
+  animation: mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdc-circular-progress-color-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__color-3 {
+  animation: mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdc-circular-progress-color-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__color-4 {
+  animation: mdc-circular-progress-spinner-layer-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdc-circular-progress-color-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__circle-left .mdc-circular-progress__indeterminate-circle-graphic {
+  animation: mdc-circular-progress-left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+.mdc-circular-progress--indeterminate .mdc-circular-progress__circle-right .mdc-circular-progress__indeterminate-circle-graphic {
+  animation: mdc-circular-progress-right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+
+.mdc-circular-progress--closed {
+  opacity: 0;
+}
+
+@keyframes mdc-linear-progress-primary-indeterminate-translate {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    animation-timing-function: cubic-bezier(0.5, 0, 0.701732, 0.495819);
+    transform: translateX(0);
+  }
+  59.15% {
+    animation-timing-function: cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);
+    transform: translateX(83.67142%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-primary-half, 83.67142%));
+  }
+  100% {
+    transform: translateX(200.611057%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-primary-full, 200.611057%));
+  }
+}
+@keyframes mdc-linear-progress-primary-indeterminate-scale {
+  0% {
+    transform: scaleX(0.08);
+  }
+  36.65% {
+    animation-timing-function: cubic-bezier(0.334731, 0.12482, 0.785844, 1);
+    transform: scaleX(0.08);
+  }
+  69.15% {
+    animation-timing-function: cubic-bezier(0.06, 0.11, 0.6, 1);
+    transform: scaleX(0.661479);
+  }
+  100% {
+    transform: scaleX(0.08);
+  }
+}
+@keyframes mdc-linear-progress-secondary-indeterminate-translate {
+  0% {
+    animation-timing-function: cubic-bezier(0.15, 0, 0.515058, 0.409685);
+    transform: translateX(0);
+  }
+  25% {
+    animation-timing-function: cubic-bezier(0.31033, 0.284058, 0.8, 0.733712);
+    transform: translateX(37.651913%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-secondary-quarter, 37.651913%));
+  }
+  48.35% {
+    animation-timing-function: cubic-bezier(0.4, 0.627035, 0.6, 0.902026);
+    transform: translateX(84.386165%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-secondary-half, 84.386165%));
+  }
+  100% {
+    transform: translateX(160.277782%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-secondary-full, 160.277782%));
+  }
+}
+@keyframes mdc-linear-progress-secondary-indeterminate-scale {
+  0% {
+    animation-timing-function: cubic-bezier(0.205028, 0.057051, 0.57661, 0.453971);
+    transform: scaleX(0.08);
+  }
+  19.15% {
+    animation-timing-function: cubic-bezier(0.152313, 0.196432, 0.648374, 1.004315);
+    transform: scaleX(0.457104);
+  }
+  44.15% {
+    animation-timing-function: cubic-bezier(0.257759, -0.003163, 0.211762, 1.38179);
+    transform: scaleX(0.72796);
+  }
+  100% {
+    transform: scaleX(0.08);
+  }
+}
+@keyframes mdc-linear-progress-buffering {
+  from {
+    transform: rotate(180deg) translateX(-10px);
+  }
+}
+@keyframes mdc-linear-progress-primary-indeterminate-translate-reverse {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    animation-timing-function: cubic-bezier(0.5, 0, 0.701732, 0.495819);
+    transform: translateX(0);
+  }
+  59.15% {
+    animation-timing-function: cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);
+    transform: translateX(-83.67142%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-primary-half-neg, -83.67142%));
+  }
+  100% {
+    transform: translateX(-200.611057%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-primary-full-neg, -200.611057%));
+  }
+}
+@keyframes mdc-linear-progress-secondary-indeterminate-translate-reverse {
+  0% {
+    animation-timing-function: cubic-bezier(0.15, 0, 0.515058, 0.409685);
+    transform: translateX(0);
+  }
+  25% {
+    animation-timing-function: cubic-bezier(0.31033, 0.284058, 0.8, 0.733712);
+    transform: translateX(-37.651913%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-secondary-quarter-neg, -37.651913%));
+  }
+  48.35% {
+    animation-timing-function: cubic-bezier(0.4, 0.627035, 0.6, 0.902026);
+    transform: translateX(-84.386165%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-secondary-half-neg, -84.386165%));
+  }
+  100% {
+    transform: translateX(-160.277782%);
+    /* @alternate */
+    transform: translateX(var(--mdc-linear-progress-secondary-full-neg, -160.277782%));
+  }
+}
+@keyframes mdc-linear-progress-buffering-reverse {
+  from {
+    transform: translateX(-10px);
+  }
+}
+.mdc-linear-progress {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  transform: translateZ(0);
+  outline: 1px solid transparent;
+  overflow: hidden;
+  transition: opacity 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+.mdc-linear-progress__bar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: none;
+  transform-origin: top left;
+  transition: transform 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+.mdc-linear-progress__bar-inner {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  animation: none;
+  border-top: 4px solid;
+}
+.mdc-linear-progress__buffer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.mdc-linear-progress__buffer-dots {
+  background-repeat: repeat-x;
+  background-size: 10px 4px;
+  flex: auto;
+  transform: rotate(180deg);
+  animation: mdc-linear-progress-buffering 250ms infinite linear;
+}
+.mdc-linear-progress__buffer-bar {
+  flex: 0 1 100%;
+  transition: flex-basis 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+.mdc-linear-progress__primary-bar {
+  transform: scaleX(0);
+}
+.mdc-linear-progress__secondary-bar {
+  visibility: hidden;
+}
+.mdc-linear-progress--indeterminate .mdc-linear-progress__bar {
+  transition: none;
+}
+.mdc-linear-progress--indeterminate .mdc-linear-progress__primary-bar {
+  left: -145.166611%;
+}
+.mdc-linear-progress--indeterminate .mdc-linear-progress__secondary-bar {
+  left: -54.888891%;
+  visibility: visible;
+}
+.mdc-linear-progress--indeterminate.mdc-linear-progress--animation-ready .mdc-linear-progress__primary-bar {
+  animation: mdc-linear-progress-primary-indeterminate-translate 2s infinite linear;
+}
+.mdc-linear-progress--indeterminate.mdc-linear-progress--animation-ready .mdc-linear-progress__primary-bar > .mdc-linear-progress__bar-inner {
+  animation: mdc-linear-progress-primary-indeterminate-scale 2s infinite linear;
+}
+.mdc-linear-progress--indeterminate.mdc-linear-progress--animation-ready .mdc-linear-progress__secondary-bar {
+  animation: mdc-linear-progress-secondary-indeterminate-translate 2s infinite linear;
+}
+.mdc-linear-progress--indeterminate.mdc-linear-progress--animation-ready .mdc-linear-progress__secondary-bar > .mdc-linear-progress__bar-inner {
+  animation: mdc-linear-progress-secondary-indeterminate-scale 2s infinite linear;
+}
+.mdc-linear-progress--reversed .mdc-linear-progress__bar {
+  right: 0;
+  transform-origin: center right;
+}
+.mdc-linear-progress--reversed.mdc-linear-progress--animation-ready .mdc-linear-progress__primary-bar {
+  animation-name: mdc-linear-progress-primary-indeterminate-translate-reverse;
+}
+.mdc-linear-progress--reversed.mdc-linear-progress--animation-ready .mdc-linear-progress__secondary-bar {
+  animation-name: mdc-linear-progress-secondary-indeterminate-translate-reverse;
+}
+.mdc-linear-progress--reversed .mdc-linear-progress__buffer-dots {
+  animation: mdc-linear-progress-buffering-reverse 250ms infinite linear;
+  order: 0;
+  transform: rotate(0);
+}
+.mdc-linear-progress--reversed .mdc-linear-progress__buffer-bar {
+  order: 1;
+}
+.mdc-linear-progress--closed {
+  opacity: 0;
+}
+.mdc-linear-progress--closed-animation-off .mdc-linear-progress__buffer-dots {
+  animation: none;
+}
+.mdc-linear-progress--closed-animation-off.mdc-linear-progress--indeterminate .mdc-linear-progress__bar,
+.mdc-linear-progress--closed-animation-off.mdc-linear-progress--indeterminate .mdc-linear-progress__bar .mdc-linear-progress__bar-inner {
+  animation: none;
+}
+
+.mdc-linear-progress__bar-inner {
+  border-color: #6200ee;
+  /* @alternate */
+  border-color: var(--mdc-theme-primary, #6200ee);
+}
+
+.mdc-linear-progress__buffer-dots {
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23e6e6e6'/%3E%3C/svg%3E");
+}
+
+.mdc-linear-progress__buffer-bar {
+  background-color: #e6e6e6;
+}
+
+.mdc-linear-progress--indeterminate.mdc-linear-progress--reversed .mdc-linear-progress__primary-bar {
+  right: -145.166611%;
+  left: auto;
+}
+.mdc-linear-progress--indeterminate.mdc-linear-progress--reversed .mdc-linear-progress__secondary-bar {
+  right: -54.888891%;
+  left: auto;
+}
+
 .mdc-switch__thumb-underlay {
   /* @noflip */
   left: -14px;

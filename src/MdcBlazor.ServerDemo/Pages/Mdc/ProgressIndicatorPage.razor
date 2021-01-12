@@ -1,0 +1,24 @@
+﻿@page "/progressindicators"
+
+<MdcHeadline6>Progress indicators</MdcHeadline6>
+
+<MdcSubtitle1>Linear progress</MdcSubtitle1>
+<p>
+    <MdcLinearProgress />
+</p>
+<p>
+    <MdcLinearProgress Determinate="true" Value="33" Min="0" Max="100" />
+</p>
+
+<MdcSubtitle1>Circular progress</MdcSubtitle1>
+<p>
+    <MdcCircularProgress Size="MdcCircularProgressSize.Small" />
+    <MdcCircularProgress Size="MdcCircularProgressSize.Medium" />
+    <MdcCircularProgress Size="MdcCircularProgressSize.Large" />
+</p>
+
+<p>
+    <MdcCircularProgress Size="MdcCircularProgressSize.Small" Determinate="true" Min="0" Max="360" Value="90" />
+    <MdcCircularProgress Size="MdcCircularProgressSize.Medium"  Determinate="true" Min="0" Max="360" Value="180" />
+    <MdcCircularProgress Size="MdcCircularProgressSize.Large"  Determinate="true" Min="0" Max="360" Value="270" />
+</p>

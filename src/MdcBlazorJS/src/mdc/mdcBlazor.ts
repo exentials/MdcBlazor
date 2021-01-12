@@ -32,7 +32,8 @@ export function mdcDestroy(ref: Element) {
 }
 
 export function mdc<T extends MDCComponent<any>>(ref: Element): T {
-    return <T>ref.mdcComponent;
+    const mdcComponent = <T>ref.mdcComponent
+    return mdcComponent;
 }
 
 export function dotnetInvokeMethodAsync<T>(methodIdentifier: string, ...args: any[]): Promise<T> {
