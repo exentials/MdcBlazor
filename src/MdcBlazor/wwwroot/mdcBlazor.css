@@ -9610,3 +9610,8 @@ body {
 .mdc-card__content {
   padding: 16px;
 }
+
+/* SLIDER */
+.mdc-slider__input {
+  width: 100%;
+}

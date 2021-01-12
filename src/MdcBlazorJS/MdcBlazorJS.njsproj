@@ -119,6 +119,7 @@
     <TypeScriptCompile Include="src\mdcIcon\mdcIcon.ts" />
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcCircularProgress.ts" />
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcLinearProgress.ts" />
+    <TypeScriptCompile Include="src\mdcSlider\mdcSliderRange.ts" />
     <TypeScriptCompile Include="src\mdcSlider\mdcSlider.ts" />
     <TypeScriptCompile Include="src\mdcSwitch\mdcSwitch.ts" />
     <TypeScriptCompile Include="src\mdcTabBar\mdcTab.ts" />
