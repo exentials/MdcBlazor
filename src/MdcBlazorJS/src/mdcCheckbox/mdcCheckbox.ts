@@ -35,6 +35,5 @@ export function getDisabled(ref: Element): boolean {
 }
 
 export function setDisabled(ref: Element, value: boolean): void {
-    console.info(ref, "disable set to: ", value);
     mdc<MdcCheckbox>(ref).disabled = value;
 }
