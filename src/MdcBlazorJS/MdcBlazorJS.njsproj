@@ -65,6 +65,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\mdcFab\mdcFab.scss" />
+    <Content Include="src\mdcFormField\mdcFormField.scss" />
     <Content Include="src\mdcIcon\mdcIcon.scss" />
     <Content Include="src\mdcList\mdcList.ts">
       <SubType>Code</SubType>
@@ -111,6 +112,7 @@
     <Folder Include="src\mdcProgressIndicator\" />
     <Folder Include="src\mdcSlider\" />
     <Folder Include="src\mdcRadio\" />
+    <Folder Include="src\mdcFormField\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcButton\mdcIconButton.ts" />
@@ -118,6 +120,7 @@
     <TypeScriptCompile Include="src\mdcButton\mdcIconButtonToggle.ts" />
     <TypeScriptCompile Include="src\mdcChip\mdcChip.ts" />
     <TypeScriptCompile Include="src\mdcChip\mdcChipset.ts" />
+    <TypeScriptCompile Include="src\mdcFormField\mdcFormField.ts" />
     <TypeScriptCompile Include="src\mdcIcon\mdcIcon.ts" />
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcCircularProgress.ts" />
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcLinearProgress.ts" />

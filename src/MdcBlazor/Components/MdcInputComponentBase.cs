@@ -56,7 +56,7 @@ namespace Exentials.MdcBlazor
 
         protected  ValueTask<bool> JSGetDisabled()
         {
-            return JsInvokeAsync<bool>("geDisabled");
+            return JsInvokeAsync<bool>("getDisabled");
         }
 
         protected ValueTask JSSetDisabled(bool value)

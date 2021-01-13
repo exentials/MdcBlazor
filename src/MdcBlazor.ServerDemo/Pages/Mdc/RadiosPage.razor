@@ -1,15 +1,29 @@
 ﻿@page "/radios"
-
-<MdcRadio Value="1" Label="Label 1"/>
-<MdcRadio Value="2" Label="Label 2"/>
-<MdcRadio Value="3" Label="Label 3"/>
-<MdcRadio Value="4" Label="Label 4"/>
-
+<MdcHeadline6>Radios</MdcHeadline6>
+<MdcSubtitle1>Radio 1</MdcSubtitle1>
+<p>
+    <MdcRadio Value="1" @bind-Checked="radio1" Label="Radio 1" />
+    <MdcRadio Value="2" @bind-Checked="radio1" Label="Radio 1 disabled" Disabled="true" />
+    <MdcButton Label="Reset" OnClick="() => { radio1 = false; }" />
+</p>
+<p>
+    <span>Value: @radio1</span>
+</p>
+<MdcSubtitle1>Radio 2</MdcSubtitle1>
+<p>
+    <form name="frm">
+        <MdcRadio Name="Group" @bind-Checked="radioA" Value="A" Label="Radio A" />
+        <MdcRadio Name="Group" @bind-Checked="radioB" Value="B" Label="Radio B" />
+        <MdcButton Label="Reset" OnClick="() => { radioA = false; radioB = false; }" />
+    </form>
+</p>
+<p>
+    <span>RadioA: @radioA</span>
+    <span>RadioB: @radioB</span>
+</p>
 
 @code {
-    int value1 = 1;
-    int value2 = 2;
-    int value3 = 3;
-    int value4 = 4;
-
+    bool radio1 = false;
+    bool radioA = false;
+    bool radioB = false;
 }

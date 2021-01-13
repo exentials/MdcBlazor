@@ -11,7 +11,7 @@ namespace Exentials.MdcBlazor
         private string _id;
         private DotNetObjectReference<MdcComponentBase> dotNetObjectRef;
         protected CssAttributes CssAttributes { get; private set; } = new CssAttributes();
-        protected ElementReference? Ref { get; set; }
+        public ElementReference? Ref { get; protected set; }
 
         [Inject] protected IJSRuntime Js { get; set; }
         [Parameter] public string Id 
@@ -72,6 +72,7 @@ namespace Exentials.MdcBlazor
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
+            await base.OnInitializedAsync();
             if (firstRender)
             {
                 if (Ref != null)
@@ -80,7 +81,6 @@ namespace Exentials.MdcBlazor
                     await JsInvokeVoidAsync("init", dotNetObjectRef);
                 }
             }
-            await base.OnInitializedAsync();
         }
 
         public virtual ValueTask DisposeAsync()

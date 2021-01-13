@@ -1,13 +1,29 @@
+import { MDCFormField } from '@material/form-field';
 import { MDCRadio } from '@material/radio';
 import { mdc, mdcDestroy, mdcInit, NATIVE_CHANGE } from '../mdc/mdcBlazor';
 
 class MdcRadio extends MDCRadio {
+    private _formField: MDCFormField;
+
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
 
         this.listen("change", (evt) => {
-            this.component.invokeMethodAsync(NATIVE_CHANGE, this.checked);
+            console.log("radio change", { value: this.value, checked: this.checked } );
+            this.component.invokeMethodAsync(`${NATIVE_CHANGE}:checked`, this.value, this.checked);
         });
+    }
+
+    public initFormField(formField: MDCFormField) {
+        if (formField) {
+            this._formField = formField;
+            this._formField.input = this;
+        }
+    }
+
+    destroy() {
+        this._formField.input = undefined;
+        super.destroy();
     }
 }
 
@@ -17,6 +33,10 @@ export function init(ref: Element, component: DotNet.DotNetObject): void {
 
 export function destroy(ref: Element): void {
     mdcDestroy(ref);
+}
+
+export function initFormField(ref: Element, formFieldRef: Element): void {
+    mdc<MdcRadio>(ref).initFormField(mdc<MDCFormField>(formFieldRef));
 }
 
 export function getValue(ref: Element): string {
@@ -31,7 +51,7 @@ export function getChecked(ref: Element): boolean {
     return mdc<MdcRadio>(ref).checked;
 }
 
-export function setCheked(ref: Element, value: boolean): void {
+export function setChecked(ref: Element, value: boolean): void {
     mdc<MdcRadio>(ref).checked = value;
 }
 
