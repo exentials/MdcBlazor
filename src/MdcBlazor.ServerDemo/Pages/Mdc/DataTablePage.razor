@@ -1,5 +1,8 @@
 ﻿@page "/datatables"
 
-<MdcDataTable>
-    
+<MdcDataTable DataSource="dataSource">
+    <MdcDataTableColumn Header="#" FieldName="Id" />
+    <MdcDataTableColumn Header="Text" FieldName="StringValue" />
+    <MdcDataTableColumn Header="Bool" FieldName="BoolValue" />
+    <MdcDataTableColumn Header="Decimal" FieldName="DecimalValue" />
 </MdcDataTable>

@@ -1,12 +1,25 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Exentials.MdcBlazor.Components.MdcDataTable
+namespace Exentials.MdcBlazor
 {
-    public partial class MdcDataTable
+    public partial class MdcDataTable : MdcContainerComponentBase
     {
+        DataColumCollection _column;
+        public DataColumCollection Columns
+        {
+            get
+            {
+                if (_column == null)
+                {
+                    _column = new DataColumCollection();
+                }
+                return _column;
+            }
+        }
+        [Parameter] public bool Selector { get; set; }
+        [Parameter] public string Label { get; set; }
+        [Parameter] public DataTableSource DataSource { get; set; }
+
     }
 }

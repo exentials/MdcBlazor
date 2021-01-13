@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exentials.MdcBlazor.Components.MdcDataTable
+namespace Exentials.MdcBlazor
 {
-    class MdcDataTableColumn
+    public class DataColumCollection : List<DataColumn>
     {
     }
 }
