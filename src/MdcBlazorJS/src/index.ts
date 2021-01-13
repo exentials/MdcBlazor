@@ -5,6 +5,7 @@ import * as MdcButton from "./mdcButton/mdcButton";
 import * as MdcCheckbox from "./mdcCheckbox/mdcCheckbox";
 import * as MdcChip from "./mdcChip/mdcChip";
 import * as MdcChipset from "./mdcChip/mdcChipSet";
+import * as MdcDataTable from "./mdcDataTable/mdcDataTable";
 import * as MdcDrawer from "./mdcDrawer/mdcDrawer";
 import * as MdcFab from "./mdcFab/mdcFab";
 import * as MdcFormField from "./mdcFormField/mdcFormField";
@@ -33,6 +34,7 @@ window.exentials.mdcBlazor = {
     MdcChip,
     MdcChipset,
     MdcCircularProgress,
+    MdcDataTable,
     MdcDrawer,
     MdcFab,
     MdcFormField,
