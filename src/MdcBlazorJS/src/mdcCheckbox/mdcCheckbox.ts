@@ -1,13 +1,28 @@
 import { MDCCheckbox } from '@material/checkbox';
+import { MDCFormField } from '@material/form-field';
 import { mdc, mdcDestroy, mdcInit, NATIVE_CHANGE } from '../mdc/mdcBlazor';
 
 class MdcCheckbox extends MDCCheckbox {
+    private _formField: MDCFormField;
+
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
 
         this.listen("change", (evt) => {
             this.component.invokeMethodAsync(NATIVE_CHANGE, this.indeterminate ? null : this.checked);
         });
+    }
+
+    public initFormField(formField: MDCFormField) {
+        if (formField) {
+            this._formField = formField;
+            this._formField.input = this;
+        }
+    }
+
+    destroy() {
+        this._formField.input = undefined;
+        super.destroy();
     }
 }
 
@@ -17,6 +32,10 @@ export function init(ref: Element, component: DotNet.DotNetObject): void {
 
 export function destroy(ref: Element): void {
     mdcDestroy(ref);
+}
+
+export function initFormField(ref: Element, formFieldRef: Element): void {
+    mdc<MdcCheckbox>(ref).initFormField(mdc<MDCFormField>(formFieldRef));
 }
 
 export function getValue(ref: Element): boolean | null {

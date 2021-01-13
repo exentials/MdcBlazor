@@ -1,13 +1,16 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcInputComponentBase<string>
-<MdcFormField @ref="FormField" AlignEnd="@AlignEnd">
+<MdcFormField @ref="FormField" AlignEnd="@AlignEnd" NoWrap="@NoWrap" id="@Id">
     <div @ref="Ref" class="mdc-radio mdc-radio--touch">
-        <input class="mdc-radio__native-control" type="radio" id="@_inputId" name="@_inputId" >
+        <input class="mdc-radio__native-control" type="radio" id="@_inputId">
         <div class="mdc-radio__background">
             <div class="mdc-radio__outer-circle"></div>
             <div class="mdc-radio__inner-circle"></div>
         </div>
         <div class="mdc-radio__ripple"></div>
     </div>
+    @if (Has(Label))
+    {
     <label for="@_inputId">@Label</label>
+    }
 </MdcFormField>

@@ -4,18 +4,17 @@
 <p>
     <MdcRadio Value="1" @bind-Checked="radio1" Label="Radio 1" />
     <MdcRadio Value="2" @bind-Checked="radio1" Label="Radio 1 disabled" Disabled="true" />
-    <MdcButton Label="Reset" OnClick="() => { radio1 = false; }" />
+    <MdcButton Label="Clear" OnClick="() => { radio1 = false; }" />
 </p>
 <p>
     <span>Value: @radio1</span>
 </p>
 <MdcSubtitle1>Radio 2</MdcSubtitle1>
 <p>
-    <form name="frm">
-        <MdcRadio Name="Group" @bind-Checked="radioA" Value="A" Label="Radio A" />
-        <MdcRadio Name="Group" @bind-Checked="radioB" Value="B" Label="Radio B" />
-        <MdcButton Label="Reset" OnClick="() => { radioA = false; radioB = false; }" />
-    </form>
+
+        <MdcRadio @bind-Checked="radioA" Value="A" Label="Radio A" />
+        <MdcRadio @bind-Checked="radioB" Value="B" Label="Radio B" />
+        <MdcButton Label="Clear" OnClick="() => { ResetAB(); }" />
 </p>
 <p>
     <span>RadioA: @radioA</span>
@@ -26,4 +25,12 @@
     bool radio1 = false;
     bool radioA = false;
     bool radioB = false;
+
+
+    Task ResetAB()
+    {
+        radioA = false;
+        radioB = false;
+        return Task.CompletedTask;
+    }
 }

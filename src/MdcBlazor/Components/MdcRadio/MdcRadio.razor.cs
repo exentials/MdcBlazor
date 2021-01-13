@@ -7,11 +7,12 @@ namespace Exentials.MdcBlazor
 {
     public partial class MdcRadio : MdcInputComponentBase<string>
     {
-        private readonly string _inputId = MdcComponentHelper.CreateId();
-        private MdcComponentBase FormField { get; set; }
         private bool _checked;
+        private readonly string _inputId = MdcComponentHelper.CreateId();        
+        private MdcComponentBase FormField { get; set; }
 
         [Parameter] public string Name { get; set; }
+        [Parameter] public bool NoWrap { get; set; }
         [Parameter] public bool AlignEnd { get; set; }
         [Parameter]
         public bool Checked

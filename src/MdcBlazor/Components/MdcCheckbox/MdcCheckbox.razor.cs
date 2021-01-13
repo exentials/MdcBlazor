@@ -1,22 +1,25 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
     public partial class MdcCheckbox : MdcInputComponentBase<bool?>
     {
-        [CascadingParameter(Name = "MdcTouchTargetWrapper")] bool Touchable { get; set; }
+        private readonly string _inputId = MdcComponentHelper.CreateId();
+        private MdcComponentBase FormField { get; set; }
 
-        protected override void OnInitialized()
+        [Parameter] public bool AlignEnd { get; set; }
+        [Parameter] public bool NoWrap { get; set; }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            base.OnInitialized();
-            if (Touchable)
+            await base.OnAfterRenderAsync(firstRender);
+            if (firstRender)
             {
-                CssAttributes.Add("mdc-checkbox--touch");
+                if (FormField != null)
+                {
+                    await JsInvokeVoidAsync("initFormField", FormField.Ref);
+                }
             }
         }
     }
