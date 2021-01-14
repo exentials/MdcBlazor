@@ -1,26 +1,5 @@
 ﻿@page "/textinputs"
-<p>
-    <label>
-        <input type="checkbox" @onchange="args => {outlined = Convert.ToBoolean(args.Value); Refresh(); }" />
-        Outlined
-    </label>
-    <label>
-        <input type="checkbox" @onchange="args => {disabled = Convert.ToBoolean(args.Value); Refresh(); }" />
-        Disabled
-    </label>
-    <label>
-        <input type="checkbox" @onchange="args => {resizable = Convert.ToBoolean(args.Value); Refresh(); }" />
-        Resizable
-    </label>
-    <label>
-        <input type="checkbox" @onchange="args => {nolabel = Convert.ToBoolean(args.Value); Refresh(); }" />
-        No label
-    </label>
-    <label>
-        <input type="checkbox" @onchange="args => {required = Convert.ToBoolean(args.Value); Refresh(); }" />
-        Required
-    </label>
-</p>
+<MdcHeadline4>Text inputs</MdcHeadline4>
 <p>
     <label>
         Prefix
@@ -68,47 +47,64 @@
 </p>
 
 
-<MdcHeadline4>Text field</MdcHeadline4>
-<DemoComponent>
-    <DemoComponentContainer @ref="demo1">
-        <MdcTextField Label="My label" @bind-Value="text" 
-            Outlined="@outlined" 
-            Disabled="@disabled" 
-            NoLabel="@nolabel" 
-            Prefix="@prefix" 
-            Suffix="@suffix" 
-            AlignEnd="alignEnd" 
-            Maxlength="@maxlength" 
-            ShowCounter="@showCounter"
-            HelperType="@helperType"
-            HelperMessage="@helperMessage"
-            Required="@required"
-            LeadingIcon="@leadingIcon"
-            TrailingIcon="@trailingIcon"
-        />
-    </DemoComponentContainer>
-</DemoComponent>
-<MdcHeadline4>Text area</MdcHeadline4>
-<DemoComponent>
-    <DemoComponentContainer @ref="demo2">
-        <MdcTextarea Label="My label" @bind-Value="textarea" 
-            Outlined="@outlined" 
-            Disabled="@disabled" 
-            Resizable="@resizable" 
-            NoLabel="@nolabel" 
-            Maxlength="@maxlength" 
-            ShowCounter="@showCounter"
-            HelperType="@helperType"
-            HelperMessage="@helperMessage" 
-            Required="@required"
-        />
-    </DemoComponentContainer>
+<DemoComponent @ref="demoComponent">
+    <TopBar>
+        <MdcTabBar @bind-ActiveTab="tab">
+            <MdcTab Label="TextField" />
+            <MdcTab Label="Textarea" />
+        </MdcTabBar>
+    </TopBar>
+    <TopOption>
+        Options
+    </TopOption>
+    <Options>
+        <MdcCheckbox Label="Outlined" Value="outlined" ValueChanged="(arg) => { outlined = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Disabled" Value="disabled" ValueChanged="(arg) => { disabled = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Resizable" Value="resizable" ValueChanged="(arg) => { resizable = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="No label" Value="nolabel" ValueChanged="(arg) => { nolabel = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Required" Value="required" ValueChanged="(arg) => { required = arg??false; Refresh(); }" />
+    </Options>
+    <Content>
+        <DemoComponentContainer @ref="demo1">
+        @if (tab == 0)
+            {        
+            <MdcTextField Label="My label" @bind-Value="text"
+                Outlined="@outlined"
+                Disabled="@disabled"
+                NoLabel="@nolabel"
+                Prefix="@prefix"
+                Suffix="@suffix"
+                AlignEnd="alignEnd"
+                Maxlength="@maxlength"
+                ShowCounter="@showCounter"
+                HelperType="@helperType"
+                HelperMessage="@helperMessage"
+                Required="@required"
+                LeadingIcon="@leadingIcon"
+                TrailingIcon="@trailingIcon" />
+        }
+        else
+        {
+            <MdcTextarea Label="My label" @bind-Value="textarea"
+                Outlined="@outlined"
+                Disabled="@disabled"
+                Resizable="@resizable"
+                NoLabel="@nolabel"
+                Maxlength="@maxlength"
+                ShowCounter="@showCounter"
+                HelperType="@helperType"
+                HelperMessage="@helperMessage"
+                Required="@required" />
+        }
+        </DemoComponentContainer>
+    </Content>
 </DemoComponent>
 
 @code
 {
+    DemoComponent demoComponent;
+    int tab = 0;
     DemoComponentContainer demo1;
-    DemoComponentContainer demo2;
 
     string text;
     string textarea;
@@ -134,9 +130,9 @@
     }
 
     void Refresh()
-    {
+    {        
         demo1.Refresh();
-        demo2.Refresh();
+        
     }
 
 }

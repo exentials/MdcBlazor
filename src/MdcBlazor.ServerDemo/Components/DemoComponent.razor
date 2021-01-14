@@ -1,3 +1,20 @@
-﻿<div>
-    @ChildContent
-</div>
+﻿<MdcElevation Level="MdcElevationLevel.Z1" CssClass="demo-component">
+    <div class="demo-container">
+        <div class="demo-panel">
+            <div class="demo-top-bar">
+                @TopBar
+            </div>
+            <div class="demo-content">
+                @Content
+            </div>
+        </div>
+            <div class="demo-option">
+                <div class="demo-option-header">
+                    @TopOption
+                </div>
+                <div class="demo-option-panel">
+                    @Options
+                </div>
+            </div>
+    </div>
+</MdcElevation>
