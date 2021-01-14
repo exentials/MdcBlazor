@@ -1,6 +1,6 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcButtonComponentBase
-<button @ref="Ref" id="@Id" class="mdc-button @CssAttributes" aria-describedby="@TooltipId">
+<button @ref="Ref" id="@Id" class="mdc-button mdc-button--touch @CssAttributes" aria-describedby="@TooltipId">
     <div class="mdc-button__ripple"></div>
     @if ((Icon != null) & !TrailingIcon)
     {
@@ -14,8 +14,5 @@
     {
     <i class="@MdcCss.MaterialIcons mdc-button__icon" aria-hidden="true">@Icon</i>
     }
-    @if (Touchable)
-    {
     <div class="mdc-button__touch"></div>
-    }
 </button>

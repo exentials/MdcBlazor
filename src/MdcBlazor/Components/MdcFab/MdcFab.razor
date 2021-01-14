@@ -1,6 +1,6 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcButtonComponentBase
-<button @ref="Ref" class="mdc-fab @CssAttributes">
+<button @ref="Ref" class="mdc-fab mdc-fab--touch @CssAttributes">
     <div class="mdc-fab__ripple"></div>
     @if(Icon != null)
     {
@@ -10,8 +10,5 @@
     {
     <span class="mdc-fab__label">@Label</span>
     }
-    @if (Touchable)
-    {
     <div class="mdc-fab__touch"></div>
-    }
 </button>
