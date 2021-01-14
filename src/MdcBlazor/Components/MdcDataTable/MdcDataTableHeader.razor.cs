@@ -9,6 +9,5 @@ namespace Exentials.MdcBlazor
 {
     public partial class MdcDataTableHeader
     {
-        [Parameter] public MdcDataTable Table { get; set; }
     }
 }

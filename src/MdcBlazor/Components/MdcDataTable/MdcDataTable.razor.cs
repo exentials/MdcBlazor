@@ -5,21 +5,16 @@ namespace Exentials.MdcBlazor
 {
     public partial class MdcDataTable : MdcContainerComponentBase
     {
-        DataColumCollection _column;
-        public DataColumCollection Columns
+        [Parameter] public string Label { get; set; }
+        [Parameter] public bool Sticky { get; set; }
+
+        protected override void OnInitialized()
         {
-            get
+            base.OnInitialized();
+            if (Sticky)
             {
-                if (_column == null)
-                {
-                    _column = new DataColumCollection();
-                }
-                return _column;
+                CssAttributes.Add("mdc-data-table--sticky-header");
             }
         }
-        [Parameter] public bool Selector { get; set; }
-        [Parameter] public string Label { get; set; }
-        [Parameter] public DataTableSource DataSource { get; set; }
-
     }
 }

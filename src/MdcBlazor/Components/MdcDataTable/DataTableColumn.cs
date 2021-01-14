@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
-    public class MdcDataTableColumn : MdcComponentBase
+    public class DataTableColumn : MdcComponentBase
     {
         [CascadingParameter] DataColumCollection Columns { get; set; }
         [Parameter] public string Header { get; set; }
         [Parameter] public string FieldName { get; set; }
         [Parameter] public string Format { get; set; }
+        [Parameter] public bool Numeric { get; set; }
 
         protected override void OnInitialized()
         {
@@ -22,7 +23,8 @@ namespace Exentials.MdcBlazor
                 Columns.Add(new DataColumn { 
                     Header = Header,
                     FieldName = FieldName,
-                    Format = Format
+                    Format = Format,
+                    Numeric = Numeric
                 });
             }
         }

@@ -1,13 +1,9 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcContainerComponentBase
-<div @ref="Ref" class="mdc-data-table">
+<div @ref="Ref" class="mdc-data-table @CssAttributes">
     <div class="mdc-data-table__table-container">
         <table class="mdc-data-table__table" aria-label="@Label">
-            <CascadingValue Value=Columns>
-                @ChildContent
-            </CascadingValue>
-            <MdcDataTableHeader Table=this></MdcDataTableHeader>
-            <MdcDataTableBody Table=this></MdcDataTableBody>
+            @ChildContent
         </table>
     </div>
 </div>

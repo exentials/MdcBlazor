@@ -1,8 +1,36 @@
 ﻿@page "/datatables"
 
-<MdcDataTable DataSource="dataSource">
-    <MdcDataTableColumn Header="#" FieldName="Id" />
-    <MdcDataTableColumn Header="Text" FieldName="StringValue" />
-    <MdcDataTableColumn Header="Bool" FieldName="BoolValue" />
-    <MdcDataTableColumn Header="Decimal" FieldName="DecimalValue" />
+<MdcHeadline6>Data tables </MdcHeadline6>
+
+<MdcSubtitle1>Simple Datable</MdcSubtitle1>
+<MdcDataTable>
+    <MdcDataTableHeader>
+        <MdcDataTableHeaderRow>
+            <MdcDataTableHeaderCell>Name</MdcDataTableHeaderCell>
+            <MdcDataTableHeaderCell>Surname</MdcDataTableHeaderCell>
+            <MdcDataTableHeaderCell Numeric="true">Age</MdcDataTableHeaderCell>
+        </MdcDataTableHeaderRow>
+    </MdcDataTableHeader>
+    <MdcDataTableBody>
+        <MdcDataTableBodyRow>
+            <MdcDataTableCell>John</MdcDataTableCell>
+            <MdcDataTableCell>Smith</MdcDataTableCell>
+            <MdcDataTableCell Numeric="true">45</MdcDataTableCell>
+        </MdcDataTableBodyRow>
+        <MdcDataTableBodyRow>
+            <MdcDataTableCell>Jane</MdcDataTableCell>
+            <MdcDataTableCell>Doe</MdcDataTableCell>
+            <MdcDataTableCell Numeric="true">32</MdcDataTableCell>
+        </MdcDataTableBodyRow>
+    </MdcDataTableBody>
+</MdcDataTable>
+
+<MdcSubtitle1>Data table with DataSource</MdcSubtitle1>
+<MdcDataTable Sticky="true">
+    <DataTableColumnContainer DataSource="dataSource" Selector="true">    
+        <DataTableColumn Header="#" FieldName="Id" />
+        <DataTableColumn Header="Text" FieldName="StringValue" />
+        <DataTableColumn Header="Bool" FieldName="BoolValue" />
+        <DataTableColumn Header="Decimal" FieldName="DecimalValue" Format="#0.00" Numeric="true"/>
+    </DataTableColumnContainer>
 </MdcDataTable>

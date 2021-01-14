@@ -1,0 +1,32 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcContainerComponentBase
+<CascadingValue Value=Columns>
+    @ChildContent
+</CascadingValue>
+<MdcDataTableHeader>
+    <MdcDataTableHeaderRow>
+        @if (Selector)
+        {
+        <MdcDataTableHeaderSelector />
+        }
+        @foreach (var col in Columns)
+        {
+        <MdcDataTableHeaderCell Numeric="col.Numeric">@col.Header</MdcDataTableHeaderCell>
+        }
+    </MdcDataTableHeaderRow>
+</MdcDataTableHeader>
+<MdcDataTableBody>
+    @foreach (var i in DataSource.Rows)
+    {
+    <MdcDataTableBodyRow>    
+    @if (Selector)
+    {
+        <MdcDataTableSelector />
+    }
+    @foreach (var col in Columns)
+    {
+        <MdcDataTableCell Numeric="col.Numeric">@col.GetFormattedValue(i)</MdcDataTableCell>
+    }    
+    </MdcDataTableBodyRow>
+    }
+</MdcDataTableBody>
