@@ -17,6 +17,7 @@ import * as MdcCircularProgress from "./mdcProgressIndicator/mdcCircularProgress
 import * as MdcLinearProgress from "./mdcProgressIndicator/mdcLinearProgress";
 import * as MdcRadio from "./mdcRadio/mdcRadio";
 import * as MdcSlider from "./mdcSlider/mdcSlider";
+import * as MdcSnackbar from "./mdcSnackbar/mdcSnackbar";
 import * as MdcSwitch from "./mdcSwitch/mdcSwitch";
 import * as MdcTab from "./mdcTabBar/mdcTab";
 import * as MdcTabBar from "./mdcTabBar/mdcTabBar";
@@ -45,6 +46,7 @@ window.exentials.mdcBlazor = {
     MdcLinearProgress,
     MdcRadio,
     MdcSlider,
+    MdcSnackbar,
     MdcSwitch,
     MdcTextarea,
     MdcTab,

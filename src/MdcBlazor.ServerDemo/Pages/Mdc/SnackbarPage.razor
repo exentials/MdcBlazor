@@ -1,0 +1,18 @@
+﻿@page "/snackbars"
+
+
+<MdcButton Label="Open Snackbar" OnClick="() => OpenSnack()" />
+
+<MdcSnackbar @ref="snack" Label="Show me as snack." ButtonLabel="Press me" Dismissable="true" />
+
+
+@code {
+    MdcSnackbar snack;
+
+
+    ValueTask OpenSnack()
+    {
+        return snack.Open();
+    }
+
+}

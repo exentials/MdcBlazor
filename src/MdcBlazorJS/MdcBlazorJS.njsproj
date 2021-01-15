@@ -76,6 +76,7 @@
     <Content Include="src\mdcProgressIndicator\mdcLinearProgress.scss" />
     <Content Include="src\mdcRadio\mdcRadio.scss" />
     <Content Include="src\mdcSlider\mdcSlider.scss" />
+    <Content Include="src\mdcSnackbar\mdcSnackbar.scss" />
     <Content Include="src\mdcSwitch\mdcSwitch.scss" />
     <Content Include="src\mdcTabBar\mdcTabBar.scss" />
     <Content Include="src\mdcTextInput\mdcTextInput.scss" />
@@ -115,6 +116,7 @@
     <Folder Include="src\mdcRadio\" />
     <Folder Include="src\mdcFormField\" />
     <Folder Include="src\mdcDataTable\" />
+    <Folder Include="src\mdcSnackbar\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcButton\mdcIconButton.ts" />
@@ -130,6 +132,7 @@
     <TypeScriptCompile Include="src\mdcRadio\mdcRadio.ts" />
     <TypeScriptCompile Include="src\mdcSlider\mdcSliderRange.ts" />
     <TypeScriptCompile Include="src\mdcSlider\mdcSlider.ts" />
+    <TypeScriptCompile Include="src\mdcSnackbar\mdcSnackbar.ts" />
     <TypeScriptCompile Include="src\mdcSwitch\mdcSwitch.ts" />
     <TypeScriptCompile Include="src\mdcTabBar\mdcTab.ts" />
     <TypeScriptCompile Include="src\mdcTabBar\mdcTabBar.ts" />

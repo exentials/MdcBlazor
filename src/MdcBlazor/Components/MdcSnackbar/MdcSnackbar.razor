@@ -1,0 +1,25 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcContainerComponentBase
+<div @ref="Ref" class="mdc-snackbar @CssAttributes">
+    <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+        <div class="mdc-snackbar__label" aria-atomic="false">
+            @Label
+        </div>
+        @if (Has(ButtonLabel) || Dismissable)
+        {
+        <div class="mdc-snackbar__actions" aria-atomic="true">
+            @if (Has(ButtonLabel))
+            {
+            <button type="button" class="mdc-button mdc-snackbar__action">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">@ButtonLabel</span>
+            </button>
+            }
+            @if (Dismissable)
+            {
+            <button class="@MdcCss.MaterialIcons mdc-icon-button mdc-snackbar__dismiss" title="Dismiss">close</button>
+            }
+        </div>
+        }
+    </div>
+</div>

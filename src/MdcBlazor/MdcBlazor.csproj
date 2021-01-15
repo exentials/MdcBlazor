@@ -14,9 +14,9 @@
     <Description>Blazor library based on Material Design Component</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <FileVersion>0.3.0.0</FileVersion>
-    <AssemblyVersion>0.3.0.0</AssemblyVersion>
+    <AssemblyVersion>0.4.0.0</AssemblyVersion>
     <PackageIcon>MdcBlazor-icon.png</PackageIcon>
-    <Version>0.3.0-alpha</Version>
+    <Version>0.4.0-alpha</Version>
   </PropertyGroup>
  
   <ItemGroup>
