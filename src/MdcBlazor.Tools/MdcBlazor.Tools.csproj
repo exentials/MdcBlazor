@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Exentials.MdcBlazor.Tools</AssemblyName>
+    <RootNamespace>Exentials.MdcBlazor</RootNamespace>
+    <Version>0.5.0-alpha</Version>
+    <Authors>Gambarotto Damiano</Authors>
+    <Company>Exentials</Company>
+    <Description>Tools for fast develop with MdcBlazor</Description>
+    <Copyright>Gambarotto Damiano</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/exentials/MdcBlazor</PackageProjectUrl>
+    <PackageIcon>MdcBlazor-icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/exentials/MdcBlazor</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>blazor, mdc, material design, material component</PackageTags>
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MdcBlazor\MdcBlazor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\MdcBlazor-icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

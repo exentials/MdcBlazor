@@ -1,5 +1,5 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine AS base
-RUN apk update --no-cache --no-cache && apk add icu-libs --no-cache
+RUN apk update --no-cache && apk add icu-libs --no-cache
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 WORKDIR /app
 EXPOSE 80
@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build
 RUN apk update --no-cache
 WORKDIR /src
 COPY ["MdcBlazor/MdcBlazor.csproj", "MdcBlazor/"]
+COPY ["MdcBlazor.Tools/MdcBlazor.Tools.csproj", "MdcBlazor.Tools/"]
 COPY ["MdcBlazor.ServerDemo/MdcBlazor.ServerDemo.csproj", "MdcBlazor.ServerDemo/"]
 RUN dotnet restore "MdcBlazor.ServerDemo/MdcBlazor.ServerDemo.csproj"
 COPY . .

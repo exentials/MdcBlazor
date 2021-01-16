@@ -21,7 +21,7 @@ module.exports = function (env, { mode }) {
             path: path.resolve(__dirname, dest),
             filename: out_filename + '.js'
         },
-
+        devtool: 'eval',
         resolve: {
             extensions: [".ts", ".js", ".css", ".scss"],
             modules: [

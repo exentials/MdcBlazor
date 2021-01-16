@@ -1,10 +1,20 @@
-import { MDCSnackbar } from '@material/snackbar';
+import { MDCSnackbar, MDCSnackbarCloseEvent } from '@material/snackbar';
 
 import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
+
+interface ISnackbarOptions {
+    label: string;
+    buttonLabel: string;
+    dismissable: boolean;
+    timeout: number;
+}
 
 class MdcSnackbar extends MDCSnackbar {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
+        this.listen("MDCSnackbar:closed", (event: MDCSnackbarCloseEvent) => {
+            this.component.invokeMethodAsync<void>("NativeClosed", event.detail.reason);
+        });
     }
 }
 
@@ -16,8 +26,13 @@ export function destroy(ref: Element): void {
     mdcDestroy(ref);
 }
 
-export function open(ref: Element): void {
+export function open(ref: Element): boolean {
     mdc<MdcSnackbar>(ref).open();
+    return mdc<MdcSnackbar>(ref).isOpen;
+}
+
+export function isOpen(ref: Element): boolean {
+    return mdc<MdcSnackbar>(ref).isOpen;
 }
 
 export function close(ref: Element, reason?: string): void {

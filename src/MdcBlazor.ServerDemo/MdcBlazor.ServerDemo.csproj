@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MdcBlazor.Tools\MdcBlazor.Tools.csproj" />
     <ProjectReference Include="..\MdcBlazor\MdcBlazor.csproj" />
   </ItemGroup>
 

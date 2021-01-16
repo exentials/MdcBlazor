@@ -10,13 +10,14 @@
     <Company>Exentials</Company>
     <PackageProjectUrl>https://github.com/exentials/MdcBlazor</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>blazor, material, design, component</PackageTags>
+    <PackageTags>blazor, mdc, material design, material component</PackageTags>
     <Description>Blazor library based on Material Design Component</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <FileVersion>0.3.0.0</FileVersion>
-    <AssemblyVersion>0.4.0.0</AssemblyVersion>
+    <FileVersion>0.5.0.0</FileVersion>
+    <AssemblyVersion>0.5.0.0</AssemblyVersion>
     <PackageIcon>MdcBlazor-icon.png</PackageIcon>
-    <Version>0.4.0-alpha</Version>
+    <Version>0.5.0-alpha</Version>
+    <Copyright>Gambarotto Damiano</Copyright>
   </PropertyGroup>
  
   <ItemGroup>

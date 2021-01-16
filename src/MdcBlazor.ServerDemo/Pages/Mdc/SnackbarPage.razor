@@ -1,18 +1,48 @@
 ﻿@page "/snackbars"
+@inject SnackbarService snackbarService
 
+<MdcHeadline6>Snackbars</MdcHeadline6>
 
-<MdcButton Label="Open Snackbar" OnClick="() => OpenSnack()" />
+<MdcButton Label="Open local Snackbar" OnClick="() => OpenSnack()" />
+<MdcSnackbar @ref="snack" Label="I am a local snack." ButtonLabel="Press me" Dismissable="true" ButtonActionValue="1" OnButtonAction="(x) => ButtonAction(x)" />
 
-<MdcSnackbar @ref="snack" Label="Show me as snack." ButtonLabel="Press me" Dismissable="true" />
+<MdcButton Label="Send to Snackbar service" OnClick="() => CallSnackbarService()" />
 
+<p>
+    <span>Action pressed: @actionMessage</span>
+</p>
 
 @code {
     MdcSnackbar snack;
+    int count;
+    string actionMessage;
 
 
-    ValueTask OpenSnack()
+    void OpenSnack()
     {
-        return snack.Open();
+        snack.Open();
+    }
+
+    ValueTask CallSnackbarService()
+    {
+        count++;
+        return snackbarService.Send(
+        new SnackbarOptions
+        {
+            Label = $"I AM SNACK NUMBER {count}",
+            ButtonLabel = $"ACTION {count}",
+            Dismissable = true
+        });
+    }
+    
+    ValueTask ButtonAction(object obj)
+    {
+        if (obj != null)
+        {
+            actionMessage = obj.ToString();
+            StateHasChanged();
+        }
+        return ValueTask.CompletedTask;
     }
 
 }
