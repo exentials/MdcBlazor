@@ -22,7 +22,7 @@ namespace Exentials.MdcBlazor.ServerDemo
             services.AddRazorPages();
             services.AddServerSideBlazor();            
             services.AddMdcBlazor(); // Enable MdcBlazor services
-            services.AddMdcBlazorTools(); // Enable MdcBlazor services
+            services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

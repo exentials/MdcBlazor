@@ -1,20 +1,22 @@
-# Exentials.MdcBlazor
-
-Inspired by [SamProf/MatBlazor] I decided to build my own library for Blazor based on [Material Design Component].
-
-### Actually Key differences are:
+# Exentials.MdcBlazor & Exentials.MdcBlazor.Tools
+Library for Blazor based on [Material Design Component]
+___
+### Key features are:
 
 - Build on Dotnet 5.0
-- Wrap of Material Design Component 9.0
+- Wrap of Material Design Component Web 9.0
 - Source of javascript code build in Typescript
 - Embedded Google Roboto Fonts and Material Icons for scenarios with no Internet access
+___
+
+**Exentials.MdcBlazor** wraps the base Mdc components, **Exentials.MdcBlazor.Tools** depens on them to 
 
 ## Demo server application is available as docker container 
 ```
 docker run -it exentials/mdc-blazor-server-demo:latest
 ```
 
-## How to use the library
+## How to use the libraries
 
 ### Blazor Server App
 
@@ -22,11 +24,16 @@ docker run -it exentials/mdc-blazor-server-demo:latest
 
 ```sh
 Install-Package Exentials.MdcBlazor
+
+Install-Package Exentials.MdcBlazor.Tools
 ```
 
 Add on the service registration section of your Startup.cs file
 ```csharp
 services.AddMdcBlazor();    // Enable MdcBlazor services
+
+services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
+
 ```
 
 ##### In your _Imports.razor add the components namespace:
@@ -65,6 +72,8 @@ Install-Package Exentials.MdcBlazor
 Server project: Add on the service registration section of Startup.cs file
 ```csharp
 services.AddMdcBlazor();    // Enable MdcBlazor services
+
+services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 ```
 
 ##### In _Imports.razor add the components namespace:
@@ -99,25 +108,48 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 @using Exentials.MdcBlazor
 ```
 
-### Developed controls
-|Component|
-|-|
-|MdcButton| 
-|MdcCard|
-|MdcCheckbox|
-|MdcCircularProgress|
-|MdcDrawer|
-|MdcElevation|
-|MdcFab|
-|MdcIcon|
-|MdcIconButton|
-|MdcLinearProgress|
-|NdcSwitch|
-|MdcTabBar|
-|MdcTextField|
-|MdcTextarea|
-|MdcTopAppBar|
-|MdcTypography|
+### MdcBlazor controls
+|Component|Status|Material reference|
+|-|-|-|
+|MdcTopAppBar|In progress|[https://material.io/components/app-bars-top/web]()|
+|MdcBanner|-|[https://material.io/components/banners/web]()|
+|MdcButton|Complete|[https://material.io/components/buttons/web]()|
+|MdcIconButton|Complete|[https://material.io/components/buttons/web]()|
+|MdcFab|Complete|[https://material.io/components/buttons-floating-action-button/web]()|
+|MdcCard|In progress|[https://material.io/components/cards/web]()|
+|MdcCheckbox|Complete|[https://material.io/components/checkboxes/web]()|
+|MdcChip|In progress|[https://material.io/components/chips/web]()|
+|MdcDataTable|In progress|[https://material.io/components/data-tables/web]()|
+|MdcDialog|-|[https://material.io/components/dialogs/we]()|
+|MdcDivider|-|[https://material.io/components/dividers/web]()|
+|MdcImageList|-|[https://material.io/components/image-lists/web]()|
+|MdcList|In progress|[https://material.io/components/lists/web]()|
+|MdcMenu|-|[https://material.io/components/menus/web]()|
+|MdcDrawer|In progress|[https://material.io/components/navigation-drawer/web]()|
+|MdcCircularProgress|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress]()|
+|MdcLinearProgress|Comlete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress]()|
+|MdcRadio|In progress|[https://material.io/components/radio-buttons/web#installation]()|
+|MdcSlider|In progress|[https://material.io/components/sliders/web]()|
+|NdcSnackbar|Complete|[https://material.io/components/snackbars/web]()|
+|NdcSwitch|Complete|[https://material.io/components/switches/web]()|
+|MdcTabBar|Complete|[https://material.io/components/tabs]()|
+|MdcTextField|Complete|[https://material.io/components/text-fields/web]()|
+|MdcTextarea|Complete|[https://material.io/components/text-fields/web]()|
+||||
+|MdcElevation|Complete||
+|MdcIcon|Complete||
+|MdcTypography|Complete||
+
+### MdcBlazor.Tools controls
+
+#### DataTableColumn
+Simplify the table building by passing a data source and the columns definitions to display.
+
+#### MdcSnackbarService
+Handle a centralized queue of Snackbar messages.
+Must place \<MdcSnackbarService/> on the main layout component.
+By injecting the SnackbarService, messages could be sent to the main control.
+
 
 To see it action download and execute MdcBlazor.ServerDemo project
 
@@ -131,6 +163,4 @@ License
 MIT
 
 
-
-[SamProf/MatBlazor]: <https://github.com/SamProf/MatBlazor>
 [Material Design Component]: <https://material.io/components?platform=web>
