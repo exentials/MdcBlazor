@@ -1,0 +1,11 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcComponentBase
+<li class="mdc-list-item @CssAttributes" data-value="@Value" aria-selected="@Selected" role="option">
+    <span class="mdc-list-item__ripple"></span>
+    @if (Has(Label))
+    {
+    <span class="mdc-list-item__text">
+        @Label
+    </span>
+    }
+</li>

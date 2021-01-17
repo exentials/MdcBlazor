@@ -1,16 +1,33 @@
-import { MDCList } from '@material/list';
-import { mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
+import { MDCList, MDCListIndex } from '@material/list';
+import { MDCListActionEvent } from '@material/list/types';
+import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
 class MdcList extends MDCList {
-    constructor(ref: Element) {
+    constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
+        this.listen("MDCList:action", (event: MDCListActionEvent) => {
+            this.selectedIndex = event.detail.index;
+            this.component.invokeMethodAsync("MDCList:action", event.detail.index);
+        });
     }
 }
 
-export function init(ref: Element): void {
-    mdcInit(ref, new MdcList(ref));
+export function init(ref: Element, component: DotNet.DotNetObject): void {
+    mdcInit(ref, new MdcList(ref, component));
 }
 
 export function destroy(ref: Element): void {
     mdcDestroy(ref);
+}
+
+export function setSingleSelection(ref: Element, value: boolean) {
+    mdc<MdcList>(ref).singleSelection = value;
+}
+
+export function getSelectedindex(ref: Element): MDCListIndex {
+    return mdc<MdcList>(ref).selectedIndex;
+}
+
+export function setSelectedIndex(ref: Element, value: MDCListIndex) {
+    mdc<MdcList>(ref).selectedIndex = value;
 }

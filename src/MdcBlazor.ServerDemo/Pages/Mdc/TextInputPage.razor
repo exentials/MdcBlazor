@@ -33,20 +33,6 @@
         Show counter
     </label>
 </p>
-<p>
-    <label>
-        Help message
-        <input type="text" value="@helperMessage" @onchange="args => {helperMessage = Convert.ToString(args.Value); Refresh(); }" />
-    </label>
-    <select @onchange="args => { helperType = ParseHelper(args.Value); Refresh(); }">
-        @foreach (var opt in Enum.GetNames<MdcTextFieldHelperType>())
-        {
-        <option value="@opt">@opt</option>
-        }
-    </select>
-</p>
-
-
 <DemoComponent @ref="demoComponent">
     <TopBar>
         <MdcTabBar @bind-ActiveTab="tab">
@@ -54,16 +40,6 @@
             <MdcTab Label="Textarea" />
         </MdcTabBar>
     </TopBar>
-    <TopOption>
-        Options
-    </TopOption>
-    <Options>
-        <MdcCheckbox Label="Outlined" Value="outlined" ValueChanged="(arg) => { outlined = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="Disabled" Value="disabled" ValueChanged="(arg) => { disabled = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="Resizable" Value="resizable" ValueChanged="(arg) => { resizable = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="No label" Value="nolabel" ValueChanged="(arg) => { nolabel = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="Required" Value="required" ValueChanged="(arg) => { required = arg??false; Refresh(); }" />
-    </Options>
     <Content>
         <DemoComponentContainer @ref="demo1">
         @if (tab == 0)
@@ -98,6 +74,27 @@
         }
         </DemoComponentContainer>
     </Content>
+
+    <TopOption>
+        Options
+    </TopOption>
+    <Options>
+        <MdcCheckbox Label="Outlined" Value="outlined" ValueChanged="(arg) => { outlined = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Disabled" Value="disabled" ValueChanged="(arg) => { disabled = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Resizable" Value="resizable" ValueChanged="(arg) => { resizable = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="No label" Value="nolabel" ValueChanged="(arg) => { nolabel = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Required" Value="required" ValueChanged="(arg) => { required = arg??false; Refresh(); }" />
+        <label>
+            Help message
+            <input type="text" value="@helperMessage" @onchange="args => {helperMessage = Convert.ToString(args.Value); Refresh(); }" />
+        </label>
+        <select @onchange="args => { helperType = ParseHelper(args.Value); Refresh(); }">
+            @foreach (var opt in Enum.GetNames<MdcTextFieldHelperType>())
+            {
+            <option value="@opt">@opt</option>
+            }
+        </select>
+    </Options>
 </DemoComponent>
 
 @code

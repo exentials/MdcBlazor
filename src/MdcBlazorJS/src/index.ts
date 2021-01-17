@@ -13,9 +13,11 @@ import * as MdcIcon from "./mdcIcon/mdcIcon";
 import * as MdcIconButton from "./mdcButton/mdcIconButton";
 import * as MdcIconButtonToggle from "./mdcButton/mdcIconButtonToggle";
 import * as MdcList from "./mdcList/mdcList";
+import * as MdcListItem from "./mdcList/mdcListItem";
 import * as MdcCircularProgress from "./mdcProgressIndicator/mdcCircularProgress";
 import * as MdcLinearProgress from "./mdcProgressIndicator/mdcLinearProgress";
 import * as MdcRadio from "./mdcRadio/mdcRadio";
+import * as MdcSelect from "./mdcSelect/mdcSelect";
 import * as MdcSlider from "./mdcSlider/mdcSlider";
 import * as MdcSnackbar from "./mdcSnackbar/mdcSnackbar";
 import * as MdcSwitch from "./mdcSwitch/mdcSwitch";
@@ -43,8 +45,10 @@ window.exentials.mdcBlazor = {
     MdcIconButton,
     MdcIconButtonToggle,
     MdcList,
+    MdcListItem,
     MdcLinearProgress,
     MdcRadio,
+    MdcSelect,
     MdcSlider,
     MdcSnackbar,
     MdcSwitch,

@@ -55,7 +55,13 @@
 
 .demo-component {
     height: 420px;
+    border: 1px solid rgba(0,0,0,0.12);
+    transition: box-shadow  150ms linear;                
 }
+
+    .demo-component:hover {
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08), 0 0 15px 0 rgba(0, 0, 0, 0.02), 0 0 20px 4px rgba(0, 0, 0, 0.06)
+    }
 
 .demo-container {
     display: flex;
@@ -74,7 +80,8 @@
 .demo-content {
     flex: 1 1 auto;
     min-height: 250px;
-    padding: 16px;
+    padding: 40px;
+    background-color: #fafafa;
 }
 
 .demo-top-bar {
@@ -97,6 +104,10 @@
 .demo-option-header {
     border-bottom: 1px solid rgba(0,0,0,.1);
     height: 48px;
+    padding-left: 16px;
+    padding-right: 4px;
+    display:flex;
+    align-items:center;
 }
 
 .demo-option-panel {
@@ -104,4 +115,12 @@
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
+}
+
+.demo-border {
+    border: 1px solid #e5e5e5;
+}
+
+.component-style {
+    background-color: var(--mdc-theme-surface, #fff);
 }

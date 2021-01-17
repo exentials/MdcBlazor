@@ -1,39 +1,39 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
-    public abstract class MdcInputTextComponentBase : MdcInputComponentBase<string>, IMdcInputBox
+    public partial class MdcSelect : MdcInputComponentBase<string>, IMdcInputBox
     {
+        private string SelectId { get; set; } = MdcComponentHelper.CreateId();
+        private string HelperId { get; set; } = MdcComponentHelper.CreateId();
+        private readonly CssAttributes CssHelperAttributes = new CssAttributes();
+
         [Parameter] public bool Outlined { get; set; }
+        [Parameter] public bool Required { get; set; }
         [Parameter] public bool NoLabel { get; set; }
-        [Parameter] public int Maxlength { get; set; }
-        [Parameter] public bool ShowCounter { get; set; }
         [Parameter] public MdcTextFieldHelperType HelperType { get; set; }
         [Parameter] public string HelperMessage { get; set; }
-        [Parameter] public bool Required { get; set; }
-
-        protected string HelperId { get; set; }
-        protected readonly CssAttributes CssHelperAttributes = new CssAttributes();
+        [Parameter] public RenderFragment ChildContent { get; set; }
 
         protected override void OnInitialized()
         {
             base.OnInitialized();
             if (Outlined)
             {
-                CssAttributes.Add("mdc-text-field--outlined");
+                CssAttributes.Add("mdc-select--outlined");
             }
             else
             {
-                CssAttributes.Add("mdc-text-field--filled");
+                CssAttributes.Add("mdc-select--filled");
             }
             if (NoLabel)
             {
-                CssAttributes.Add("mdc-text-field--no-label");
-            }
-            if (ShowCounter)
-            {
-                CssAttributes.Add("mdc-text-field--with-internal-counter");
+                CssAttributes.Add("mdc-select--no-label");
             }
             if (HelperType != MdcTextFieldHelperType.None)
             {
@@ -43,7 +43,7 @@ namespace Exentials.MdcBlazor
                     case MdcTextFieldHelperType.Helper:
                         break;
                     case MdcTextFieldHelperType.HelperPersist:
-                        CssHelperAttributes.Add("mdc-text-field-helper-text--persistent");
+                        CssHelperAttributes.Add("mdc-select-helper-text--validation-msg-persistent");
                         break;
                 }
             }

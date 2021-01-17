@@ -72,9 +72,11 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\mdcList\mdcList.scss" />
+    <Content Include="src\mdcList\mdcListItem.ts" />
     <Content Include="src\mdcProgressIndicator\mdcCircularProgress.scss" />
     <Content Include="src\mdcProgressIndicator\mdcLinearProgress.scss" />
     <Content Include="src\mdcRadio\mdcRadio.scss" />
+    <Content Include="src\mdcSelect\mdcSelect.scss" />
     <Content Include="src\mdcSlider\mdcSlider.scss" />
     <Content Include="src\mdcSnackbar\mdcSnackbar.scss" />
     <Content Include="src\mdcSwitch\mdcSwitch.scss" />
@@ -117,6 +119,7 @@
     <Folder Include="src\mdcFormField\" />
     <Folder Include="src\mdcDataTable\" />
     <Folder Include="src\mdcSnackbar\" />
+    <Folder Include="src\mdcSelect\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcButton\mdcIconButton.ts" />
@@ -130,6 +133,7 @@
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcCircularProgress.ts" />
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcLinearProgress.ts" />
     <TypeScriptCompile Include="src\mdcRadio\mdcRadio.ts" />
+    <TypeScriptCompile Include="src\mdcSelect\mdcSelect.ts" />
     <TypeScriptCompile Include="src\mdcSlider\mdcSliderRange.ts" />
     <TypeScriptCompile Include="src\mdcSlider\mdcSlider.ts" />
     <TypeScriptCompile Include="src\mdcSnackbar\mdcSnackbar.ts" />

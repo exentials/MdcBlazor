@@ -1,5 +1,8 @@
 # Exentials.MdcBlazor & Exentials.MdcBlazor.Tools
 Library for Blazor based on [Material Design Component]
+
+![Nuget](https://img.shields.io/nuget/v/Exentials.MdcBlazor?label=nuget%20Exentials.MdcBlazor) 
+![Nuget](https://img.shields.io/nuget/v/Exentials.MdcBlazor.Tools?label=nuget%20Exentials.MdcBlazor.Tools)
 ___
 ### Key features are:
 
@@ -127,14 +130,16 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 |MdcMenu|-|[https://material.io/components/menus/web]()|
 |MdcDrawer|In progress|[https://material.io/components/navigation-drawer/web]()|
 |MdcCircularProgress|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress]()|
-|MdcLinearProgress|Comlete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress]()|
+|MdcLinearProgress|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress]()|
 |MdcRadio|In progress|[https://material.io/components/radio-buttons/web#installation]()|
 |MdcSlider|In progress|[https://material.io/components/sliders/web]()|
-|NdcSnackbar|Complete|[https://material.io/components/snackbars/web]()|
-|NdcSwitch|Complete|[https://material.io/components/switches/web]()|
+|MdcSnackbar|Complete|[https://material.io/components/snackbars/web]()|
+|MdcSwitch|Complete|[https://material.io/components/switches/web]()|
 |MdcTabBar|Complete|[https://material.io/components/tabs]()|
 |MdcTextField|Complete|[https://material.io/components/text-fields/web]()|
 |MdcTextarea|Complete|[https://material.io/components/text-fields/web]()|
+|MdcTooltip|In progress|[https://material.io/components/tooltips/web]()|
+|MdcSelect|In progress|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-select]()|
 ||||
 |MdcElevation|Complete||
 |MdcIcon|Complete||

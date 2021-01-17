@@ -1,0 +1,65 @@
+﻿@page "/lists"
+<MdcHeadline6>Lists</MdcHeadline6>
+<DemoComponent>
+    <TopBar>
+        <MdcTabBar @bind-ActiveTab="tab">
+            <MdcTab Label="ONE-LINE LIST" />
+            <MdcTab Label="TWO-LINE LIST" />
+            <MdcTab Label="GROUP LIST" />
+        </MdcTabBar>
+    </TopBar>
+    <Content>
+        <DemoComponentContainer @ref="demo">
+            <div class="demo-border component-style">
+                @if (tab == 0)
+                        {
+                <MdcList @bind-SelectedIndex="index1">
+                    <MdcListItem Label="Item 1" />
+                    <MdcListItem Label="Item 2" />
+                    <MdcListDivider />
+                    <MdcListItem Label="Item 3" />
+                    <MdcListItem Label="Item 4" />
+                </MdcList>
+                <span>Selected index: @index1</span>
+                    }
+                    else if(tab== 1)
+                    {
+                <MdcList TwoLine="true">
+                    <MdcListItem Label="Item 1" SecondaryLabel="Secondary item 1" />
+                    <MdcListItem Label="Item 2" SecondaryLabel="Secondary item 2" />
+                    <MdcListDivider />
+                    <MdcListItem Label="Item 3" SecondaryLabel="Secondary item 3" />
+                    <MdcListItem Label="Item 3" SecondaryLabel="Secondary item 4" />
+                </MdcList>
+                    } else {
+                <MdcListGroup>
+                    <MdcListGroupSubHeader Label="Group 1" />
+                    <MdcList>
+                        <MdcListItem Label="Item 1" />
+                        <MdcListItem Label="Item 2" />
+                    </MdcList>
+                    <MdcListDivider />
+                    <MdcListGroupSubHeader Label="Group 2" />
+                    <MdcList>
+                        <MdcListItem Label="Item 3" />
+                        <MdcListItem Label="Item 4" />
+                    </MdcList>
+                </MdcListGroup>
+                    }
+            </div>
+        </DemoComponentContainer>
+    </Content>
+
+    <TopOption>
+        Options
+    </TopOption>
+    <Options>
+    </Options>
+</DemoComponent>
+
+@code {
+    int tab;
+    int index1 = -1;
+    DemoComponentContainer demo;
+
+}

@@ -9,7 +9,6 @@ class MdcRadio extends MDCRadio {
         super(ref);
 
         this.listen("change", (evt) => {
-            console.log("radio change", { value: this.value, checked: this.checked } );
             this.component.invokeMethodAsync(`${NATIVE_CHANGE}:checked`, this.value, this.checked);
         });
     }

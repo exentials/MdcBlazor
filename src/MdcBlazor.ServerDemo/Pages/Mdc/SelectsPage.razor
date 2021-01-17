@@ -1,0 +1,56 @@
+﻿@page "/selects"
+
+<MdcHeadline6>Selects</MdcHeadline6>
+
+<DemoComponent>
+    <Content>
+        <DemoComponentContainer @ref="demoContent">
+            <MdcSelect Label="Select fruit" @bind-Value="selectValue" Outlined="outlined" Disabled="disabled" NoLabel="nolabel" Required="required" HelperType="helperType" HelperMessage="Help message">
+                <MdcSelectItem Label="Banana" Value="banana" />
+                <MdcSelectItem Label="Orange" Value="orange" />
+                <MdcSelectItem Label="Ananas" Value="ananas" Disabled="true" />
+                <MdcSelectItem Label="Apple" Value="apple" />
+            </MdcSelect>
+        </DemoComponentContainer>
+        <p>
+            Selected value: @selectValue
+        </p>
+    </Content>
+    <TopOption>
+        Options
+    </TopOption>
+    <Options>
+        <MdcCheckbox Label="Outlined" Value="outlined" ValueChanged="(arg) => { outlined = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Disabled" Value="disabled" ValueChanged="(arg) => { disabled = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="No label" Value="nolabel" ValueChanged="(arg) => { nolabel = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Required" Value="required" ValueChanged="(arg) => { required = arg??false; Refresh(); }" />
+        <select @onchange="args => { helperType = ParseHelper(args.Value); Refresh(); }">
+            @foreach (var opt in Enum.GetNames<MdcTextFieldHelperType>())
+                {
+            <option value="@opt">@opt</option>
+            }
+        </select>
+    </Options>
+</DemoComponent>
+
+@code {
+    DemoComponentContainer demoContent;
+
+    string selectValue;
+
+    bool outlined;
+    bool disabled;
+    bool nolabel;
+    bool required;
+    MdcTextFieldHelperType helperType;
+
+    void Refresh()
+    {
+        demoContent.Refresh();
+    }
+
+    MdcTextFieldHelperType ParseHelper(object value)
+    {
+        return Enum.Parse<MdcTextFieldHelperType>(value.ToString());
+    }
+}

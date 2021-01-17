@@ -1,9 +1,12 @@
-﻿<MdcElevation Level="MdcElevationLevel.Z1" CssClass="demo-component">
+﻿<div class="demo-component">
     <div class="demo-container">
         <div class="demo-panel">
+            @if(TopBar != null)
+            {
             <div class="demo-top-bar">
                 @TopBar
             </div>
+            }
             <div class="demo-content">
                 @Content
             </div>
@@ -17,4 +20,4 @@
                 </div>
             </div>
     </div>
-</MdcElevation>
+</div>

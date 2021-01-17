@@ -1,2 +1,10 @@
 ﻿@namespace Exentials.MdcBlazor
+@inherits MdcComponentBase
+@if (MdcList == null)
+{
 <hr class="mdc-list-divider">
+}
+else 
+{
+<li role="separator" class="mdc-list-divider"></li>
+}

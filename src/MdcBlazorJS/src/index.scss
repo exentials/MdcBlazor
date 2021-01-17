@@ -15,6 +15,7 @@
 @import "./mdcProgressIndicator/mdcCircularProgress.scss";
 @import "./mdcProgressIndicator/mdcLinearProgress.scss";
 @import "./mdcRadio/mdcRadio.scss";
+@import "./mdcSelect/mdcSelect.scss";
 @import "./mdcSlider/mdcSlider.scss";
 @import "./mdcSnackbar/mdcSnackbar.scss";
 @import "./mdcSwitch/mdcSwitch.scss";
@@ -34,10 +35,6 @@ body {
     flex: auto;
     overflow: auto;
     position: relative;
-}
-
-.main-content {
-    overflow: auto;
 }
 
 .app-bar {

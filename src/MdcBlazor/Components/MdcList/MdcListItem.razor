@@ -1,0 +1,16 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcComponentBase
+<li @ref="Ref" class="mdc-list-item" role="option" data-value="@Value">
+    <span class="mdc-list-item__ripple"></span>
+    <span class="mdc-list-item__text">
+    @if (Has(SecondaryLabel))
+    {
+        <span class="mdc-list-item__primary-text">@Label</span>
+        <span class="mdc-list-item__secondary-text">@SecondaryLabel</span>
+    } 
+    else
+    {
+        @Label
+    }
+    </span>
+</li>
