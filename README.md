@@ -1,8 +1,8 @@
 # Exentials.MdcBlazor & Exentials.MdcBlazor.Tools
 Library for Blazor based on [Material Design Component]
 
-![Nuget](https://img.shields.io/nuget/v/Exentials.MdcBlazor?label=nuget%20Exentials.MdcBlazor) 
-![Nuget](https://img.shields.io/nuget/v/Exentials.MdcBlazor.Tools?label=nuget%20Exentials.MdcBlazor.Tools)
+[![Nuget](https://img.shields.io/nuget/v/Exentials.MdcBlazor?label=nuget%20Exentials.MdcBlazor)](https://www.nuget.org/packages/Exentials.MdcBlazor)
+[![Nuget](https://img.shields.io/nuget/v/Exentials.MdcBlazor.Tools?label=nuget%20Exentials.MdcBlazor.Tools)](https://www.nuget.org/packages/Exentials.MdcBlazor.Tools)
 ___
 ### Key features are:
 
