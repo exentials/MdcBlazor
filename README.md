@@ -1,4 +1,4 @@
-# Exentials.MdcBlazor & Exentials.MdcBlazor.Tools
+# <img src="./MdcBlazor-icon.png" width="48" />  Exentials.MdcBlazor & Exentials.MdcBlazor.Tools
 Library for Blazor based on [Material Design Component]
 
 [![Nuget](https://img.shields.io/nuget/v/Exentials.MdcBlazor?label=nuget%20Exentials.MdcBlazor)](https://www.nuget.org/packages/Exentials.MdcBlazor)
@@ -50,6 +50,9 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 ```html
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />  <!-- develop -->
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.min.css" rel="stylesheet" />  <!-- production -->
+.
+.
+<body class="@MdcStyle.Typography">
 ```
 
 ##### Optionally to use the embedded Roboto fonts and Material Icons 
@@ -90,6 +93,9 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 ```html
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />  <!-- develop -->
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.min.css" rel="stylesheet" />  <!-- production -->
+.
+.
+<body class="@MdcStyle.Typography">
 ```
 
 ##### Optionally to use the embedded Roboto fonts and Material Icons 
@@ -114,36 +120,36 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 ### MdcBlazor controls
 |Component|Status|Material reference|
 |-|-|-|
-|MdcTopAppBar|In progress|[https://material.io/components/app-bars-top/web]()|
-|MdcBanner|-|[https://material.io/components/banners/web]()|
-|MdcButton|Complete|[https://material.io/components/buttons/web]()|
-|MdcIconButton|Complete|[https://material.io/components/buttons/web]()|
-|MdcFab|Complete|[https://material.io/components/buttons-floating-action-button/web]()|
-|MdcCard|In progress|[https://material.io/components/cards/web]()|
-|MdcCheckbox|Complete|[https://material.io/components/checkboxes/web]()|
-|MdcChip|In progress|[https://material.io/components/chips/web]()|
-|MdcDataTable|In progress|[https://material.io/components/data-tables/web]()|
-|MdcDialog|-|[https://material.io/components/dialogs/we]()|
-|MdcDivider|-|[https://material.io/components/dividers/web]()|
-|MdcImageList|-|[https://material.io/components/image-lists/web]()|
-|MdcList|In progress|[https://material.io/components/lists/web]()|
-|MdcMenu|-|[https://material.io/components/menus/web]()|
-|MdcDrawer|In progress|[https://material.io/components/navigation-drawer/web]()|
-|MdcCircularProgress|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress]()|
-|MdcLinearProgress|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress]()|
-|MdcRadio|In progress|[https://material.io/components/radio-buttons/web#installation]()|
-|MdcSlider|In progress|[https://material.io/components/sliders/web]()|
-|MdcSnackbar|Complete|[https://material.io/components/snackbars/web]()|
-|MdcSwitch|Complete|[https://material.io/components/switches/web]()|
-|MdcTabBar|Complete|[https://material.io/components/tabs]()|
-|MdcTextField|Complete|[https://material.io/components/text-fields/web]()|
-|MdcTextarea|Complete|[https://material.io/components/text-fields/web]()|
-|MdcTooltip|In progress|[https://material.io/components/tooltips/web]()|
-|MdcSelect|In progress|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-select]()|
+|MdcTopAppBar|In progress|[https://material.io/components/app-bars-top/web](https://material.io/components/app-bars-top/web)|
+|MdcBanner|-|[https://material.io/components/banners/web](https://material.io/components/banners/web)|
+|MdcButton|Complete|[https://material.io/components/buttons/web](https://material.io/components/buttons/web)|
+|MdcIconButton|Complete|[https://material.io/components/buttons/web](https://material.io/components/buttons/web)|
+|MdcFab|Complete|[https://material.io/components/buttons-floating-action-button/web](https://material.io/components/buttons-floating-action-button/web)|
+|MdcCard|In progress|[https://material.io/components/cards/web](https://material.io/components/cards/web)|
+|MdcCheckbox|Complete|[https://material.io/components/checkboxes/web](https://material.io/components/checkboxes/web)|
+|MdcChip|In progress|[https://material.io/components/chips/web](https://material.io/components/chips/web)|
+|MdcDataTable|In progress|[https://material.io/components/data-tables/web](https://material.io/components/data-tables/web)|
+|MdcDialog|-|[https://material.io/components/dialogs/we](https://material.io/components/dialogs/we)|
+|MdcDivider|-|[https://material.io/components/dividers/web](https://material.io/components/dividers/web)|
+|MdcImageList|-|[https://material.io/components/image-lists/web](https://material.io/components/image-lists/web)|
+|MdcList|In progress|[https://material.io/components/lists/web](https://material.io/components/lists/web)|
+|MdcMenu|-|[https://material.io/components/menus/web](https://material.io/components/menus/web)|
+|MdcDrawer|In progress|[https://material.io/components/navigation-drawer/web](https://material.io/components/navigation-drawer/web)|
+|MdcCircularProgress|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress](https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress)|
+|MdcLinearProgress|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress](https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress)|
+|MdcRadio|In progress|[https://material.io/components/radio-buttons/web#installation](https://material.io/components/radio-buttons/web#installation)|
+|MdcSlider|In progress|[https://material.io/components/sliders/web](https://material.io/components/sliders/web)|
+|MdcSnackbar|Complete|[https://material.io/components/snackbars/web](https://material.io/components/snackbars/web)|
+|MdcSwitch|Complete|[https://material.io/components/switches/web](https://material.io/components/switches/web)|
+|MdcTabBar|Complete|[https://material.io/components/tabs](https://material.io/components/tabs)|
+|MdcTextField|Complete|[https://material.io/components/text-fields/web](https://material.io/components/text-fields/web)|
+|MdcTextarea|Complete|[https://material.io/components/text-fields/web](https://material.io/components/text-fields/web)|
+|MdcTooltip|In progress|[https://material.io/components/tooltips/web](https://material.io/components/tooltips/web)|
+|MdcSelect|In progress|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select)|
 ||||
 |MdcElevation|Complete||
-|MdcIcon|Complete||
-|MdcTypography|Complete||
+|MdcIcon|Complete|[https://material.io/resources/icons/](https://material.io/resources/icons/)|
+|MdcTypography|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-typography](https://github.com/material-components/material-components-web/tree/master/packages/mdc-typography)|
 
 ### MdcBlazor.Tools controls
 
