@@ -5,6 +5,8 @@
         <MdcTabBar @bind-ActiveTab="tab">
             <MdcTab Label="ONE-LINE LIST" />
             <MdcTab Label="TWO-LINE LIST" />
+            <MdcTab Label="RADIO LIST" />
+            <MdcTab Label="CHECKBOX LIST" />
             <MdcTab Label="GROUP LIST" />
         </MdcTabBar>
     </TopBar>
@@ -12,26 +14,51 @@
         <DemoComponentContainer @ref="demo">
             <div class="demo-border component-style">
                 @if (tab == 0)
-                        {
-                <MdcList @bind-SelectedIndex="index1">
+                {
+                <MdcList @bind-SelectedIndex="index1" ListType="MdcListType.SingleLine">
                     <MdcListItem Label="Item 1" />
                     <MdcListItem Label="Item 2" />
                     <MdcListDivider />
                     <MdcListItem Label="Item 3" />
                     <MdcListItem Label="Item 4" />
                 </MdcList>
-                <span>Selected index: @index1</span>
-                    }
-                    else if(tab== 1)
-                    {
-                <MdcList TwoLine="true">
+                <p>                    
+                    <span>Selected index: @(string.Join(',', index1))</span>
+                </p>
+                }
+                else if(tab== 1)
+                {
+                <MdcList ListType="MdcListType.TwoLine">
                     <MdcListItem Label="Item 1" SecondaryLabel="Secondary item 1" />
                     <MdcListItem Label="Item 2" SecondaryLabel="Secondary item 2" />
                     <MdcListDivider />
                     <MdcListItem Label="Item 3" SecondaryLabel="Secondary item 3" />
                     <MdcListItem Label="Item 3" SecondaryLabel="Secondary item 4" />
                 </MdcList>
-                    } else {
+                }
+                else if(tab== 2)
+                {
+                <MdcList ListType="MdcListType.RadioGroup" Name="group1" >
+                    <MdcListItem Label="Item 1" />
+                    <MdcListItem Label="Item 2" />
+                    <MdcListItem Label="Item 3" />
+                    <MdcListItem Label="Item 3" />
+                </MdcList>
+                }
+                else if(tab== 3)
+                {
+                <MdcList ListType="MdcListType.Checkbox">
+                    <MdcListItem Label="Item 1" />
+                    <MdcListItem Label="Item 2" />
+                    <MdcListItem Label="Item 3" />
+                    <MdcListItem Label="Item 3" />
+                </MdcList>
+                <p>
+                    <span>Selected index: @(string.Join(',', index1))</span>
+                </p>
+                } 
+                else 
+                {
                 <MdcListGroup>
                     <MdcListGroupSubHeader Label="Group 1" />
                     <MdcList>
@@ -45,7 +72,7 @@
                         <MdcListItem Label="Item 4" />
                     </MdcList>
                 </MdcListGroup>
-                    }
+                }
             </div>
         </DemoComponentContainer>
     </Content>
@@ -59,7 +86,7 @@
 
 @code {
     int tab;
-    int index1 = -1;
+    int[] index1 = new int[0];
     DemoComponentContainer demo;
 
 }

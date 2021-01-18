@@ -2,15 +2,43 @@
 @inherits MdcComponentBase
 <li @ref="Ref" class="mdc-list-item" role="option" data-value="@Value">
     <span class="mdc-list-item__ripple"></span>
-    <span class="mdc-list-item__text">
-    @if (Has(SecondaryLabel))
+    @if (MdcList.ListType == MdcListType.SingleLine)
     {
+    <span class="mdc-list-item__text">@Label</span>
+    } 
+    else if (MdcList.ListType == MdcListType.TwoLine)
+    {
+    <span class="mdc-list-item__text">
         <span class="mdc-list-item__primary-text">@Label</span>
         <span class="mdc-list-item__secondary-text">@SecondaryLabel</span>
-    } 
-    else
-    {
-        @Label
-    }
     </span>
+    }   
+    else if (MdcList.ListType == MdcListType.RadioGroup)
+    {
+    <span class="mdc-list-item__graphic">
+      <div class="mdc-radio">
+        <input class="mdc-radio__native-control" type="radio" id="@InputId" name="@Name" value="@Value">
+        <div class="mdc-radio__background">
+          <div class="mdc-radio__outer-circle"></div>
+          <div class="mdc-radio__inner-circle"></div>
+        </div>
+      </div>
+    </span>
+    <label class="mdc-list-item__text" for="@InputId">@Label</label>
+    }
+    else if (MdcList.ListType == MdcListType.Checkbox)
+    {
+    <span class="mdc-list-item__graphic">
+      <div class="mdc-checkbox">
+        <input type="checkbox" class="mdc-checkbox__native-control" id="@InputId" />
+        <div class="mdc-checkbox__background">
+          <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+              <path class="mdc-checkbox__checkmark-path" fill="none"d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+          </svg>
+          <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+      </div>
+    </span>
+    <label class="mdc-list-item__text" for="@InputId">@Label</label>
+    }
 </li>

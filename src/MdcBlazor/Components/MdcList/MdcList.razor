@@ -1,6 +1,6 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcContainerComponentBase
-<ul @ref="Ref" class="mdc-list @CssAttributes" role="listbox" id="@Id">
+<ul @ref="Ref" class="mdc-list @CssAttributes" role="@Role" id="@Id">
     <CascadingValue Value=this>
         @ChildContent
     </CascadingValue>
