@@ -42,9 +42,22 @@ namespace Exentials.MdcBlazor
             base.OnInitialized();
             if (MdcRadioGroup != null)
             {
+                MdcRadioGroup.Radios.Add(this);
                 Name = MdcRadioGroup.Name;
+
                 Checked = MdcRadioGroup.Value == Value;
             }
+        }
+
+        public override ValueTask DisposeAsync()
+        {
+            MdcRadioGroup?.Radios.Remove(this);
+            return base.DisposeAsync();
+        }
+
+        internal ValueTask Uncheck()
+        {
+            return JSSetChecked(false);
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -72,14 +85,25 @@ namespace Exentials.MdcBlazor
         }
 
         [JSInvokable("NativeChange:checked")]
-        public ValueTask NativeChange(string value, bool isChecked)
+        public ValueTask NativeChange(bool isChecked)
         {
             if (Checked != isChecked)
             {
-                Checked = isChecked;
+                if (MdcRadioGroup == null)
+                {
+                    Checked = isChecked;
+                }
+                else
+                {
+                    foreach (var radio in MdcRadioGroup.Radios)
+                    {
+                        radio.Checked = (radio.Value == Value);
+                    }
+                    MdcRadioGroup.SetValue(Value);
+                }
                 StateHasChanged();
             }
-            return NativeChange(value);
+            return ValueTask.CompletedTask;
         }
     }
 }

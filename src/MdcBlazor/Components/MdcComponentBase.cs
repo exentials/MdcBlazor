@@ -14,16 +14,17 @@ namespace Exentials.MdcBlazor
         public ElementReference? Ref { get; protected set; }
 
         [Inject] protected IJSRuntime Js { get; set; }
-        [Parameter] public string Id 
+        [Parameter]
+        public string Id
         {
-            get 
-            { 
+            get
+            {
                 if (!Has(_id))
                 {
                     _id = MdcComponentHelper.CreateId();
                 }
                 return _id;
-            } 
+            }
             set
             {
                 if (Has(value))
@@ -31,7 +32,7 @@ namespace Exentials.MdcBlazor
                     _id = value;
                 }
             }
-        } 
+        }
         [Parameter] public string CssClass { get; set; }
 
 
@@ -52,6 +53,16 @@ namespace Exentials.MdcBlazor
         protected static bool Has(string value)
         {
             return !string.IsNullOrEmpty(value);
+        }
+
+        protected static bool Has(bool? value)
+        {
+            return value == true;
+        }
+
+        protected static bool Has<T>(T value) where T : class
+        {
+            return (value != null);
         }
 
         protected ValueTask JsInvokeVoidAsync(string function, params object[] args)

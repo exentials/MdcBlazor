@@ -18,6 +18,9 @@ namespace Exentials.MdcBlazor
         [Parameter] public string SecondaryLabel { get; set; }
         [Parameter] public bool Disabled { get; set; }
         [Parameter] public string Icon { get; set; }
+        [Parameter] public RenderFragment Avatar { get; set; }
+        [Parameter] public string IconButton { get; set; }
+        [Parameter] public string MetaText { get; set; }
         [Parameter]
         public bool Selected
         {

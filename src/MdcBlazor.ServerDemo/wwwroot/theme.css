@@ -54,7 +54,7 @@
 }
 
 .demo-component {
-    height: 420px;
+    /*min-height: 420px;*/
     border: 1px solid rgba(0,0,0,0.12);
     transition: box-shadow  150ms linear;                
 }

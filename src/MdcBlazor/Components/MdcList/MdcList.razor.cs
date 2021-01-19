@@ -15,6 +15,7 @@ namespace Exentials.MdcBlazor
         [Parameter] public bool Dense { get; set; }
         [Parameter] public string Name { get; set; }
         [Parameter] public MdcListType ListType { get; set; }
+        [Parameter] public bool Avatar { get; set; }
         [Parameter]
         public int[] SelectedIndex
         {
@@ -40,6 +41,10 @@ namespace Exentials.MdcBlazor
             if (Dense)
             {
                 CssAttributes.Add("mdc-list--dense");
+            }
+            if (Avatar)
+            {
+                CssAttributes.Add("mdc-list--avatar-list");
             }
             if (ListType == MdcListType.TwoLine)
             {

@@ -132,12 +132,12 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 |MdcDialog|-|[https://material.io/components/dialogs/we](https://material.io/components/dialogs/we)|
 |MdcDivider|-|[https://material.io/components/dividers/web](https://material.io/components/dividers/web)|
 |MdcImageList|-|[https://material.io/components/image-lists/web](https://material.io/components/image-lists/web)|
-|MdcList|In progress|[https://material.io/components/lists/web](https://material.io/components/lists/web)|
+|MdcList|Complete|[https://material.io/components/lists/web](https://material.io/components/lists/web)|
 |MdcMenu|-|[https://material.io/components/menus/web](https://material.io/components/menus/web)|
 |MdcDrawer|In progress|[https://material.io/components/navigation-drawer/web](https://material.io/components/navigation-drawer/web)|
 |MdcCircularProgress|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress](https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress)|
 |MdcLinearProgress|Complete|[https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress](https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress)|
-|MdcRadio|In progress|[https://material.io/components/radio-buttons/web#installation](https://material.io/components/radio-buttons/web#installation)|
+|MdcRadio|Complete|[https://material.io/components/radio-buttons/web#installation](https://material.io/components/radio-buttons/web#installation)|
 |MdcSlider|In progress|[https://material.io/components/sliders/web](https://material.io/components/sliders/web)|
 |MdcSnackbar|Complete|[https://material.io/components/snackbars/web](https://material.io/components/snackbars/web)|
 |MdcSwitch|Complete|[https://material.io/components/switches/web](https://material.io/components/switches/web)|

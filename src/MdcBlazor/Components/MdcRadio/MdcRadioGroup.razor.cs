@@ -1,15 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
     public partial class MdcRadioGroup : MdcContainerComponentBase
     {
         private string _value;
+        internal readonly List<MdcRadio> Radios = new List<MdcRadio>();
+
         [Parameter] public string Name { get; set; }
         [Parameter]
         public string Value
@@ -33,5 +31,6 @@ namespace Exentials.MdcBlazor
         {
             Value = value;
         }
+
     }
 }

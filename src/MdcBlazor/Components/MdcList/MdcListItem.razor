@@ -5,6 +5,10 @@
     @if (Has(Icon))
     {
     <span class="@MdcCss.MaterialIcons mdc-list-item__graphic" aria-hidden="true">@Icon</span>
+    } 
+    else if (Has(MdcList.Avatar))
+    {
+    <span class="@MdcCss.MaterialIcons mdc-list-item__graphic" aria-hidden="true">@Avatar</span>
     }
     @if (MdcList.ListType == MdcListType.SingleLine)
     {
@@ -16,7 +20,7 @@
         <span class="mdc-list-item__primary-text">@Label</span>
         <span class="mdc-list-item__secondary-text">@SecondaryLabel</span>
     </span>
-    }   
+    }
     else if (MdcList.ListType == MdcListType.RadioGroup)
     {
     <span class="mdc-list-item__graphic">
@@ -44,5 +48,17 @@
       </div>
     </span>
     <label class="mdc-list-item__text" for="@InputId">@Label</label>
+    }
+    @if (Has(IconButton))
+    {        
+    <span aria-hidden="true" class="mdc-list-item__meta">        
+        <button data-mdc-ripple-is-unbounded="" class="@MdcCss.MaterialIcons mdc-icon-button" title="" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;" tabindex="-1">
+            @IconButton
+        </button>
+    </span>
+    } 
+    else if (Has(MetaText))
+    {
+    <span aria-hidden="true" class="mdc-list-item__meta">@MetaText</span>
     }
 </li>
