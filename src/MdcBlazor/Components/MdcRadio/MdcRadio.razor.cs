@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
@@ -8,9 +7,10 @@ namespace Exentials.MdcBlazor
     public partial class MdcRadio : MdcInputComponentBase<string>
     {
         private bool _checked;
-        private readonly string _inputId = MdcComponentHelper.CreateId();        
+        private readonly string _inputId = MdcComponentHelper.CreateId();
         private MdcComponentBase FormField { get; set; }
 
+        [CascadingParameter] MdcRadioGroup MdcRadioGroup { get; set; }
         [Parameter] public string Name { get; set; }
         [Parameter] public bool NoWrap { get; set; }
         [Parameter] public bool AlignEnd { get; set; }
@@ -27,11 +27,25 @@ namespace Exentials.MdcBlazor
                     {
                         CheckedChanged.InvokeAsync(_checked);
                     }
+                    if (MdcRadioGroup != null)
+                    {
+                        MdcRadioGroup.SetValue(Value);
+                    }
                     InvokeAsync(async () => await JSSetChecked(_checked));
                 }
             }
         }
         [Parameter] public EventCallback<bool> CheckedChanged { get; set; }
+
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+            if (MdcRadioGroup != null)
+            {
+                Name = MdcRadioGroup.Name;
+                Checked = MdcRadioGroup.Value == Value;
+            }
+        }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
@@ -43,6 +57,7 @@ namespace Exentials.MdcBlazor
                     await JsInvokeVoidAsync("initFormField", FormField.Ref);
                 }
                 await JSSetChecked(Checked);
+                await JSSetDisabled(Disabled);
             }
         }
 

@@ -2,6 +2,10 @@
 @inherits MdcComponentBase
 <li @ref="Ref" class="mdc-list-item" role="option" data-value="@Value">
     <span class="mdc-list-item__ripple"></span>
+    @if (Has(Icon))
+    {
+    <span class="@MdcCss.MaterialIcons mdc-list-item__graphic" aria-hidden="true">@Icon</span>
+    }
     @if (MdcList.ListType == MdcListType.SingleLine)
     {
     <span class="mdc-list-item__text">@Label</span>

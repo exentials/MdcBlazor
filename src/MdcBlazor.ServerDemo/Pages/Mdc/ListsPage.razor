@@ -15,46 +15,52 @@
             <div class="demo-border component-style">
                 @if (tab == 0)
                 {
-                <MdcList @bind-SelectedIndex="index1" ListType="MdcListType.SingleLine">
-                    <MdcListItem Label="Item 1" />
-                    <MdcListItem Label="Item 2" />
+                <MdcList ListType="MdcListType.SingleLine" @bind-SelectedIndex="index0">
+                    <MdcListItem Label="Item 1" Icon="@iconBefore" />
+                    <MdcListItem Label="Item 2" Icon="@iconBefore" />
                     <MdcListDivider />
-                    <MdcListItem Label="Item 3" />
-                    <MdcListItem Label="Item 4" />
+                    <MdcListItem Label="Item 3" Icon="@iconBefore" />
+                    <MdcListItem Label="Item 4" Icon="@iconBefore" />
                 </MdcList>
-                <p>                    
-                    <span>Selected index: @(string.Join(',', index1))</span>
+                <p style="padding-left: 16px;">
+                    <span>Selected index: @(string.Join(',', index0))</span>
                 </p>
                 }
                 else if(tab== 1)
                 {
-                <MdcList ListType="MdcListType.TwoLine">
+                <MdcList ListType="MdcListType.TwoLine" @bind-SelectedIndex="index1">
                     <MdcListItem Label="Item 1" SecondaryLabel="Secondary item 1" />
                     <MdcListItem Label="Item 2" SecondaryLabel="Secondary item 2" />
                     <MdcListDivider />
                     <MdcListItem Label="Item 3" SecondaryLabel="Secondary item 3" />
                     <MdcListItem Label="Item 3" SecondaryLabel="Secondary item 4" />
                 </MdcList>
+                <p style="padding-left: 16px;">
+                    <span>Selected index: @(string.Join(',', index1))</span>
+                </p>
                 }
                 else if(tab== 2)
                 {
-                <MdcList ListType="MdcListType.RadioGroup" Name="group1" >
+                <MdcList ListType="MdcListType.RadioGroup" Name="group1" @bind-SelectedIndex="index2">
                     <MdcListItem Label="Item 1" />
                     <MdcListItem Label="Item 2" />
                     <MdcListItem Label="Item 3" />
                     <MdcListItem Label="Item 3" />
                 </MdcList>
+                <p style="padding-left: 16px;">
+                    <span>Selected index: @(string.Join(',', index2))</span>
+                </p>
                 }
                 else if(tab== 3)
                 {
-                <MdcList ListType="MdcListType.Checkbox">
+                <MdcList ListType="MdcListType.Checkbox" @bind-SelectedIndex="index3">
                     <MdcListItem Label="Item 1" />
                     <MdcListItem Label="Item 2" />
                     <MdcListItem Label="Item 3" />
                     <MdcListItem Label="Item 3" />
                 </MdcList>
-                <p>
-                    <span>Selected index: @(string.Join(',', index1))</span>
+                <p style="padding-left: 16px;">
+                    <span>Selected index: @(string.Join(',', index3))</span>
                 </p>
                 } 
                 else 
@@ -76,17 +82,52 @@
             </div>
         </DemoComponentContainer>
     </Content>
-
     <TopOption>
         Options
     </TopOption>
     <Options>
+        <MdcCaption>Before list text</MdcCaption>
+        <MdcRadioGroup Name="before" Value="@beforeValue" ValueChanged="(x) => SetBefore(x)" >
+            <MdcRadio Value="0" Label="None" />
+            <MdcRadio Value="1" Label="Icon"  />
+            <MdcRadio Value="2" Label="Avatar" />            
+        </MdcRadioGroup>
+        <MdcCaption>After list text</MdcCaption>
+        <MdcRadioGroup Name="after" Value="@afterValue" ValueChanged="(x) => SetAfter(x)" >
+            <MdcRadio Value="0" Label="None" />
+            <MdcRadio Value="1" Label="Icon"  />
+            <MdcRadio Value="2" Label="Text" />            
+        </MdcRadioGroup>
     </Options>
 </DemoComponent>
 
 @code {
     int tab;
-    int[] index1 = new int[0];
     DemoComponentContainer demo;
+    int[] index0 = Array.Empty<int>();
+    int[] index1 = Array.Empty<int>();
+    int[] index2 = Array.Empty<int>();
+    int[] index3 = Array.Empty<int>();
+
+    string beforeValue = "0";
+    string afterValue = "0";
+    string iconBefore;
+    string iconAfter;
+    string avatar;
+    string meta;
+
+    void SetBefore(string value) 
+    {
+        beforeValue = value;
+        iconBefore = (value == "1") ? "favorite" : null;
+        avatar = (value == "2") ? "favorite" : null;        
+    }
+
+    void SetAfter(string value) 
+    {
+        afterValue = value;
+        iconAfter = (value == "1") ? "favorite" : null;
+        meta = (value == "2") ? "meta" : null;        
+    }
 
 }

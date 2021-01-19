@@ -5,12 +5,12 @@ import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 class MdcList extends MDCList {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
-        this.listen("MDCList:action", (event: MDCListActionEvent) => {            
-            if (Array.isArray(this.selectedIndex)) {                
+        this.listen("MDCList:action", (event: MDCListActionEvent) => {
+            if (Array.isArray(this.selectedIndex)) {
                 this.component.invokeMethodAsync("MDCList:action", this.selectedIndex);
             } else {
                 this.component.invokeMethodAsync("MDCList:action", [this.selectedIndex]);
-            }         
+            }
         });
     }
 }
@@ -23,11 +23,11 @@ export function destroy(ref: Element): void {
     mdcDestroy(ref);
 }
 
-export function setSingleSelection(ref: Element, value: boolean) {
+export function setSingleSelection(ref: Element, value: boolean): void {
     mdc<MdcList>(ref).singleSelection = value;
 }
 
-export function getSelectedindex(ref: Element): MDCListIndex {
+export function getSelectedIndex(ref: Element): MDCListIndex {
     return mdc<MdcList>(ref).selectedIndex;
 }
 

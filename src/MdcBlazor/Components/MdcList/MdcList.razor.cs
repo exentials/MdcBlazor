@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace Exentials.MdcBlazor
 {
     public partial class MdcList
     {
-        private List<int> _selectedIndex = new List<int>();
+        private int[] _selectedIndex = Array.Empty<int>();
+        private bool _singleSelection;
 
         [Parameter] public bool Dense { get; set; }
         [Parameter] public string Name { get; set; }
@@ -16,18 +18,17 @@ namespace Exentials.MdcBlazor
         [Parameter]
         public int[] SelectedIndex
         {
-            get => _selectedIndex.ToArray();
+            get => _selectedIndex;
             set
             {
                 if (!Equals(_selectedIndex, value))
                 {
-                    _selectedIndex.Clear();
-                    _selectedIndex.AddRange(value);
+                    _selectedIndex = value;
                     if (SelectedIndexChanged.HasDelegate)
                     {
-                        SelectedIndexChanged.InvokeAsync(_selectedIndex.ToArray());
+                        SelectedIndexChanged.InvokeAsync(_selectedIndex);
                     }
-                    InvokeAsync(async () => await JSSetSelectedIndex(_selectedIndex.ToArray())); ;
+                    InvokeAsync(async () => await JSSetSelectedIndex(_selectedIndex));
                 }
             }
         }
@@ -56,15 +57,16 @@ namespace Exentials.MdcBlazor
                     case MdcListType.SingleLine:
                     case MdcListType.TwoLine:
                     case MdcListType.RadioGroup:
-                        await JSSetSingleSelection(true);
+                        _singleSelection = true;
                         break;
                     case MdcListType.Checkbox:
-                        await JSSetSingleSelection(false);
+                        _singleSelection = false;
                         break;
                 }
-                if (SelectedIndex.Count() > 0)
+                await JSSetSingleSelection(_singleSelection);
+                if (SelectedIndex.Length > 0)
                 {
-                    await JSSetSelectedIndex(SelectedIndex.ToArray());
+                    await JSSetSelectedIndex(SelectedIndex);
                 }
             }
         }
@@ -94,15 +96,16 @@ namespace Exentials.MdcBlazor
             return JsInvokeAsync<int[]>("getSelectedIndex");
         }
 
+
         private ValueTask JSSetSelectedIndex(int[] value)
         {
-            return JsInvokeVoidAsync("setSelectedIndex", value);
+            return (_singleSelection) ? JsInvokeVoidAsync("setSelectedIndex", value?[0]) : JsInvokeVoidAsync("setSelectedIndex", value);
         }
 
         [JSInvokable("MDCList:action")]
         public ValueTask ListAction(int[] index)
         {
-            if (Enumerable.SequenceEqual(SelectedIndex, index))
+            if (!Enumerable.SequenceEqual(SelectedIndex, index))
             {
                 SelectedIndex = index;
                 StateHasChanged();
