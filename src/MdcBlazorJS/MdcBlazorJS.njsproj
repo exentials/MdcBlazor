@@ -43,6 +43,7 @@
     </Content>
     <Content Include="src\index.scss" />
     <Content Include="src\mdcAnimation\mdcAnimation.scss" />
+    <Content Include="src\mdcBanner\mdcBanner.scss" />
     <Content Include="src\mdcButton\mdcButton.ts">
       <SubType>Code</SubType>
     </Content>
@@ -120,8 +121,10 @@
     <Folder Include="src\mdcDataTable\" />
     <Folder Include="src\mdcSnackbar\" />
     <Folder Include="src\mdcSelect\" />
+    <Folder Include="src\mdcBanner\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\mdcBanner\mdcBanner.ts" />
     <TypeScriptCompile Include="src\mdcButton\mdcIconButton.ts" />
     <TypeScriptCompile Include="src\mdcCard\mdcCard.ts" />
     <TypeScriptCompile Include="src\mdcButton\mdcIconButtonToggle.ts" />

@@ -12,7 +12,8 @@ ___
 - Embedded Google Roboto Fonts and Material Icons for scenarios with no Internet access
 ___
 
-**Exentials.MdcBlazor** wraps the base Mdc components, **Exentials.MdcBlazor.Tools** depens on them to 
+**Exentials.MdcBlazor** wraps the base Mdc components, **Exentials.MdcBlazor.Tools** depens on them 
+but aim to serve richer and productive controls with less markup and code.
 
 ## Demo server application is available as docker container 
 ```

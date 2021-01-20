@@ -1,6 +1,7 @@
 // Module alias must match Blazor component class Name
 
 import { elements } from "./mdc/mdcBlazor"; // TODO: Should remove
+import * as MdcBanner from "./mdcBanner/mdcBanner";
 import * as MdcButton from "./mdcButton/mdcButton";
 import * as MdcCheckbox from "./mdcCheckbox/mdcCheckbox";
 import * as MdcChip from "./mdcChip/mdcChip";
@@ -32,6 +33,7 @@ window.exentials = window.exentials || {};
 
 window.exentials.mdcBlazor = {
     elements, // TODO: Should remove
+    // MdcBanner,  // Compile issues due to "export enum CloseReason..." on @material/banner/constants.ts
     MdcButton,
     MdcCheckbox,
     MdcChip,

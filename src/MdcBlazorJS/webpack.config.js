@@ -26,7 +26,6 @@ module.exports = function (env, { mode }) {
             extensions: [".ts", ".js", ".css", ".scss"],
             modules: [
                 'src',
-                //'node_modules',
                 path.resolve(__dirname, './node_modules'),
             ]
         },
@@ -35,8 +34,8 @@ module.exports = function (env, { mode }) {
             rules: [
                 {
                     test: /\.ts$/i,
-                    use: "ts-loader",
-                    exclude: /node_modules/
+                    exclude: /node_modules/,
+                    use: [{ loader: 'ts-loader', options: { transpileOnly: true } }],
                 },
                 {
                     test: /\.s[ac]ss$/i,
