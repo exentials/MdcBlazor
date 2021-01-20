@@ -1,26 +1,40 @@
 ﻿@page "/buttons"
 
 <MdcHeadline3>Buttons</MdcHeadline3>
-<p>
-    <MdcButton Label="TEXT BUTTON" OnClick='() => ClickHandler("TEXT BUTTON")' />
-    <MdcButton Label="TEXT BUTTON DISABLED" Disabled="true" OnClick='() => ClickHandler("TEXT BUTTON DISABLED")' />
-    <MdcButton Icon="bookmark" Label="TEXT BUTTON PLUS ICON" OnClick='() => ClickHandler("TEXT BUTTON PLUS ICON")' />
-    <MdcButton Icon="bookmark" Label="TEXT BUTTON PLUS TAILING ICON" TrailingIcon="true" OnClick='() => ClickHandler("TEXT BUTTON PLUS TAILING ICON")' />
-</p>
 
-<p>
-    <MdcButton ButtonType="MdcButtonType.Outlined" Label="OUTLINED BUTTON" OnClick='() => ClickHandler("OUTLINED BUTTON")' />
-    <MdcButton ButtonType="MdcButtonType.Outlined" Label="OUTLINED BUTTON DISABLED" Disabled="true" OnClick='() => ClickHandler("OUTLINED BUTTON DISABLED")' />
-    <MdcButton ButtonType="MdcButtonType.Outlined" Icon="bookmark" Label="OUTLINED BUTTON PLUS ICON" OnClick='() => ClickHandler("OUTLINED BUTTON PLUS ICON")' />
-    <MdcButton ButtonType="MdcButtonType.Outlined" Icon="bookmark" Label="OUTLINED BUTTON PLUS TRALING ICON" TrailingIcon="true" OnClick='() => ClickHandler("OUTLINED BUTTON PLUS TRALING ICON")' />
-</p>
-
-<p>
-    <MdcButton ButtonType="MdcButtonType.Contained" Label="CONTAINED BUTTON" OnClick='() => ClickHandler("CONTAINED BUTTON")' />
-    <MdcButton ButtonType="MdcButtonType.Contained" Label="CONTAINED BUTTON DISABLED" Disabled="true" OnClick='() => ClickHandler("CONTAINED BUTTON DISABLED")' />
-    <MdcButton ButtonType="MdcButtonType.Contained" Icon="bookmark" Label="CONTAINED BUTTON PLUS ICON" OnClick='() => ClickHandler("CONTAINED BUTTON PLUS ICON")' />
-    <MdcButton ButtonType="MdcButtonType.Contained" Icon="bookmark" Label="CONTAINED BUTTON PLUS TRAILING ICON" TrailingIcon="true" OnClick='() => ClickHandler("CONTAINED BUTTON PLUS TRAILING ICON")' />
-</p>
+<DemoComponent>
+    <TopBar>
+        <MdcTabBar @bind-ActiveTab="tab">
+            <MdcTab Label="TEXT" />
+            <MdcTab Label="OUTLINED" />
+            <MdcTab Label="CONTAINED" />
+        </MdcTabBar>
+    </TopBar>
+    <Content>
+        <DemoComponentContainer @ref="demo">
+        @if (tab == 0)
+        {
+            <MdcButton ButtonType="MdcButtonType.Text" Label="TEXT BUTTON" Disabled="disabled.Value" Icon="@If(icon, MdcIcons.Bookmark)"  TrailingIcon="trailingIcon.Value" OnClick='() => ClickHandler("TEXT BUTTON")' />
+        }
+        else if (tab == 1)
+        {
+            <MdcButton ButtonType="MdcButtonType.Outlined"  Label="OUTLINED BUTTON" Disabled="disabled.Value" Icon="@If(icon, MdcIcons.Bookmark)" TrailingIcon="trailingIcon.Value" OnClick='() => ClickHandler("OUTLINED BUTTON")' />
+        }
+        else if (tab == 2)
+        {
+            <MdcButton ButtonType="MdcButtonType.Contained" Label="CONTAINED BUTTON" Disabled="disabled.Value" Icon="@If(icon, MdcIcons.Bookmark)" TrailingIcon="trailingIcon.Value" OnClick='() => ClickHandler("CONTAINED BUTTON")' />
+        }
+        </DemoComponentContainer>
+    </Content>
+    <TopOption>
+        Options
+    </TopOption>
+    <Options>            
+        <MdcCheckbox Label="Disabled" @bind-Value="disabled" />
+        <MdcCheckbox Label="Icon" @bind-Value="icon" />
+        <MdcCheckbox Label="Trailing icon" @bind-Value="trailingIcon" />
+    </Options>
+</DemoComponent>
 
 <MdcHeadline3>Icon Buttons</MdcHeadline3>
 <p>
@@ -42,8 +56,28 @@
 
 @code {
     string message;
+    int tab;
+    DemoComponentContainer demo;
+    string option;
+    
+    bool? disabled = false;
+    bool? icon = false;
+    bool? trailingIcon = false;
+
+    string iconName;
 
     bool toggleSelected;
+
+    T If<T>(bool? expression, T valueTrue)
+    {
+        return (expression ?? false) ? valueTrue : default(T);
+    }
+
+    T If<T>(bool? expression, T valueTrue, T valueFalse)
+    {
+        return (expression ?? false) ? valueTrue : valueFalse;
+    }
+
 
     private Task ClickHandler(string command)
     {
