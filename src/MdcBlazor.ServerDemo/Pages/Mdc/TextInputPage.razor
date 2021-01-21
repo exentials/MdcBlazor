@@ -79,11 +79,11 @@
         Options
     </TopOption>
     <Options>
-        <MdcCheckbox Label="Outlined" Value="outlined" ValueChanged="(arg) => { outlined = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="Disabled" Value="disabled" ValueChanged="(arg) => { disabled = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="Resizable" Value="resizable" ValueChanged="(arg) => { resizable = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="No label" Value="nolabel" ValueChanged="(arg) => { nolabel = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="Required" Value="required" ValueChanged="(arg) => { required = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Outlined" Value="outlined" ValueChanged="(arg) => { outlined = arg; Refresh(); }" />
+        <MdcCheckbox Label="Disabled" Value="disabled" ValueChanged="(arg) => { disabled = arg; Refresh(); }" />
+        <MdcCheckbox Label="Resizable" Value="resizable" ValueChanged="(arg) => { resizable = arg; Refresh(); }" />
+        <MdcCheckbox Label="No label" Value="nolabel" ValueChanged="(arg) => { nolabel = arg; Refresh(); }" />
+        <MdcCheckbox Label="Required" Value="required" ValueChanged="(arg) => { required = arg; Refresh(); }" />
         <label>
             Help message
             <input type="text" value="@helperMessage" @onchange="args => {helperMessage = Convert.ToString(args.Value); Refresh(); }" />

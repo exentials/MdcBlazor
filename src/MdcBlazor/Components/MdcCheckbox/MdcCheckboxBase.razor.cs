@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
-    public partial class MdcCheckbox : MdcInputComponentBase<bool?>
+    public abstract partial class MdcCheckboxBase<TValue> : MdcInputComponentBase<TValue>
     {
         private readonly string _inputId = MdcComponentHelper.CreateId();
         private MdcComponentBase FormField { get; set; }

@@ -1,5 +1,5 @@
 ﻿@page "/selects"
-
+@inherits BasePage
 <MdcHeadline6>Selects</MdcHeadline6>
 
 <DemoComponent>
@@ -20,10 +20,10 @@
         Options
     </TopOption>
     <Options>
-        <MdcCheckbox Label="Outlined" Value="outlined" ValueChanged="(arg) => { outlined = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="Disabled" Value="disabled" ValueChanged="(arg) => { disabled = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="No label" Value="nolabel" ValueChanged="(arg) => { nolabel = arg??false; Refresh(); }" />
-        <MdcCheckbox Label="Required" Value="required" ValueChanged="(arg) => { required = arg??false; Refresh(); }" />
+        <MdcCheckbox Label="Outlined" Value="outlined" ValueChanged="(arg) => { outlined = arg; Refresh(); }" />
+        <MdcCheckbox Label="Disabled" Value="disabled" ValueChanged="(arg) => { disabled = arg; Refresh(); }" />
+        <MdcCheckbox Label="No label" Value="nolabel" ValueChanged="(arg) => { nolabel = arg; Refresh(); }" />
+        <MdcCheckbox Label="Required" Value="required" ValueChanged="(arg) => { required = arg; Refresh(); }" />
         <select @onchange="args => { helperType = ParseHelper(args.Value); Refresh(); }">
             @foreach (var opt in Enum.GetNames<MdcTextFieldHelperType>())
                 {

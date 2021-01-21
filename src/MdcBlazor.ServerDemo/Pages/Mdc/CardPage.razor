@@ -1,23 +1,61 @@
 ﻿@page "/cards"
+@inherits BasePage
 
-<MdcCard Outlined="true">
-    <MdcCardPrimaryAction>
+<MdcHeadline3>Cards</MdcHeadline3>
 
-    </MdcCardPrimaryAction>
-    <MdcCardMedia>
+<DemoComponent>
+    <TopBar>
+        <MdcTabBar ActiveTab="tab" ActiveTabChanged="ChangeTab">
+            <MdcTab Label="ELEVATED" />
+            <MdcTab Label="OUTLINED" />
+        </MdcTabBar>
+    </TopBar>
+    <Content>
+        <DemoComponentContainer @ref="demo">
 
-    </MdcCardMedia>
-    <MdcCardContent>
-        I am a Card
-    </MdcCardContent>
-    <MdcCardActions>
-        <MdcButton Label="Test" />
-        <MdcIconButtonToggle Icon="favorite" ToggleIcon="favorite_border" />
-        <MdcIconButton Icon="share" Title="share" />
-        <MdcIconButton Icon="more_vert" Title="More options" />
-    </MdcCardActions>
-</MdcCard>
+        <MdcCard Outlined="outlined">
+            <MdcCardPrimaryAction>
+
+            </MdcCardPrimaryAction>
+            @if(media) 
+            {
+            <MdcCardMedia>
+
+            </MdcCardMedia>               
+            }
+            <MdcCardContent>
+                I am a Card
+            </MdcCardContent>
+            <MdcCardActions>
+                <MdcButton Label="Test" />
+                <MdcIconButtonToggle Icon="favorite" ToggleIcon="favorite_border" />
+                <MdcIconButton Icon="share" Title="share" />
+                <MdcIconButton Icon="more_vert" Title="More options" />
+            </MdcCardActions>
+        </MdcCard>
+
+        </DemoComponentContainer>
+    </Content>
+    <TopOption>
+        Options
+    </TopOption>
+    <Options>
+        <MdcCheckbox Label="Disabled" @bind-Value="media" />
+
+    </Options>
+</DemoComponent>
 
 
 @code {
+    string message;
+    int tab;
+    DemoComponentContainer demo;
+    bool outlined;
+    bool media;
+
+    void ChangeTab(int index) {
+        tab = index;
+        outlined = (tab == 1);
+        demo.Refresh();
+    }
 }

@@ -55,6 +55,7 @@
     <Content Include="src\mdcCard\mdcCard.scss" />
     <Content Include="src\mdcCheckbox\mdcCheckbox.scss" />
     <Content Include="src\mdcCheckbox\mdcCheckbox.ts" />
+    <Content Include="src\mdcCheckbox\mdcCheckboxIndeterminate.ts" />
     <Content Include="src\mdcChip\mdcChip.scss" />
     <Content Include="src\mdcChip\README.md" />
     <Content Include="src\mdcDataTable\mdcDataTable.scss" />

@@ -9,13 +9,13 @@
     <span>Value 1: @checkboxValue1</span>
 </p>
 <p>
-    <MdcCheckbox @bind-Value="checkboxValue2" Label="Check me 2" />
+    <MdcCheckboxIndeterminate @bind-Value="checkboxValue2" Label="Check me 2" />
     <span>Value 2: @(checkboxValue2 == null? "null" : checkboxValue2.ToString() ) </span>
     <MdcButton OnClick="Clear" Command="clear" Label="Clear" />
 </p>
 
 @code {
-    bool? checkboxValue1 = false;
+    bool checkboxValue1 = false;
 
     bool? checkboxValue2 = null;
 

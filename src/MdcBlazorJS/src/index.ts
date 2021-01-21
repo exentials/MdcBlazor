@@ -4,6 +4,7 @@ import { elements } from "./mdc/mdcBlazor"; // TODO: Should remove
 import * as MdcBanner from "./mdcBanner/mdcBanner";
 import * as MdcButton from "./mdcButton/mdcButton";
 import * as MdcCheckbox from "./mdcCheckbox/mdcCheckbox";
+import * as MdcCheckboxIndeterminate from "./mdcCheckbox/mdcCheckboxIndeterminate";
 import * as MdcChip from "./mdcChip/mdcChip";
 import * as MdcChipset from "./mdcChip/mdcChipSet";
 import * as MdcDataTable from "./mdcDataTable/mdcDataTable";
@@ -33,9 +34,10 @@ window.exentials = window.exentials || {};
 
 window.exentials.mdcBlazor = {
     elements, // TODO: Should remove
-    // MdcBanner,  // Compile issues due to "export enum CloseReason..." on @material/banner/constants.ts
+    MdcBanner,
     MdcButton,
     MdcCheckbox,
+    MdcCheckboxIndeterminate,
     MdcChip,
     MdcChipset,
     MdcCircularProgress,

@@ -1,5 +1,6 @@
 ﻿@namespace Exentials.MdcBlazor
-@inherits MdcInputComponentBase<bool?>
+@typeparam TValue
+@inherits MdcInputComponentBase<TValue>
 <MdcFormField @ref="FormField" AlignEnd="@AlignEnd" NoWrap="@NoWrap" id="@Id">
     <div @ref="Ref" class="mdc-checkbox mdc-checkbox--touch">
         <input id="@_inputId" type="checkbox" class="mdc-checkbox__native-control" />

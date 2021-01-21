@@ -34,7 +34,6 @@ module.exports = function (env, { mode }) {
             rules: [
                 {
                     test: /\.ts$/i,
-                    exclude: /node_modules/,
                     use: [{ loader: 'ts-loader', options: { transpileOnly: true } }],
                 },
                 {
