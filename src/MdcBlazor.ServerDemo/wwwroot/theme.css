@@ -56,7 +56,7 @@
 .demo-component {
     /*min-height: 420px;*/
     border: 1px solid rgba(0,0,0,0.12);
-    transition: box-shadow  150ms linear;                
+    transition: box-shadow 150ms linear;
 }
 
     .demo-component:hover {
@@ -106,8 +106,8 @@
     height: 48px;
     padding-left: 16px;
     padding-right: 4px;
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
 }
 
 .demo-option-panel {
@@ -123,4 +123,8 @@
 
 .component-style {
     background-color: var(--mdc-theme-surface, #fff);
+}
+
+.center-text {
+    text-align: center;
 }

@@ -12,36 +12,45 @@
     </TopBar>
     <Content>
         <DemoComponentContainer @ref="demo">
-
-        <MdcCard Outlined="outlined">
-            <MdcCardPrimaryAction>
-
-            </MdcCardPrimaryAction>
-            @if(media) 
-            {
-            <MdcCardMedia>
-
-            </MdcCardMedia>               
-            }
-            <MdcCardContent>
-                I am a Card
-            </MdcCardContent>
-            <MdcCardActions>
-                <MdcButton Label="Test" />
-                <MdcIconButtonToggle Icon="favorite" ToggleIcon="favorite_border" />
-                <MdcIconButton Icon="share" Title="share" />
-                <MdcIconButton Icon="more_vert" Title="More options" />
-            </MdcCardActions>
-        </MdcCard>
-
+            <MdcCard Outlined="outlined" Width="width" Height="height">
+                @if (primaryAction)
+                {
+                <MdcCardPrimaryAction>
+                    <MdcHeadline6 CssClass="center-text">Here the primary action</MdcHeadline6>
+                </MdcCardPrimaryAction>
+                }
+                @if(media)
+                {
+                <MdcCardMedia Aspect="aspect" Source="/images/balls.png" >
+                    <MdcIcon>favorites</MdcIcon>
+                </MdcCardMedia>
+                }
+                <MdcCardContent>
+                    I am a Card content
+                </MdcCardContent>
+                <MdcCardActions>
+                    <MdcButton Label="Test" />
+                    <MdcIconButtonToggle Icon="favorite" ToggleIcon="favorite_border" />
+                    <MdcIconButton Icon="share" Title="share" />
+                    <MdcIconButton Icon="more_vert" Title="More options" />
+                </MdcCardActions>
+            </MdcCard>
         </DemoComponentContainer>
     </Content>
     <TopOption>
         Options
     </TopOption>
     <Options>
-        <MdcCheckbox Label="Disabled" @bind-Value="media" />
+        <MdcCheckbox Label="Primary action" @bind-Value="primaryAction" />
+        <MdcCheckbox Label="Media" @bind-Value="media" />
+        <MdcCheckbox Label="Custom size" Value="customSize" ValueChanged="CustomSizeChange" />
 
+        <MdcSubtitle1>Aspect ratio</MdcSubtitle1>
+        <MdcRadioGroup Value="@aspectRatio" ValueChanged="AspectRatioChange">
+            <MdcRadio Value="0" Label="None" />
+            <MdcRadio Value="1" Label="Square" />
+            <MdcRadio Value="2" Label="16/9" />
+        </MdcRadioGroup>
     </Options>
 </DemoComponent>
 
@@ -51,11 +60,42 @@
     int tab;
     DemoComponentContainer demo;
     bool outlined;
+
+    bool primaryAction;
     bool media;
+    bool customSize;
+
+    int width;
+    int height;
+
+    string aspectRatio = "0";
+
+    MdcCardMediaAspect aspect;
 
     void ChangeTab(int index) {
         tab = index;
         outlined = (tab == 1);
         demo.Refresh();
     }
+
+    void CustomSizeChange(bool value)
+    {
+        customSize = value;
+        width = (value) ? 350 : 0;
+        height = (value) ? 350 : 0;
+        demo.Refresh();
+    }
+
+    void AspectRatioChange(string value)
+    {
+        aspectRatio = value;
+        switch (value)
+        {
+            case "0": aspect = MdcCardMediaAspect.None; break;
+            case "1": aspect = MdcCardMediaAspect.Square; break;
+            case "2": aspect = MdcCardMediaAspect.SixteenNine; break;
+        }
+        demo.Refresh();
+    }
+
 }

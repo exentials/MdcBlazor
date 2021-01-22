@@ -1,17 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
     public partial class MdcCardMedia
     {
-        [Parameter] public string Title { get; set; }
+        private string _backgroundImage;
         [Parameter] public string CssMedia { get; set; }
-        [Parameter] public bool SixteenNine { get; set; }
+        [Parameter] public MdcCardMediaAspect Aspect { get; set; }
+        [Parameter] public string Source { get; set; }
 
         protected override void OnInitialized()
         {
@@ -20,9 +16,17 @@ namespace Exentials.MdcBlazor
             {
                 CssAttributes.Add(CssMedia);
             }
-            if (SixteenNine)
+            if (Aspect == MdcCardMediaAspect.Square)
+            {
+                CssAttributes.Add("mdc-card__media--square");
+            }
+            else if (Aspect == MdcCardMediaAspect.SixteenNine)
             {
                 CssAttributes.Add("mdc-card__media--16-9");
+            }
+            if (Has(Source))
+            {
+                _backgroundImage = $"background-image: URL({Source})";
             }
         }
     }

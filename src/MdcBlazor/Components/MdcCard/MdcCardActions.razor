@@ -1,6 +1,6 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcContainerComponentBase
-<div class="mdc-card__actions @CssAttributes">
+<div class="mdc-card__actions @CssAttributes" @onclick="ClickHandler">
     <CascadingValue Name="MdcParentContainerType" Value="this.GetType()">
         @ChildContent
     </CascadingValue>

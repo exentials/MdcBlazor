@@ -1,8 +1,10 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcContainerComponentBase
-<div class="mdc-card__media @CssAttributes">
-    @if (Title != null)
+<div class="mdc-card__media @CssAttributes" style="@_backgroundImage">
+    @if (Has(ChildContent))
     {
-    <div class="mdc-card__media-content">@Title</div>
+    <div class="mdc-card__media-content">
+        @ChildContent
+    </div>
     }
 </div>

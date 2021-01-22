@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Microsoft.AspNetCore.Components.Web;
 using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
@@ -10,6 +7,7 @@ namespace Exentials.MdcBlazor
     public partial class MdcCardActions
     {
         [Parameter] public bool FullBleed { get; set; }
+        [Parameter] public EventCallback OnClick { get; set; }
 
         protected override void OnInitialized()
         {
@@ -18,6 +16,15 @@ namespace Exentials.MdcBlazor
             {
                 CssAttributes.Add("mdc-card__actions--full-bleed");
             }
+        }
+
+        private Task ClickHandler(MouseEventArgs args)
+        {
+            if (OnClick.HasDelegate)
+            {
+                return OnClick.InvokeAsync();
+            }
+            return Task.CompletedTask;
         }
     }
 }

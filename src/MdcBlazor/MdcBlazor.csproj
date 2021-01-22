@@ -14,11 +14,15 @@
     <Description>Blazor library based on Material Design Component</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <FileVersion>0.6.5.0</FileVersion>
-    <AssemblyVersion>0.6.5.0</AssemblyVersion>
+    <AssemblyVersion>0.6.6.0</AssemblyVersion>
     <PackageIcon>MdcBlazor-icon.png</PackageIcon>
-    <Version>0.6.5-alpha</Version>
+    <Version>0.6.6-alpha</Version>
     <Copyright>Gambarotto Damiano</Copyright>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\mdcBlazor.min.js.LICENSE.txt" />
+  </ItemGroup>
  
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -29,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\Base\" />
     <Folder Include="wwwroot\material-icons\" />
     <Folder Include="wwwroot\roboto\" />
   </ItemGroup>
@@ -39,6 +42,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Include="wwwroot\mdcBlazor.min.js.LICENSE.txt" />
   </ItemGroup>
 
 </Project>
