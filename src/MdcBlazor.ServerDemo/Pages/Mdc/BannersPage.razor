@@ -1,0 +1,41 @@
+﻿@page "/banners"
+@inherits BasePage
+
+<MdcBanner @ref="banner1"
+    Centered="centeredBanner"
+    Fixed="fixedBanner"
+    Icon="error_outline"
+    Text="There was a problem processing a transaction on your credit card."
+    PrimaryActionLabel="Learn more"
+    SecondaryActionLabel="Fix it" />
+
+<MdcHeadline6>Banners</MdcHeadline6>
+
+<DemoComponent>
+    <Content>
+        <DemoComponentContainer>
+            <MdcButton Label="Show banner" OnClick="ShowBanner" />
+        </DemoComponentContainer>
+    </Content>
+    <Options>
+        <MdcCheckbox @bind-Value="fixedBanner" Label="Fixed" />
+        <MdcCheckbox @bind-Value="centeredBanner" Label="Centered" />
+    </Options>
+</DemoComponent>
+
+
+@code {
+
+    MdcBanner banner1;
+    bool fixedBanner;
+    bool centeredBanner;
+
+
+    void ShowBanner()
+    {
+        banner1.Close();
+        banner1.Open();
+    }
+
+
+}

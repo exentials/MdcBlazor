@@ -122,11 +122,11 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 |Component|Status|Material reference|
 |-|-|-|
 |MdcTopAppBar|In progress|[https://material.io/components/app-bars-top/web](https://material.io/components/app-bars-top/web)|
-|MdcBanner|-|[https://material.io/components/banners/web](https://material.io/components/banners/web)|
+|MdcBanner|In progress|[https://material.io/components/banners/web](https://material.io/components/banners/web)|
 |MdcButton|Complete|[https://material.io/components/buttons/web](https://material.io/components/buttons/web)|
 |MdcIconButton|Complete|[https://material.io/components/buttons/web](https://material.io/components/buttons/web)|
 |MdcFab|Complete|[https://material.io/components/buttons-floating-action-button/web](https://material.io/components/buttons-floating-action-button/web)|
-|MdcCard|In progress|[https://material.io/components/cards/web](https://material.io/components/cards/web)|
+|MdcCard|Complete|[https://material.io/components/cards/web](https://material.io/components/cards/web)|
 |MdcCheckbox|Complete|[https://material.io/components/checkboxes/web](https://material.io/components/checkboxes/web)|
 |MdcChip|In progress|[https://material.io/components/chips/web](https://material.io/components/chips/web)|
 |MdcDataTable|In progress|[https://material.io/components/data-tables/web](https://material.io/components/data-tables/web)|
