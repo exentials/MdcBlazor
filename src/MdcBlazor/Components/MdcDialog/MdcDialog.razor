@@ -1,0 +1,27 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcComponentBase
+<div @ref="Ref" class="mdc-dialog" id="@Id">
+    <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="@TitleId" aria-describedby="@_contentId">
+            <CascadingValue Value="this">
+                @if (Has(Header))
+                {
+                    @Header
+                }
+                @if (Has(Content))
+                {
+                <div class="mdc-dialog__content" id="@_contentId">
+                    @Content
+                </div>
+                }
+                @if (Has(Actions))
+                {
+                    <div class="mdc-dialog__actions">
+                        @Actions
+                    </div>
+                }
+            </CascadingValue>
+        </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+</div>

@@ -1,0 +1,76 @@
+﻿@page "/dialogs"
+
+<MdcHeadline6>Dialogs</MdcHeadline6>
+<DemoComponent>
+    <TopBar>
+        <MdcTabBar @bind-ActiveTab="activeTab">
+            <MdcTab Label="ALERT" />
+            <MdcTab Label="SIMPLE" />
+            <MdcTab Label="CONFIRMATION" />
+        </MdcTabBar>
+    </TopBar>
+    <Content>
+        @if (activeTab == 0)
+        {
+            <span>@message</span>
+            <MdcDialog @bind-IsOpen="isOpen[activeTab]" OnClosed="(action) => { message = action; }">
+                <Header>
+                    <MdcDialogTitle Label="ALERT" />
+                </Header>
+                <Content>
+                    Hello!
+                </Content>
+                <Actions>
+                    <MdcDialogAction Label="Cancel" Name="cancel" />
+                    <MdcDialogAction Label="OK" Name="ok" Default="true" />
+                </Actions>
+            </MdcDialog>
+        }
+        else if (activeTab == 1)
+        {
+            <span>@message</span>
+            <MdcDialog @bind-IsOpen="isOpen[activeTab]" OnClosed="(action) => { message = action; }">
+                <Header>
+                    <MdcDialogTitle Label="SIMPLE DIALOG" />
+                </Header>
+                <Content>
+                    <MdcList ListType="MdcListType.RadioGroup">
+                        <MdcListItem Label="Option 1" />
+                        <MdcListItem Label="Option 2" />
+                        <MdcListItem Label="Option 3" />
+                        <MdcListItem Label="Option 4" />
+                    </MdcList>
+                </Content>
+            </MdcDialog>
+
+        }
+        else if (activeTab == 2)
+        {
+            <span>@message</span>
+            <MdcDialog @bind-IsOpen="isOpen[activeTab]" OnClosed="(action) => { message = action; }">
+                <Header>
+                    <MdcDialogTitle Label="PLEASE CONFIRM" />
+                </Header>
+                <Content>
+                    Hello!
+                </Content>
+                <Actions>
+                    <MdcDialogAction Label="Cancel" Name="cancel" />
+                    <MdcDialogAction Label="OK" Name="ok" Default="true" />
+                </Actions>
+            </MdcDialog>
+        }
+    </Content>
+    <Options>
+        <MdcButton ButtonType="MdcButtonType.Outlined" Label="Open" OnClick="() => { isOpen[activeTab] = true; }" />
+    </Options>
+</DemoComponent>
+
+@code {
+
+    string message;
+    int activeTab;
+
+    bool[] isOpen = new bool[3];
+
+} 

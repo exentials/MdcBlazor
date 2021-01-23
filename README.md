@@ -130,7 +130,7 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 |MdcCheckbox|Complete|[https://material.io/components/checkboxes/web](https://material.io/components/checkboxes/web)|
 |MdcChip|In progress|[https://material.io/components/chips/web](https://material.io/components/chips/web)|
 |MdcDataTable|In progress|[https://material.io/components/data-tables/web](https://material.io/components/data-tables/web)|
-|MdcDialog|-|[https://material.io/components/dialogs/we](https://material.io/components/dialogs/we)|
+|MdcDialog|Complete|[https://material.io/components/dialogs/we](https://material.io/components/dialogs/web)|
 |MdcDivider|-|[https://material.io/components/dividers/web](https://material.io/components/dividers/web)|
 |MdcImageList|-|[https://material.io/components/image-lists/web](https://material.io/components/image-lists/web)|
 |MdcList|Complete|[https://material.io/components/lists/web](https://material.io/components/lists/web)|

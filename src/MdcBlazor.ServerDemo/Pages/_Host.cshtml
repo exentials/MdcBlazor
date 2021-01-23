@@ -11,9 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exentials MdcBlazor ServerDemo</title>
     <base href="~/" />
-    <link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />
     <link href="_content/Exentials.MdcBlazor/roboto/roboto.css" rel="stylesheet" />
     <link href="_content/Exentials.MdcBlazor/material-icons/material-icons.css" rel="stylesheet" />
+    <link href="_content/Exentials.MdcBlazor/mdcBlazor.min.css" rel="stylesheet" />
     <link href="/theme.css" rel="stylesheet" />
 </head>
 <body class="@MdcStyle.Typography">
@@ -31,7 +31,11 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
-    <script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.js"></script>
-
+    <script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.min.js"></script>
+    <script>
+        Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
+            document.location.reload();
+        }
+    </script>
 </body>
 </html>
