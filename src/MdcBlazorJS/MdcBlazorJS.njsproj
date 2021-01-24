@@ -71,6 +71,7 @@
     <Content Include="src\mdcFab\mdcFab.scss" />
     <Content Include="src\mdcFormField\mdcFormField.scss" />
     <Content Include="src\mdcIcon\mdcIcon.scss" />
+    <Content Include="src\mdcLayoutGrid\mdcLayoutGrid.scss" />
     <Content Include="src\mdcList\mdcList.ts">
       <SubType>Code</SubType>
     </Content>
@@ -125,6 +126,7 @@
     <Folder Include="src\mdcSelect\" />
     <Folder Include="src\mdcBanner\" />
     <Folder Include="src\mdcDialog\" />
+    <Folder Include="src\mdcLayoutGrid\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcBanner\mdcBanner.ts" />

@@ -50,9 +50,9 @@ namespace Exentials.MdcBlazor
             return parameters.ToArray();
         }
 
-        protected static bool Has(string value)
+        protected static bool Has<T>(int value) where T : Enum
         {
-            return !string.IsNullOrEmpty(value);
+            return (value != 0);
         }
 
         protected static bool Has(bool? value)

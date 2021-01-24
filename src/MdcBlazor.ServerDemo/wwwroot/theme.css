@@ -121,6 +121,11 @@
     border: 1px solid #e5e5e5;
 }
 
+.demo-layout-grid-cell {
+    background-color: gainsboro;
+    text-align:center;
+}
+
 .component-style {
     background-color: var(--mdc-theme-surface, #fff);
 }

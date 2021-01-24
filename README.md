@@ -134,7 +134,7 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 |MdcFab|Complete|[material.io](https://material.io/components/buttons-floating-action-button/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab)|
 |MdcIconButton|Complete|[material.io](https://material.io/components/buttons/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button)|
 |MdcImageList|-|[material.io](https://material.io/components/image-lists/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-image-list)|
-|MdcLayoutGrid|-|[material.io](https://material-components.github.io/material-components-web-catalog/#/component/layout-grid) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid)|
+|MdcLayoutGrid|Complete|[material.io](https://material-components.github.io/material-components-web-catalog/#/component/layout-grid) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid)|
 |MdcLinearProgress|Complete|[material.io](https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress)|
 |MdcList|Complete|[material.io](https://material.io/components/lists/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-list)|
 |MdcMenu|-|[material.io](https://material.io/components/menus/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-menu)|
