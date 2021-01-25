@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Exentials.MdcBlazor
         [Parameter] public string SecondaryActionLabel { get; set; }
         [Parameter] public EventCallback OnPrimaryActionClick { get; set; }
         [Parameter] public EventCallback OnSecondaryActionClick { get; set; }
+        [Parameter] public EventCallback OnClosed { get; set; }
 
         protected override void OnInitialized()
         {
@@ -52,6 +54,16 @@ namespace Exentials.MdcBlazor
             if (OnSecondaryActionClick.HasDelegate)
             {
                 return OnSecondaryActionClick.InvokeAsync();
+            }
+            return Task.CompletedTask;
+        }
+
+        [JSInvokable("MDCBanner:closed")]
+        public Task MDCBannerClosed()
+        {            
+            if (OnClosed.HasDelegate)
+            {
+                return OnClosed.InvokeAsync();
             }
             return Task.CompletedTask;
         }
