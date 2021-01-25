@@ -1,11 +1,59 @@
 ﻿@inherits LayoutComponentBase
-<MdcTopAppBarContainer Fixed="true">
-    <MdcTopAppBar OnNavToggle="ToggleDrawer" BarType="MdcTopAppBarType.Regular" >
+
+@if (drawerLayout == 0)
+{
+    <MdcTopAppBarContainer Fixed="true">
+        <MdcTopAppBar OnNavToggle="ToggleDrawer" BarType="MdcTopAppBarType.Regular">
+            <Header>
+                <MdcTopAppBarRow>
+                    <MdcTopAppBarSectionStart>
+                        <MdcTopAppBarNavIcon Icon="menu" Label="Open navigation menu" />
+                        <MdcTopAppBarTitle>exentials/MdcBlazor-Server-Demo</MdcTopAppBarTitle>
+                    </MdcTopAppBarSectionStart>
+                    <MdcTopAppBarSectionEnd>
+                        <MdcTopAppBarActionButton Label="Favorite" Icon="favorite" />
+                        <MdcTopAppBarActionButton Label="Search" Icon="search" />
+                        <MdcTopAppBarActionButton Label="Options" Icon="more_vert" />
+                    </MdcTopAppBarSectionEnd>
+                </MdcTopAppBarRow>
+            </Header>
+        </MdcTopAppBar>
+        <MdcDrawer DrawerType="drawerType" @bind-Open="drawerOpened">
+            <MdcDrawerHeader>
+                <MdcDrawerTitle>Components</MdcDrawerTitle>
+                <MdcDrawerSubtitle>by MdcBlazor</MdcDrawerSubtitle>
+            </MdcDrawerHeader>
+            <MdcDrawerContent>
+                <NavMenu />
+            </MdcDrawerContent>
+        </MdcDrawer>
+        <MdcDrawerAppContent>
+            <div class="demo-page">
+                <CascadingValue Value="this">
+                    @Body
+                </CascadingValue>
+            </div>
+        </MdcDrawerAppContent>
+    </MdcTopAppBarContainer>
+}
+else if (drawerLayout == 1)
+{
+<MdcDrawer DrawerType="drawerType" @bind-Open="drawerOpened">
+    <MdcDrawerHeader>
+        <MdcDrawerTitle>Components</MdcDrawerTitle>
+        <MdcDrawerSubtitle>by exentials/MdcBlazor</MdcDrawerSubtitle>
+    </MdcDrawerHeader>
+    <MdcDrawerContent>
+        <NavMenu />
+    </MdcDrawerContent>
+</MdcDrawer>
+<MdcDrawerAppContent>
+    <MdcTopAppBar OnNavToggle="ToggleDrawer" BarType="MdcTopAppBarType.Regular">
         <Header>
             <MdcTopAppBarRow>
                 <MdcTopAppBarSectionStart>
                     <MdcTopAppBarNavIcon Icon="menu" Label="Open navigation menu" />
-                    <MdcTopAppBarTitle>MdcBlazor Demo</MdcTopAppBarTitle>
+                    <MdcTopAppBarTitle>exentials/MdcBlazor-Server-Demo</MdcTopAppBarTitle>
                 </MdcTopAppBarSectionStart>
                 <MdcTopAppBarSectionEnd>
                     <MdcTopAppBarActionButton Label="Favorite" Icon="favorite" />
@@ -14,53 +62,44 @@
                 </MdcTopAppBarSectionEnd>
             </MdcTopAppBarRow>
         </Header>
+        <ChildContent>
+            <div class="demo-page">
+                <CascadingValue Value="this">
+                    @Body
+                </CascadingValue>
+            </div>
+
+        </ChildContent>
     </MdcTopAppBar>
-    <MdcDrawer DrawerType="MdcDrawerType.Dismissible" @bind-Open="drawerOpened">
-        <MdcDrawerHeader>
-            <MdcDrawerTitle>Components</MdcDrawerTitle>
-            <MdcDrawerSubtitle>by MdcBlazor</MdcDrawerSubtitle>
-        </MdcDrawerHeader>
-        <MdcDrawerContent>
-            <MdcDrawerNav>
-                <MdcDrawerNavItem Href="/banners">Banners</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/buttons">Buttons</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/cards">Cards</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/checkboxes">Checkboxes</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/chips">Chips</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/dialogs">Dialogs</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/datatables">Data tables</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/elevations">Elevations</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/fabs">FABs</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/layoutgrids">Layout grids</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/lists">Lists</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/menus">Menus</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/progressindicators">Progress indicators</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/radios">Radios</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/selects">Selects</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/sliders">Sliders</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/snackbars">Snackbars</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/switches">Switches</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/tabs">Tabs</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/textinputs">Text inputs</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/typography">Tipography</MdcDrawerNavItem>
-                <MdcDrawerNavItem Href="/materialicons">Material Icons</MdcDrawerNavItem>
-            </MdcDrawerNav>
-        </MdcDrawerContent>
-    </MdcDrawer>
-    <MdcDrawerAppContent>
-        <div class="demo-page">
-            @Body
-        </div>
-    </MdcDrawerAppContent>
-</MdcTopAppBarContainer>
+</MdcDrawerAppContent>
+}
 
 <MdcSnackbarService />
 
 @code  {
+    int drawerLayout = 0;
+    MdcDrawerType drawerType = MdcDrawerType.Dismissible;
+
     bool drawerOpened = true;
+
+    internal void Change(int value, bool modal)
+    {
+        var drawerType = (modal) ? MdcDrawerType.Modal : MdcDrawerType.Dismissible;
+        if (this.drawerType != drawerType)
+        {
+            this.drawerType = drawerType;
+            StateHasChanged();
+        }
+        if (drawerLayout != value)
+        {
+            drawerLayout = value;
+            StateHasChanged();
+        }
+    }
 
     void ToggleDrawer()
     {
         drawerOpened = !drawerOpened;
+        StateHasChanged();
     }
 }

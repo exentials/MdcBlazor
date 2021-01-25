@@ -1,0 +1,30 @@
+﻿@page "/drawers"
+
+<MdcHeadline6>Drawers</MdcHeadline6>
+
+<MdcRadioGroup @bind-Value="index">
+    <MdcRadio Value="0" Label="Top app bar" />
+    <MdcRadio Value="1" Label="Side drawer" />
+</MdcRadioGroup>
+<MdcCheckbox Label="Modal" @bind-Value="modal" />
+
+<MdcButton Label="Apply" OnClick="LayoutChange" />
+
+@code {
+
+
+    [CascadingParameter] MainLayout Layout { get; set; }
+
+    string index="0";
+    bool modal;
+
+
+    void LayoutChange()
+    {        
+        if (Layout != null)
+        {
+            Layout.Change(int.Parse(index), modal);
+        }
+    }
+
+}
