@@ -77,6 +77,7 @@
     </Content>
     <Content Include="src\mdcList\mdcList.scss" />
     <Content Include="src\mdcList\mdcListItem.ts" />
+    <Content Include="src\mdcMenu\mdcMenu.scss" />
     <Content Include="src\mdcProgressIndicator\mdcCircularProgress.scss" />
     <Content Include="src\mdcProgressIndicator\mdcLinearProgress.scss" />
     <Content Include="src\mdcRadio\mdcRadio.scss" />
@@ -127,6 +128,7 @@
     <Folder Include="src\mdcBanner\" />
     <Folder Include="src\mdcDialog\" />
     <Folder Include="src\mdcLayoutGrid\" />
+    <Folder Include="src\mdcMenu\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcBanner\mdcBanner.ts" />
@@ -139,6 +141,7 @@
     <TypeScriptCompile Include="src\mdcDialog\mdcDialog.ts" />
     <TypeScriptCompile Include="src\mdcFormField\mdcFormField.ts" />
     <TypeScriptCompile Include="src\mdcIcon\mdcIcon.ts" />
+    <TypeScriptCompile Include="src\mdcMenu\mdcMenu.ts" />
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcCircularProgress.ts" />
     <TypeScriptCompile Include="src\mdcProgressIndicator\mdcLinearProgress.ts" />
     <TypeScriptCompile Include="src\mdcRadio\mdcRadio.ts" />

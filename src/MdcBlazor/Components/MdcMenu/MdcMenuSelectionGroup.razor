@@ -1,0 +1,9 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcContainerComponentBase
+<li>
+    <ul class="mdc-menu__selection-group">
+        <CascadingValue Value="this">
+            @ChildContent
+        </CascadingValue>
+    </ul>
+</li>

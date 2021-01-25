@@ -1,6 +1,5 @@
 // Module alias must match Blazor component class Name
 
-import { elements } from "./mdc/mdcBlazor"; // TODO: Should remove
 import * as MdcBanner from "./mdcBanner/mdcBanner";
 import * as MdcButton from "./mdcButton/mdcButton";
 import * as MdcCheckbox from "./mdcCheckbox/mdcCheckbox";
@@ -17,6 +16,7 @@ import * as MdcIconButton from "./mdcButton/mdcIconButton";
 import * as MdcIconButtonToggle from "./mdcButton/mdcIconButtonToggle";
 import * as MdcList from "./mdcList/mdcList";
 import * as MdcListItem from "./mdcList/mdcListItem";
+import * as MdcMenu from "./mdcMenu/mdcMenu";
 import * as MdcCircularProgress from "./mdcProgressIndicator/mdcCircularProgress";
 import * as MdcLinearProgress from "./mdcProgressIndicator/mdcLinearProgress";
 import * as MdcRadio from "./mdcRadio/mdcRadio";
@@ -34,7 +34,6 @@ import * as MdcTopAppBar from "./mdcTopAppBar/mdcTopAppBar";
 window.exentials = window.exentials || {};
 
 window.exentials.mdcBlazor = {
-    elements, // TODO: Should remove
     MdcBanner,
     MdcButton,
     MdcCheckbox,
@@ -52,6 +51,7 @@ window.exentials.mdcBlazor = {
     MdcIconButtonToggle,
     MdcList,
     MdcListItem,
+    MdcMenu,
     MdcLinearProgress,
     MdcRadio,
     MdcSelect,

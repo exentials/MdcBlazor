@@ -137,7 +137,7 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 |MdcLayoutGrid|Complete|[material.io](https://material-components.github.io/material-components-web-catalog/#/component/layout-grid) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid)|
 |MdcLinearProgress|Complete|[material.io](https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress)|
 |MdcList|Complete|[material.io](https://material.io/components/lists/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-list)|
-|MdcMenu|-|[material.io](https://material.io/components/menus/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-menu)|
+|MdcMenu|In progress|[material.io](https://material.io/components/menus/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-menu)|
 |MdcRadio|Complete|[material.io](https://material.io/components/radio-buttons/web#installation) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio)|
 |MdcSegmentedButton|-|[github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-segmented-button)|
 |MdcSelect|In progress|[github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select)|

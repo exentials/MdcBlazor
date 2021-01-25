@@ -1,0 +1,23 @@
+﻿@page "/menus"
+
+<MdcHeadline6>Menus</MdcHeadline6>
+<MdcMenuAnchor>
+    <MdcButton Label="Menu" OnClick="() => menu.Open()" />
+    <MdcMenu @ref="menu" OnSelected="(i) => { index = i; }">
+        <MdcMenuItem Label="Item 1" />
+        <MdcMenuItem Label="Item 2" />
+        <MdcMenuItem Label="Item 3" Disabled="true" />
+        <MdcMenuItemDivider />
+        <MdcMenuItem Label="Item 4" />
+    </MdcMenu>
+</MdcMenuAnchor>
+
+<p>
+    Selected item: @index
+</p>
+
+@code   
+{
+    MdcMenu menu;
+    int index;
+}
