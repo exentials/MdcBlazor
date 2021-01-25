@@ -9,7 +9,6 @@ namespace Exentials.MdcBlazor
     {
         private bool _open;
 
-        [Inject] private MdcEventService EventService { get; set; }
         [CascadingParameter(Name = "MdcTopAppBarFixed")] bool MdcTopAppBarFixed { get; set; }
         [CascadingParameter(Name = "MdcDrawerMode")] MdcDrawerType MdcDrawerType { get => DrawerType; set => DrawerType = value; }
         [Parameter] public MdcDrawerType DrawerType { get; set; }

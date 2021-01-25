@@ -1,17 +1,19 @@
 ﻿@inherits LayoutComponentBase
 <MdcTopAppBarContainer Fixed="true">
-    <MdcTopAppBar OnNavToggle="ToggleDrawer">
-        <MdcTopAppBarRow>
-            <MdcTopAppBarSectionStart>
-                <MdcTopAppBarNavIcon Icon="menu" Label="Open navigation menu"  />
-                <MdcTopAppBarTitle>MdcBlazor Demo</MdcTopAppBarTitle>
-            </MdcTopAppBarSectionStart>
-            <MdcTopAppBarSectionEnd>
-                <MdcTopAppBarActionButton Label="Favorite" Icon="favorite" />
-                <MdcTopAppBarActionButton Label="Search" Icon="search" />
-                <MdcTopAppBarActionButton Label="Options" Icon="more_vert" />
-            </MdcTopAppBarSectionEnd>
-        </MdcTopAppBarRow>
+    <MdcTopAppBar OnNavToggle="ToggleDrawer" BarType="MdcTopAppBarType.Regular" >
+        <Header>
+            <MdcTopAppBarRow>
+                <MdcTopAppBarSectionStart>
+                    <MdcTopAppBarNavIcon Icon="menu" Label="Open navigation menu" />
+                    <MdcTopAppBarTitle>MdcBlazor Demo</MdcTopAppBarTitle>
+                </MdcTopAppBarSectionStart>
+                <MdcTopAppBarSectionEnd>
+                    <MdcTopAppBarActionButton Label="Favorite" Icon="favorite" />
+                    <MdcTopAppBarActionButton Label="Search" Icon="search" />
+                    <MdcTopAppBarActionButton Label="Options" Icon="more_vert" />
+                </MdcTopAppBarSectionEnd>
+            </MdcTopAppBarRow>
+        </Header>
     </MdcTopAppBar>
     <MdcDrawer DrawerType="MdcDrawerType.Dismissible" @bind-Open="drawerOpened">
         <MdcDrawerHeader>

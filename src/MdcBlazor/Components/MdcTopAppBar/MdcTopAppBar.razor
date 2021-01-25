@@ -1,6 +1,8 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcContainerComponentBase
 <header @ref="Ref" class="mdc-top-app-bar @CssAttributes">
-    @ChildContent
+    @Header
 </header>
-<div class="@CssClassAdjustAttributes"></div>
+<main class="@CssClassAdjustAttributes">
+    @ChildContent
+</main>
