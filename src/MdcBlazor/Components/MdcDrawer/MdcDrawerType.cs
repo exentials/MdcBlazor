@@ -1,6 +1,6 @@
 ﻿namespace Exentials.MdcBlazor
 {
-    public enum MdcDrawerMode
+    public enum MdcDrawerType
     {
         Dismissible = 0,
         Modal

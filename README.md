@@ -35,9 +35,6 @@ Install-Package Exentials.MdcBlazor.Tools
 Add on the service registration section of your Startup.cs file
 ```csharp
 services.AddMdcBlazor();    // Enable MdcBlazor services
-
-services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
-
 ```
 
 ##### In your _Imports.razor add the components namespace:
@@ -50,6 +47,7 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 
 ```html
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.css" rel="stylesheet" />  <!-- develop -->
+<!-- OR -->
 <link href="_content/Exentials.MdcBlazor/mdcBlazor.min.css" rel="stylesheet" />  <!-- production -->
 .
 .
@@ -65,6 +63,7 @@ services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 ##### and at the end after the blazor js script
 ```html
 <script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.js"></script> <!-- develop -->
+<!-- OR -->
 <script type="module" src="_content/Exentials.MdcBlazor/mdcBlazor.min.js"></script> <!-- production -->
 ```
 
@@ -79,8 +78,6 @@ Install-Package Exentials.MdcBlazor
 Server project: Add on the service registration section of Startup.cs file
 ```csharp
 services.AddMdcBlazor();    // Enable MdcBlazor services
-
-services.AddMdcBlazorTools(); // Enable MdcBlazor Tools services
 ```
 
 ##### In _Imports.razor add the components namespace:

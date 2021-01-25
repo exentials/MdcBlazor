@@ -9,6 +9,6 @@ namespace Exentials.MdcBlazor
 {
     public partial class MdcDrawerContainer
     {
-        [Parameter] public MdcDrawerMode Mode { get; set; }
+        [Parameter] public MdcDrawerType Mode { get; set; }
     }
 }

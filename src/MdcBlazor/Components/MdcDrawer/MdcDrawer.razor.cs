@@ -10,9 +10,9 @@ namespace Exentials.MdcBlazor
         private bool _open;
 
         [Inject] private MdcEventService EventService { get; set; }
-        [CascadingParameter(Name = "MdcTopAppBarFixed")] protected bool MdcTopAppBarFixed { get; set; }
-        [CascadingParameter(Name = "MdcDrawerMode")] protected MdcDrawerMode MdcDrawerMode { get => Mode; set => Mode = value; }
-        [Parameter] public MdcDrawerMode Mode { get; set; }
+        [CascadingParameter(Name = "MdcTopAppBarFixed")] bool MdcTopAppBarFixed { get; set; }
+        [CascadingParameter(Name = "MdcDrawerMode")] MdcDrawerType MdcDrawerType { get => DrawerType; set => DrawerType = value; }
+        [Parameter] public MdcDrawerType DrawerType { get; set; }
 
         [Parameter]
         public bool Open
@@ -27,12 +27,12 @@ namespace Exentials.MdcBlazor
                     {
                         OpenChanged.InvokeAsync(_open);
                     }
+                    InvokeAsync(async () => await SetOpen(_open));
                 }
             }
         }
 
-        [Parameter]
-        public EventCallback<bool> OpenChanged { get; set; }
+        [Parameter] public EventCallback<bool> OpenChanged { get; set; }
 
         protected override void OnInitialized()
         {
@@ -42,47 +42,48 @@ namespace Exentials.MdcBlazor
                 CssAttributes.Add("mdc-top-app-bar--fixed-adjust");
             }
 
-            switch (Mode)
+            switch (DrawerType)
             {
-                case MdcDrawerMode.Dismissible:
+                case MdcDrawerType.Dismissible:
                     CssAttributes.Add("mdc-drawer--dismissible");
                     break;
-                case MdcDrawerMode.Modal:
+                case MdcDrawerType.Modal:
                     CssAttributes.Add("mdc-drawer--modal");
                     break;
-            }
-        }
-
-        private Action unsubscibeNav;
-        protected override void OnAfterRender(bool firstRender)
-        {
-            base.OnAfterRender(firstRender);
-            if (firstRender)
-            {
-                unsubscibeNav = EventService.Subscribe(MdcEvents.TopAppBarNav, () =>
-                {
-                    _open = !_open;
-                    InvokeAsync(StateHasChanged);
-                    return ValueTask.CompletedTask;
-                });
             }
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             await base.OnAfterRenderAsync(firstRender);
-            await SetOpen(_open);
+            if (firstRender)
+            {
+                await SetOpen(_open);
+            }
         }
 
-        public ValueTask SetOpen(bool value)
+        private ValueTask<bool> JSGetOpen()
+        {
+            return JsInvokeAsync<bool>("getOpen");
+        }
+
+        private ValueTask SetOpen(bool value)
         {
             return JsInvokeVoidAsync("setOpen", value);
         }
 
-        public override ValueTask DisposeAsync()
+        [JSInvokable("MDCDrawer:opened")]
+        public Task MDCDrawerOpened()
         {
-            unsubscibeNav?.Invoke();
-            return base.DisposeAsync();
+            Open = true;
+            return Task.CompletedTask;
+        }
+
+        [JSInvokable("MDCDrawer:closed")]
+        public Task MDCDrawerClosed()
+        {
+            Open = false;
+            return Task.CompletedTask;
         }
     }
 }

@@ -3,23 +3,17 @@ import { dotnetInvokeMethodAsync, mdc, mdcDestroy, mdcInit } from '../mdc/mdcBla
 
 class MdcTopAppBar extends MDCTopAppBar {
 
-    constructor(ref: Element) {
-        super(ref);
-        this.listen("MDCTopAppBar:nav", this.navHandler);
-    }
-
-    async navHandler() {
-        await dotnetInvokeMethodAsync("MDCTopAppBarNavHandler");
-    }
-
-    destroy() {
-        this.unlisten("MDCTopAppBar:nav", this.navHandler);
-        super.destroy()
+    constructor(ref: Element, private component: DotNet.DotNetObject) {
+        super(ref);        
+        this.listen("MDCTopAppBar:nav", (event) => {
+            console.log("MDCTopAppBar:nav", event);
+            this.component.invokeMethodAsync("MDCTopAppBar:nav");
+        });
     }
 }
 
-export function init(ref: Element) {
-    mdcInit(ref, new MdcTopAppBar(ref));
+export function init(ref: Element, component: DotNet.DotNetObject) {
+    mdcInit(ref, new MdcTopAppBar(ref, component));
 }
 
 export function destroy(ref: Element) {

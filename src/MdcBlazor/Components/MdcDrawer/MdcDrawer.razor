@@ -3,7 +3,7 @@
 <aside @ref=Ref class="mdc-drawer @CssAttributes">
     @ChildContent
 </aside>
-@if (Mode == MdcDrawerMode.Modal)
+@if (DrawerType == MdcDrawerType.Modal)
 {
     <div class="mdc-drawer-scrim"></div>
 }

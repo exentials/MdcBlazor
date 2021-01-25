@@ -1,9 +1,9 @@
 ﻿@inherits LayoutComponentBase
 <MdcTopAppBarContainer Fixed="true">
-    <MdcTopAppBar>
+    <MdcTopAppBar OnNavToggle="ToggleDrawer">
         <MdcTopAppBarRow>
             <MdcTopAppBarSectionStart>
-                <MdcTopAppBarNavIcon Icon="menu" Label="Open navigation menu" />
+                <MdcTopAppBarNavIcon Icon="menu" Label="Open navigation menu"  />
                 <MdcTopAppBarTitle>MdcBlazor Demo</MdcTopAppBarTitle>
             </MdcTopAppBarSectionStart>
             <MdcTopAppBarSectionEnd>
@@ -13,7 +13,7 @@
             </MdcTopAppBarSectionEnd>
         </MdcTopAppBarRow>
     </MdcTopAppBar>
-    <MdcDrawer Mode="MdcDrawerMode.Dismissible" @bind-Open="drawerOpened">
+    <MdcDrawer DrawerType="MdcDrawerType.Dismissible" @bind-Open="drawerOpened">
         <MdcDrawerHeader>
             <MdcDrawerTitle>Components</MdcDrawerTitle>
             <MdcDrawerSubtitle>by MdcBlazor</MdcDrawerSubtitle>
@@ -56,4 +56,9 @@
 
 @code  {
     bool drawerOpened = true;
+
+    void ToggleDrawer()
+    {
+        drawerOpened = !drawerOpened;
+    }
 }

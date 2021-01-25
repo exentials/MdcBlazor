@@ -11,9 +11,9 @@ namespace Exentials.MdcBlazor
     public partial class MdcTopAppBar
     {
         private readonly CssAttributes CssClassAdjustAttributes = new CssAttributes();
-        [CascadingParameter(Name = "MdcTopAppBarFixed")] protected bool MdcTopAppBarFixed { get => Fixed; set => Fixed = value; }
+        [CascadingParameter(Name = "MdcTopAppBarFixed")] bool MdcTopAppBarFixed { get => Fixed; set => Fixed = value; }
         [Parameter] public bool Fixed { get; set; }
-
+        [Parameter] public EventCallback OnNavToggle { get; set; }
 
         protected override void OnInitialized()
         {
@@ -22,6 +22,16 @@ namespace Exentials.MdcBlazor
             {
                 CssAttributes.Add("mdc-top-app-bar--fixed");
             }
+        }
+
+        [JSInvokable("MDCTopAppBar:nav")]
+        public Task MDCTopAppBarNav()
+        {
+            if (OnNavToggle.HasDelegate)
+            {
+                return OnNavToggle.InvokeAsync();
+            }
+            return Task.CompletedTask;
         }
 
     }

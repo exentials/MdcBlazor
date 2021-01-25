@@ -4,7 +4,7 @@ namespace Exentials.MdcBlazor
 {
     public static class MdcBlazorToolsExtensions
     {
-        public static void AddMdcBlazorTools(this IServiceCollection services)
+        public static void AddMdcBlazor(this IServiceCollection services)
         {
             services.AddScoped<SnackbarService>();
         }
