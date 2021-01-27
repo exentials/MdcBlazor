@@ -9,6 +9,7 @@ class MdcTopAppBar extends MDCTopAppBar {
             console.log("MDCTopAppBar:nav", event);
             this.component.invokeMethodAsync("MDCTopAppBar:nav");
         });
+        this.setScrollTarget(document.getElementById('main-content'));
     }
 }
 

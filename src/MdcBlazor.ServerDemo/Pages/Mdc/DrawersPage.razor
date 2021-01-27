@@ -19,8 +19,16 @@
     bool modal;
 
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        index = Layout.drawerLayout.ToString();
+        modal = (Layout.drawerType == MdcDrawerType.Modal);
+    }
+
+
     void LayoutChange()
-    {        
+    {
         if (Layout != null)
         {
             Layout.Change(int.Parse(index), modal);

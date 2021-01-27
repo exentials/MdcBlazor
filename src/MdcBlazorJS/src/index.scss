@@ -50,8 +50,11 @@ body {
     z-index: 7;
 }
 
-/* CARD */
+header.mdc-drawer--dismissible {
+    z-index: 5 !important;
+}
 
+/* CARD */
 .mdc-card__content {
     padding: 16px;
 }

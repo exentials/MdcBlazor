@@ -23659,6 +23659,10 @@ body {
   z-index: 7;
 }
 
+header.mdc-drawer--dismissible {
+  z-index: 5 !important;
+}
+
 /* CARD */
 .mdc-card__content {
   padding: 16px;

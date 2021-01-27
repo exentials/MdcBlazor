@@ -139,6 +139,8 @@
     <TypeScriptCompile Include="src\mdcChip\mdcChipset.ts" />
     <TypeScriptCompile Include="src\mdcDataTable\mdcDataTable.ts" />
     <TypeScriptCompile Include="src\mdcDialog\mdcDialog.ts" />
+    <TypeScriptCompile Include="src\mdcDrawer\mdcDrawerNav.ts" />
+    <TypeScriptCompile Include="src\mdcDrawer\mdcDrawerNavItem.ts" />
     <TypeScriptCompile Include="src\mdcFormField\mdcFormField.ts" />
     <TypeScriptCompile Include="src\mdcIcon\mdcIcon.ts" />
     <TypeScriptCompile Include="src\mdcMenu\mdcMenu.ts" />

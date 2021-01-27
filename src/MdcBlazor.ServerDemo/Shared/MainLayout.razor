@@ -77,8 +77,8 @@ else if (drawerLayout == 1)
 <MdcSnackbarService />
 
 @code  {
-    int drawerLayout = 0;
-    MdcDrawerType drawerType = MdcDrawerType.Dismissible;
+    internal int drawerLayout = 0;
+    internal MdcDrawerType drawerType = MdcDrawerType.Dismissible;
 
     bool drawerOpened = true;
 
@@ -96,6 +96,8 @@ else if (drawerLayout == 1)
             StateHasChanged();
         }
     }
+
+
 
     void ToggleDrawer()
     {
