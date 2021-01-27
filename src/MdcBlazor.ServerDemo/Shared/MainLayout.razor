@@ -24,7 +24,9 @@
                 <MdcDrawerSubtitle>by MdcBlazor</MdcDrawerSubtitle>
             </MdcDrawerHeader>
             <MdcDrawerContent>
-                <NavMenu />
+                <MdcDrawerNav>
+                    <NavMenuItems />
+                </MdcDrawerNav>
             </MdcDrawerContent>
         </MdcDrawer>
         <MdcDrawerAppContent>
@@ -44,7 +46,9 @@ else if (drawerLayout == 1)
         <MdcDrawerSubtitle>by exentials/MdcBlazor</MdcDrawerSubtitle>
     </MdcDrawerHeader>
     <MdcDrawerContent>
-        <NavMenu />
+        <MdcDrawerNav OnAction="CloseDrawer">
+            <NavMenuItems />
+        </MdcDrawerNav>
     </MdcDrawerContent>
 </MdcDrawer>
 <MdcDrawerAppContent>
@@ -102,6 +106,12 @@ else if (drawerLayout == 1)
     void ToggleDrawer()
     {
         drawerOpened = !drawerOpened;
+        StateHasChanged();
+    }
+
+    void CloseDrawer()
+    {
+        drawerOpened = false;
         StateHasChanged();
     }
 }

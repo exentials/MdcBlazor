@@ -5,11 +5,9 @@ class MdcTopAppBar extends MDCTopAppBar {
 
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);        
-        this.listen("MDCTopAppBar:nav", (event) => {
-            console.log("MDCTopAppBar:nav", event);
+        this.listen("MDCTopAppBar:nav", (event) => {            
             this.component.invokeMethodAsync("MDCTopAppBar:nav");
-        });
-        this.setScrollTarget(document.getElementById('main-content'));
+        });        
     }
 }
 
