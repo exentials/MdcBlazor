@@ -1,5 +1,5 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine AS base
-RUN apk update --no-cache && apk add icu-libs --no-cache
+RUN apk update --no-cache && apk add icu-libs --no-cache && apk add tzdata --no-cache
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 WORKDIR /app
 EXPOSE 80
