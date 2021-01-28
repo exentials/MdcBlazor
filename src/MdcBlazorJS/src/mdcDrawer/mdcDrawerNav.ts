@@ -11,6 +11,10 @@ class MdcDrawerNav extends MDCList {
         this.listen("MDCList:action", (event: MDCListActionEvent) => {
             this.component.invokeMethodAsync("MDCList:action", event.detail.index);
         });
+
+        this.listElements?.forEach((element, index) => {
+            element.setAttribute("tabindex", index.toString());
+        });
     }
 }
 

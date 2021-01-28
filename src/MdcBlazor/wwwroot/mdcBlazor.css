@@ -23655,12 +23655,8 @@ body {
   position: absolute;
 }
 
-.mdc-top-app-bar {
+.drawer-below-top-app-bar {
   z-index: 7;
-}
-
-header.mdc-drawer--dismissible {
-  z-index: 5 !important;
 }
 
 /* CARD */

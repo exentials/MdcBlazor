@@ -2,36 +2,26 @@
 
 <MdcHeadline6>Drawers</MdcHeadline6>
 
-<MdcRadioGroup @bind-Value="index">
-    <MdcRadio Value="0" Label="Top app bar" />
-    <MdcRadio Value="1" Label="Side drawer" />
-</MdcRadioGroup>
-<MdcCheckbox Label="Modal" @bind-Value="modal" />
-
-<MdcButton Label="Apply" OnClick="LayoutChange" />
+<MdcButton ButtonType="MdcButtonType.Outlined" Label="Top app bar" OnClick="() => LayoutChange(0)" />
+<MdcButton ButtonType="MdcButtonType.Outlined" Label="Side drawer" OnClick="() => LayoutChange(1)" />
+<MdcButton ButtonType="MdcButtonType.Outlined" Label="Modal" OnClick="()=> LayoutChange(2)" />
 
 @code {
 
 
     [CascadingParameter] MainLayout Layout { get; set; }
 
-    string index="0";
-    bool modal;
-
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        index = Layout.drawerLayout.ToString();
-        modal = (Layout.drawerType == MdcDrawerType.Modal);
     }
 
-
-    void LayoutChange()
+    void LayoutChange(int index)
     {
         if (Layout != null)
         {
-            Layout.Change(int.Parse(index), modal);
+            Layout.Change(index);
         }
     }
 

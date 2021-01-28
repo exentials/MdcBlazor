@@ -46,12 +46,8 @@ body {
 }
 
 // Only apply this style if below top app bar.
-.mdc-top-app-bar {
+.drawer-below-top-app-bar {
     z-index: 7;
-}
-
-header.mdc-drawer--dismissible {
-    z-index: 5 !important;
 }
 
 /* CARD */

@@ -9,12 +9,12 @@ namespace Exentials.MdcBlazor
 {
     public partial class MdcDrawerAppContent
     {
-        [CascadingParameter(Name = "MdcTopAppBarFixed")] protected bool MdcTopAppBarFixed { get; set; }
+        [CascadingParameter] MdcTopAppBarContainer MdcTopAppBarContainer { get; set; }
 
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            if (MdcTopAppBarFixed)
+            if (Has(MdcTopAppBarContainer))
             {
                 CssAttributes.Add("mdc-top-app-bar--fixed-adjust");
             }

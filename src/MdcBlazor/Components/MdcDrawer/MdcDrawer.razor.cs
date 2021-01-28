@@ -9,7 +9,7 @@ namespace Exentials.MdcBlazor
     {
         private bool _open;
 
-        [CascadingParameter(Name = "MdcTopAppBarFixed")] bool MdcTopAppBarFixed { get; set; }
+        [CascadingParameter] MdcTopAppBarContainer MdcTopAppBarContainer { get; set; }
         [CascadingParameter(Name = "MdcDrawerMode")] MdcDrawerType MdcDrawerType { get => DrawerType; set => DrawerType = value; }
         [Parameter] public MdcDrawerType DrawerType { get; set; }
 
@@ -36,7 +36,7 @@ namespace Exentials.MdcBlazor
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            if (MdcTopAppBarFixed)
+            if (Has(MdcTopAppBarContainer))
             {
                 CssAttributes.Add("mdc-top-app-bar--fixed-adjust");
             }

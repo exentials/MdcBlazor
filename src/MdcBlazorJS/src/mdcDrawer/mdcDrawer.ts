@@ -1,14 +1,10 @@
 import { MDCDrawer } from "@material/drawer";
-import { dotnetInvokeMethodAsync, mdc, mdcDestroy, mdcInit } from "../mdc/mdcBlazor";
+import { mdc, mdcDestroy, mdcInit } from "../mdc/mdcBlazor";
 
 class MdcDrawer extends MDCDrawer {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
         const navButton = <HTMLButtonElement>document.getElementsByClassName("mdc-top-app-bar__navigation-icon")[0];
-
-        this.listen("MDCDrawer:opening", (event) => {
-            
-        });
 
         this.listen("MDCDrawer:opened", (event) => {
             this.component.invokeMethodAsync("MDCDrawer:opened");
@@ -35,8 +31,5 @@ export function getOpen(ref: Element): boolean {
 }
 
 export function setOpen(ref: Element, value: boolean): void {
-    if (value) {
-
-    }
     mdc<MdcDrawer>(ref).open = value;    
 }

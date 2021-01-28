@@ -7,6 +7,7 @@ namespace Exentials.MdcBlazor
     public partial class MdcTopAppBar
     {
         private readonly CssAttributes CssClassAdjustAttributes = new CssAttributes();
+        [CascadingParameter] MdcTopAppBarContainer MdcTopAppBarContainer { get; set; }
         [Parameter] public RenderFragment Header { get; set; }
         [Parameter] public MdcTopAppBarType BarType { get; set; }
         [Parameter] public EventCallback OnNavToggle { get; set; }
@@ -14,6 +15,10 @@ namespace Exentials.MdcBlazor
         protected override void OnInitialized()
         {
             base.OnInitialized();
+            if (Has(MdcTopAppBarContainer))
+            {
+                CssAttributes.Add("drawer-below-top-app-bar");
+            }     
             switch (BarType)
             {
                 case MdcTopAppBarType.Regular:
