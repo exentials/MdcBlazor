@@ -126,7 +126,7 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 |MdcCircularProgress|Complete|[material.io](https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress)|
 |MdcDataTable|In progress|[material.io](https://material.io/components/data-tables/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table)|
 |MdcDialog|Complete|[material.io](https://material.io/components/dialogs/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-dialog)|
-|MdcDrawer|In progress|[material.io](https://material.io/components/navigation-drawer/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer)|
+|MdcDrawer|Complete|[material.io](https://material.io/components/navigation-drawer/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer)|
 |MdcElevation|Complete|[github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-elevation)|
 |MdcFab|Complete|[material.io](https://material.io/components/buttons-floating-action-button/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab)|
 |MdcIconButton|Complete|[material.io](https://material.io/components/buttons/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button)|
@@ -145,7 +145,7 @@ services.AddMdcBlazor();    // Enable MdcBlazor services
 |MdcTextField|Complete|[material.io](https://material.io/components/text-fields/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield)|
 |MdcTextarea|Complete|[material.io](https://material.io/components/text-fields/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield#textarea)|
 |MdcTooltip|In progress|[material.io](https://material.io/components/tooltips/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tooltip)|
-|MdcTopAppBar|In progress|[material.io](https://material.io/components/app-bars-top/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-top-app-bar)|
+|MdcTopAppBar|Complete|[material.io](https://material.io/components/app-bars-top/web) - [github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-top-app-bar)|
 |MdcTypography|Complete|[github](https://github.com/material-components/material-components-web/tree/master/packages/mdc-typography)|
 |MdcIcon|Complete|[material.io](https://material.io/resources/icons/)|
 
