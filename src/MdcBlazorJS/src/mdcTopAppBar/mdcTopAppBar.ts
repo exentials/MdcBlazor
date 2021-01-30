@@ -1,12 +1,12 @@
-import { MDCTopAppBar } from '@material/top-app-bar';
-import { dotnetInvokeMethodAsync, mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
+import { strings, MDCTopAppBar } from '@material/top-app-bar';
+import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
 class MdcTopAppBar extends MDCTopAppBar {
 
     constructor(ref: Element, private component: DotNet.DotNetObject) {
-        super(ref);        
-        this.listen("MDCTopAppBar:nav", (event) => {            
-            this.component.invokeMethodAsync("MDCTopAppBar:nav");
+        super(ref);
+        this.listen(strings.NAVIGATION_EVENT, (event) => {            
+            this.component.invokeMethodAsync(strings.NAVIGATION_EVENT);
         });        
     }
 }

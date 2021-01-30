@@ -15,14 +15,14 @@
     </span>
     }
     <span role="gridcell">
-        <span @attributes="PrimaryActionAttributes" class="mdc-chip__primary-action">
+        <span @attributes="PrimaryActionAttributes" tabindex="-1" class="mdc-chip__primary-action">
             <span class="mdc-chip__text">@Text</span>
         </span>
     </span>
-    @if (MdcChipsetType == MdcChipsetType.Input)
+    @if (Has(TrailingCloseIcon))
     {
     <span role="gridcell">
-        <i class="@MdcCss.MaterialIcons mdc-chip__icon mdc-chip__icon--trailing mdc-chip-trailing-action" tabindex="-1" role="button">cancel</i>
+        <i class="@MdcCss.MaterialIcons mdc-chip__icon mdc-chip__icon--trailing mdc-chip-trailing-action" tabindex="-1" role="button">@TrailingCloseIcon</i>
     </span>
     }
 </div>

@@ -84,8 +84,8 @@ namespace Exentials.MdcBlazor
             return JsInvokeVoidAsync("setChecked", value);
         }
 
-        [JSInvokable("NativeChange:checked")]
-        public ValueTask NativeChange(bool isChecked)
+        [JSInvokable("click")]
+        public ValueTask Click(bool isChecked)
         {
             if (Checked != isChecked)
             {

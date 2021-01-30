@@ -1,15 +1,15 @@
-import { MDCList, MDCListIndex } from '@material/list';
+import { strings, MDCList, MDCListIndex } from '@material/list';
 import { MDCListActionEvent } from '@material/list/types';
 import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
 class MdcList extends MDCList {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
-        this.listen("MDCList:action", (event: MDCListActionEvent) => {
+        this.listen(strings.ACTION_EVENT, (event: MDCListActionEvent) => {
             if (Array.isArray(this.selectedIndex)) {
-                this.component.invokeMethodAsync("MDCList:action", this.selectedIndex);
+                this.component.invokeMethodAsync(strings.ACTION_EVENT, this.selectedIndex);
             } else {
-                this.component.invokeMethodAsync("MDCList:action", [this.selectedIndex]);
+                this.component.invokeMethodAsync(strings.ACTION_EVENT, [this.selectedIndex]);
             }
         });
     }

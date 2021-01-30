@@ -1,11 +1,11 @@
-import { MDCSlider, MDCSliderChangeEventDetail } from '@material/slider';
-import { mdc, mdcDestroy, mdcInit, NATIVE_CHANGE, NATIVE_INPUT } from '../mdc/mdcBlazor';
+import { events, MDCSlider, MDCSliderChangeEventDetail } from '@material/slider';
+import { mdc, mdcDestroy, mdcInit} from '../mdc/mdcBlazor';
 
 class MdcSlider extends MDCSlider {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
-        super(ref);       
-        this.listen("MDCSlider:change", (event) => {
-            console.log("MDCSlider:change", (<any>event));
+        super(ref);
+        this.listen(events.CHANGE, (event) => {
+            console.log(events.CHANGE, (<any>event));
             // this.component.invokeMethodAsync(NATIVE_CHANGE, this.getValue());
         });
 

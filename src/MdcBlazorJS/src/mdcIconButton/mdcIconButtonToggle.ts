@@ -1,17 +1,15 @@
-import { MDCIconButtonToggle, MDCIconButtonToggleEventDetail } from "@material/icon-button";
-import { mdc, mdcDestroy, mdcInit, NATIVE_CLICK } from "../mdc/mdcBlazor";
-
-const NATIVE_TOGGLE = "NativeToggle";
+import { strings, MDCIconButtonToggle, MDCIconButtonToggleEventDetail } from "@material/icon-button";
+import { mdc, mdcDestroy, mdcInit, native_events } from "../mdc/mdcBlazor";
 
 class MdcIconButtonToggle extends MDCIconButtonToggle {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
-        this.listen("click", () => {
-            this.component.invokeMethodAsync(NATIVE_CLICK);
-        });
+        //this.listen(native_events.CLICK, () => {
+        //    this.component.invokeMethodAsync(native_events.CLICK);
+        //});
 
-        this.listen("MDCIconButtonToggle:change", (event) => {
-            this.component.invokeMethodAsync(NATIVE_TOGGLE, this.on);
+        this.listen(strings.CHANGE_EVENT, (event) => {
+            this.component.invokeMethodAsync(strings.CHANGE_EVENT, this.on);
         });
     }
 }

@@ -1,11 +1,11 @@
 import { MDCSwitch } from '@material/switch';
-import { mdc, mdcDestroy, mdcInit, NATIVE_CHANGE } from '../mdc/mdcBlazor';
+import { mdc, mdcDestroy, mdcInit, native_events } from '../mdc/mdcBlazor';
 
 class Switch extends MDCSwitch {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
-        this.listen("change", (event) => {
-            this.component.invokeMethodAsync<void>(NATIVE_CHANGE, this.checked);
+        this.listen(native_events.CHANGE, (event) => {
+            this.component.invokeMethodAsync<void>(native_events.CHANGE, this.checked);
         });        
     }
 }

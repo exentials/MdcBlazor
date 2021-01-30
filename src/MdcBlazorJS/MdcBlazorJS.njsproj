@@ -70,6 +70,7 @@
     </Content>
     <Content Include="src\mdcFab\mdcFab.scss" />
     <Content Include="src\mdcFormField\mdcFormField.scss" />
+    <Content Include="src\mdcIconButton\mdcIconButton.scss" />
     <Content Include="src\mdcIcon\mdcIcon.scss" />
     <Content Include="src\mdcLayoutGrid\mdcLayoutGrid.scss" />
     <Content Include="src\mdcList\mdcList.ts">
@@ -129,14 +130,15 @@
     <Folder Include="src\mdcDialog\" />
     <Folder Include="src\mdcLayoutGrid\" />
     <Folder Include="src\mdcMenu\" />
+    <Folder Include="src\mdcIconButton\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcBanner\mdcBanner.ts" />
-    <TypeScriptCompile Include="src\mdcButton\mdcIconButton.ts" />
+    <TypeScriptCompile Include="src\mdcIconButton\mdcIconButton.ts" />
     <TypeScriptCompile Include="src\mdcCard\mdcCard.ts" />
-    <TypeScriptCompile Include="src\mdcButton\mdcIconButtonToggle.ts" />
+    <TypeScriptCompile Include="src\mdcIconButton\mdcIconButtonToggle.ts" />
     <TypeScriptCompile Include="src\mdcChip\mdcChip.ts" />
-    <TypeScriptCompile Include="src\mdcChip\mdcChipset.ts" />
+    <TypeScriptCompile Include="src\mdcChip\mdcChipSet.ts" />
     <TypeScriptCompile Include="src\mdcDataTable\mdcDataTable.ts" />
     <TypeScriptCompile Include="src\mdcDialog\mdcDialog.ts" />
     <TypeScriptCompile Include="src\mdcDrawer\mdcDrawerNav.ts" />

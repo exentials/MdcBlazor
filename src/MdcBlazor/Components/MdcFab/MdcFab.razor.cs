@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
-    public partial class MdcFab
+    public partial class MdcFab : MdcButtonComponentBase
     {
         [Parameter] public MdcFabType FabType { get; set; }
         [Parameter] public RenderFragment ChildContent { get; set; }

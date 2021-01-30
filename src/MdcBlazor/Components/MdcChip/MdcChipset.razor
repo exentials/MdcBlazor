@@ -1,10 +1,10 @@
 ﻿@namespace Exentials.MdcBlazor
 @inherits MdcContainerComponentBase
-<div @ref="Ref" class="mdc-chip-set @CssAttributes" role="grid">
-    <CascadingValue Value="Type" Name="MdcChipsetType">
+<div class="mdc-chip-set @CssAttributes" role="grid">
+    <CascadingValue Value="this">
         @ChildContent
     </CascadingValue>
-    @if (Type == MdcChipsetType.Input)
+    @if (ChipsetType == MdcChipsetType.Input)
     {
     }
 </div>

@@ -1,12 +1,12 @@
-import { MDCTabBar, MDCTabBarActivatedEvent } from '@material/tab-bar';
+import { strings, MDCTabBar, MDCTabBarActivatedEvent } from '@material/tab-bar';
 import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
 class TabBar extends MDCTabBar {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
 
-        this.listen("MDCTabBar:activated", (event: MDCTabBarActivatedEvent) => {
-            this.component.invokeMethodAsync("ChangeTab", event.detail.index);
+        this.listen(strings.TAB_ACTIVATED_EVENT, (event: MDCTabBarActivatedEvent) => {
+            this.component.invokeMethodAsync(strings.TAB_ACTIVATED_EVENT, event.detail.index);
         });
     }
 }

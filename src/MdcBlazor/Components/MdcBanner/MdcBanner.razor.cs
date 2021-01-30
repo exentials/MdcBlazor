@@ -58,13 +58,31 @@ namespace Exentials.MdcBlazor
             return Task.CompletedTask;
         }
 
+        [JSInvokable("MDCBanner:closing")]
+        public Task MDCBannerClosing()
+        {            
+            return Task.CompletedTask;
+        }
+
         [JSInvokable("MDCBanner:closed")]
         public Task MDCBannerClosed()
-        {            
+        {
             if (OnClosed.HasDelegate)
             {
                 return OnClosed.InvokeAsync();
             }
+            return Task.CompletedTask;
+        }
+
+        [JSInvokable("MDCBanner:opening")]
+        public Task MDCBannerOpening()
+        {
+            return Task.CompletedTask;
+        }
+
+        [JSInvokable("MDCBanner:opened")]
+        public Task MDCBannerOpened()
+        {
             return Task.CompletedTask;
         }
 

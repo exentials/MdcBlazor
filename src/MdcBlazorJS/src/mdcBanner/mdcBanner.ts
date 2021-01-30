@@ -1,11 +1,20 @@
-import { CloseReason, MDCBanner } from "@material/banner";
+import { events, CloseReason, MDCBanner, MDCBannerCloseEventDetail } from "@material/banner";
 import { mdc, mdcDestroy, mdcInit } from "../mdc/mdcBlazor";
 
 class MdcBanner extends MDCBanner {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
-        this.listen("MDCBanner:closed", () => {
-            this.component.invokeMethodAsync("MDCBanner:closed");
+        this.listen(events.CLOSING, () => {
+            this.component.invokeMethodAsync(events.CLOSING);
+        });
+        this.listen(events.CLOSED, () => {
+            this.component.invokeMethodAsync(events.CLOSED);
+        });
+        this.listen(events.OPENING, () => {
+            this.component.invokeMethodAsync(events.OPENING);
+        });
+        this.listen(events.OPENED, () => {
+            this.component.invokeMethodAsync(events.OPENED);
         });
     }
 }

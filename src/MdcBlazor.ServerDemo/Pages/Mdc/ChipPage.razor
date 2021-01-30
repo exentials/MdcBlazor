@@ -2,36 +2,49 @@
 
 <MdcHeadline4>Chips</MdcHeadline4>
 <MdcChipset>
-    <MdcChip Text="Hello"/>
-    <MdcChip Text="World"/>
+    <MdcChip Text="Hello" />
+    <MdcChip Text="World" />
 </MdcChipset>
 
 <MdcHeadline4>Options Chipset</MdcHeadline4>
-<MdcChipset Type="@MdcChipsetType.Choice">
-    <ChipDataset DataSource="chips" />
+<MdcChipset ChipsetType="MdcChipsetType.Choice">
+    <MdcChip LeadingIcon="favorite" Text="Banana" />
+    <MdcChip LeadingIcon="favorite" Text="Orange" />
+    <MdcChip LeadingIcon="favorite" Text="Apple" />
+    <MdcChip LeadingIcon="favorite" Text="Pear" />
 </MdcChipset>
 
 
 <MdcHeadline4>Filter Chipset</MdcHeadline4>
-<MdcChipset Type="@MdcChipsetType.Filter">
-    <ChipDataset DataSource="chips" />
+<MdcChipset ChipsetType="MdcChipsetType.Filter">
+    <MdcChip LeadingIcon="favorite" Text="Banana" />
+    <MdcChip LeadingIcon="favorite" Text="Orange" />
+    <MdcChip LeadingIcon="favorite" Text="Apple" />
+    <MdcChip LeadingIcon="favorite" Text="Pear" />
 </MdcChipset>
 
 <MdcHeadline4>Input Chipset</MdcHeadline4>
-<MdcChipset Type="@MdcChipsetType.Input">    
-    <ChipDataset DataSource="chips" />
+<MdcChipset ChipsetType="MdcChipsetType.Input">
+    <MdcChip LeadingIcon="favorite" Text="Banana" TrailingCloseIcon="cancel" />
+    <MdcChip LeadingIcon="favorite" Text="Orange" TrailingCloseIcon="cancel" />
+    <MdcChip LeadingIcon="favorite" Text="Apple" TrailingCloseIcon="cancel" />
+    <MdcChip LeadingIcon="favorite" Text="Pear" TrailingCloseIcon="cancel" />
 </MdcChipset>
 
+<MdcChip LeadingIcon="favorite" Text="Banana" TrailingCloseIcon="cancel" />
+<MdcChip LeadingIcon="favorite" Text="Orange" TrailingCloseIcon="cancel" />
+<MdcChip LeadingIcon="favorite" Text="Apple" TrailingCloseIcon="cancel" />
+<MdcChip LeadingIcon="favorite" Text="Pear" TrailingCloseIcon="cancel" />
+
+
+
 <MdcHeadline4>Action Chipset</MdcHeadline4>
-<MdcChipset Type="@MdcChipsetType.Action">   
-    <ChipDataset DataSource="chips" />
+<MdcChipset ChipsetType="MdcChipsetType.Action">
+    <MdcChip LeadingIcon="favorite" Text="Banana" />
+    <MdcChip LeadingIcon="favorite" Text="Orange" />
+    <MdcChip LeadingIcon="favorite" Text="Apple" />
+    <MdcChip LeadingIcon="favorite" Text="Pear" />
 </MdcChipset>
 
 @code {
-    List<Chip> chips = new List<Chip>(new Chip[] {
-        new Chip { Icon= MdcIcons.Favorite, Text = "Banana" },
-        new Chip { Icon= MdcIcons.Favorite, Text = "Orange" },
-        new Chip { Icon= MdcIcons.Favorite, Text = "Apple" },
-        new Chip { Icon= MdcIcons.Favorite, Text = "Pear" },
-    });
 }

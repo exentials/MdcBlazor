@@ -1,4 +1,4 @@
-import { MDCList, MDCListActionEvent } from "@material/list";
+import { strings, MDCList, MDCListActionEvent } from "@material/list";
 import { mdcDestroy, mdcInit } from "../mdc/mdcBlazor";
 
 class MdcDrawerNav extends MDCList {
@@ -6,10 +6,10 @@ class MdcDrawerNav extends MDCList {
         super(ref);
         this.wrapFocus = true;
         this.listen("click", (event: MDCListActionEvent) => {
-            this.component.invokeMethodAsync("MDCList:action", -1);
+            this.component.invokeMethodAsync(strings.ACTION_EVENT, -1);
         });
-        this.listen("MDCList:action", (event: MDCListActionEvent) => {
-            this.component.invokeMethodAsync("MDCList:action", event.detail.index);
+        this.listen(strings.ACTION_EVENT, (event: MDCListActionEvent) => {
+            this.component.invokeMethodAsync(strings.ACTION_EVENT, event.detail.index);
         });
 
         this.listElements?.forEach((element, index) => {

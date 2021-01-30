@@ -1,12 +1,12 @@
 import { MDCRipple } from "@material/ripple";
-import { mdc, mdcDestroy, mdcInit, NATIVE_CLICK } from '../mdc/mdcBlazor';
+import { mdc, mdcDestroy, mdcInit, native_events } from '../mdc/mdcBlazor';
 
 class MdcFab extends MDCRipple {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
 
-        this.listen("click", () => {
-            this.component.invokeMethodAsync(NATIVE_CLICK);
+        this.listen(native_events.CLICK, () => {
+            this.component.invokeMethodAsync(native_events.CLICK);
         });
     }
 }

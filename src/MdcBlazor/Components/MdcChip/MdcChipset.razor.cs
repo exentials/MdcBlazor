@@ -1,21 +1,16 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
 {
     public partial class MdcChipset : MdcContainerComponentBase
     {
-        [Parameter] public MdcChipsetType Type { get; set; }
-        protected string TrailingIcon { get; set; }
+        [Parameter] public MdcChipsetType ChipsetType { get; set; }
+        [Parameter] public string TrailingIcon { get; set; }
 
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            switch (Type)
+            switch (ChipsetType)
             {
                 case MdcChipsetType.None:
                     break;
@@ -27,11 +22,15 @@ namespace Exentials.MdcBlazor
                     break;
                 case MdcChipsetType.Input:
                     CssAttributes.Add("mdc-chip-set--input");
-                    TrailingIcon = MdcIcons.Cancel;
+                    if (TrailingIcon == null)
+                    {
+                        TrailingIcon = MdcIcons.Cancel;
+                    }
                     break;
                 case MdcChipsetType.Action:
                     break;
             }
         }
+
     }
 }

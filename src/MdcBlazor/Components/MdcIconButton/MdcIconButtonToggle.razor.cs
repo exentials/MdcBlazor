@@ -23,8 +23,8 @@ namespace Exentials.MdcBlazor
                     if (SelectedChanged.HasDelegate)
                     {
                         SelectedChanged.InvokeAsync(_selected);
-                        InvokeAsync(async () => await SetSelected(_selected));
                     }
+                    InvokeAsync(async () => await JsSetSelected(_selected));
                 }
             }
         }
@@ -45,22 +45,20 @@ namespace Exentials.MdcBlazor
             await base.OnAfterRenderAsync(firstRender);
             if (firstRender)
             {
-                await SetSelected(Selected);
+                await JsSetSelected(Selected);
             }
         }
 
-        [JSInvokable("NativeToggle")]
-        public ValueTask NativeToggle(bool value)
+        [JSInvokable("MDCIconButtonToggle:change")]
+        public ValueTask MDCIconButtonToggleChange(bool value)
         {
-            if (Selected != value)
-            {
-                Selected = value;
-                StateHasChanged();
-            }
+
+            Selected = value;
+            StateHasChanged();
             return ValueTask.CompletedTask;
         }
 
-        private ValueTask SetSelected(bool value)
+        private ValueTask JsSetSelected(bool value)
         {
             return JsInvokeVoidAsync("setSelect", value);
         }

@@ -1,19 +1,19 @@
-import { MDCDrawer } from "@material/drawer";
+import { strings, MDCDrawer } from "@material/drawer";
 import { mdc, mdcDestroy, mdcInit } from "../mdc/mdcBlazor";
 
 class MdcDrawer extends MDCDrawer {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
         const navButton = <HTMLButtonElement>document.getElementsByClassName("mdc-top-app-bar__navigation-icon")[0];
-
-        this.listen("MDCDrawer:opened", (event) => {
-            this.component.invokeMethodAsync("MDCDrawer:opened");
+        
+        this.listen(strings.OPEN_EVENT, (event) => {
+            this.component.invokeMethodAsync(strings.OPEN_EVENT);
         });
-        this.listen("MDCDrawer:closed", (event) => {
+        this.listen(strings.CLOSE_EVENT, (event) => {
             if (navButton) {
                 navButton.focus();
             }
-            this.component.invokeMethodAsync("MDCDrawer:closed");
+            this.component.invokeMethodAsync(strings.CLOSE_EVENT);
         });
     }
 }

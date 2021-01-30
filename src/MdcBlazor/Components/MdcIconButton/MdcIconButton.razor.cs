@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System;
 using System.Threading.Tasks;
 
@@ -17,5 +18,6 @@ namespace Exentials.MdcBlazor
                 CssAttributes.Add("mdc-card__action--icon");
             }
         }
+
     }
 }

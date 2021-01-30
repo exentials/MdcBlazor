@@ -1,13 +1,13 @@
-import { MDCSelect, MDCSelectEvent } from '@material/select';
-import { mdc, mdcDestroy, mdcInit, NATIVE_CHANGE } from '../mdc/mdcBlazor';
+import { strings, MDCSelect, MDCSelectEvent } from '@material/select';
+import { mdc, mdcDestroy, mdcInit, native_events } from '../mdc/mdcBlazor';
 
 class MdcSelect extends MDCSelect {
 
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
 
-        this.listen('MDCSelect:change', (event: MDCSelectEvent) => {
-            this.component.invokeMethodAsync(NATIVE_CHANGE, event.detail.value);
+        this.listen(strings.CHANGE_EVENT, (event: MDCSelectEvent) => {
+            this.component.invokeMethodAsync(native_events.CHANGE, event.detail.value);
         });
     }
 }

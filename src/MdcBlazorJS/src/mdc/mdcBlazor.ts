@@ -16,8 +16,8 @@ declare global {
 
 const AssemblyName = "Exentials.MdcBlazor";
 
-export function mdcInit<T extends MDCComponent<any>>(ref: Element, mdcComponent: T): T {    
-    ref.mdcComponent = mdcComponent; 
+export function mdcInit<T extends MDCComponent<any>>(ref: Element, mdcComponent: T): T {
+    ref.mdcComponent = mdcComponent;
     return mdcComponent;
 }
 
@@ -35,6 +35,8 @@ export function dotnetInvokeMethodAsync<T>(methodIdentifier: string, ...args: an
     return DotNet.invokeMethodAsync<T>(AssemblyName, methodIdentifier, args);
 }
 
-export const NATIVE_CLICK = "NativeClick";
-export const NATIVE_CHANGE = "NativeChange";
-export const NATIVE_INPUT = "NativeInput";
+export const native_events = {
+    CLICK: "click",
+    CHANGE: "change",
+    INPUT: "input"
+}

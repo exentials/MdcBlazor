@@ -22,7 +22,7 @@ namespace Exentials.MdcBlazor
                     {
                         ActiveTabChanged.InvokeAsync(_activeTab);
                     }
-                    InvokeAsync(() => ActivateTab(_activeTab));
+                    InvokeAsync(async () => await JsActivateTab(_activeTab));
                 }
             } 
         }
@@ -34,16 +34,16 @@ namespace Exentials.MdcBlazor
             await base.OnAfterRenderAsync(firstRender);
             if (firstRender)
             {
-                await ActivateTab(ActiveTab);
+                await JsActivateTab(ActiveTab);
             }
         }
 
-        private ValueTask ActivateTab(int index)
+        private ValueTask JsActivateTab(int index)
         {
             return JsInvokeVoidAsync("activateTab", index);
         }
 
-        [JSInvokable("ChangeTab")]
+        [JSInvokable("MDCTabBar:activated")]
         public ValueTask ChangeTab(int index)
         {             
             if (index != ActiveTab)

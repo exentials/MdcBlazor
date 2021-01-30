@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Threading.Tasks;
-
-namespace Exentials.MdcBlazor
+﻿namespace Exentials.MdcBlazor
 {
     public interface ISnackbarOptions
     {

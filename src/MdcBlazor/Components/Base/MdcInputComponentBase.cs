@@ -74,8 +74,8 @@ namespace Exentials.MdcBlazor
             }
         }
 
-        [JSInvokable("NativeChange")]
-        public ValueTask NativeChange(TValue value)
+        [JSInvokable("change")]
+        public ValueTask Change(TValue value)
         {
             if (!EqualityComparer<TValue>.Default.Equals(Value, value))
             {

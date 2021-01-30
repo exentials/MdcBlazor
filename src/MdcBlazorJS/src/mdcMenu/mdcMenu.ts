@@ -1,4 +1,4 @@
-import { MDCMenu } from '@material/menu';
+import { strings, MDCMenu } from '@material/menu';
 import { MDCMenuItemComponentEvent } from '@material/menu/types';
 import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
@@ -8,8 +8,8 @@ class MdcMenu extends MDCMenu {
         this.listen("close", (event) => {
             console.log("Close:", event);
         });
-        this.listen("MDCMenu:selected", (event: MDCMenuItemComponentEvent) => {
-            this.component.invokeMethodAsync("MDCMenu:selected", event.detail.index)
+        this.listen(strings.SELECTED_EVENT, (event: MDCMenuItemComponentEvent) => {
+            this.component.invokeMethodAsync(strings.SELECTED_EVENT, event.detail.index)
         });
     }
 }

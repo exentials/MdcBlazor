@@ -1,6 +1,6 @@
 import { MDCFormField } from '@material/form-field';
 import { MDCRadio } from '@material/radio';
-import { mdc, mdcDestroy, mdcInit, NATIVE_CHANGE } from '../mdc/mdcBlazor';
+import { mdc, mdcDestroy, mdcInit, native_events } from '../mdc/mdcBlazor';
 
 class MdcRadio extends MDCRadio {
     private _formField: MDCFormField;
@@ -8,11 +8,8 @@ class MdcRadio extends MDCRadio {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
 
-        this.listen("change", (evt) => {
-            this.component.invokeMethodAsync(`${NATIVE_CHANGE}:checked`, this.checked);
-        });
-        this.listen("change", (evt) => {
-            this.component.invokeMethodAsync(`${NATIVE_CHANGE}:checked`, this.checked);
+        this.listen(native_events.CLICK, (evt) => {
+            this.component.invokeMethodAsync(native_events.CLICK, this.checked);
         });
     }
 

@@ -1,12 +1,12 @@
 import { MDCTextField } from '@material/textfield';
-import { mdc, mdcDestroy, mdcInit, NATIVE_CHANGE } from '../mdc/mdcBlazor';
+import { mdc, mdcDestroy, mdcInit, native_events } from '../mdc/mdcBlazor';
 
 class TextArea extends MDCTextField {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
 
-        this.listen("change", (evt) => {
-            this.component.invokeMethodAsync(NATIVE_CHANGE, this.value);
+        this.listen(native_events.CHANGE, (evt) => {
+            this.component.invokeMethodAsync(native_events.CHANGE, this.value);
         });
     }
 }

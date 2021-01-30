@@ -37,8 +37,8 @@ namespace Exentials.MdcBlazor
             }
         }
 
-        [JSInvokable("NativeClick")]
-        public Task NativeClick()
+        [JSInvokable("click")]
+        public Task Click()
         {
             if (OnClick.HasDelegate)
             {

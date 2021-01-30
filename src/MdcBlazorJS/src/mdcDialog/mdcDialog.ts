@@ -1,21 +1,21 @@
-import { MDCDialog, MDCDialogCloseEvent } from '@material/dialog';
+import { strings, MDCDialog, MDCDialogCloseEvent } from '@material/dialog';
 import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
 class MdcDialog extends MDCDialog {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
 
-        this.listen("MDCDialog:opening", () => {
-            this.component.invokeMethodAsync("MDCDialog:opening");
+        this.listen(strings.OPENING_EVENT, () => {
+            this.component.invokeMethodAsync(strings.OPENING_EVENT);
         });
-        this.listen("MDCDialog:opened", () => {
-            this.component.invokeMethodAsync("MDCDialog:opened");
+        this.listen(strings.OPENED_EVENT, () => {
+            this.component.invokeMethodAsync(strings.OPENED_EVENT);
         });
-        this.listen("MDCDialog:closing", (event: MDCDialogCloseEvent) => {
-            this.component.invokeMethodAsync("MDCDialog:closing", event.detail.action);
+        this.listen(strings.CLOSING_EVENT, (event: MDCDialogCloseEvent) => {
+            this.component.invokeMethodAsync(strings.CLOSING_EVENT, event.detail.action);
         });
-        this.listen("MDCDialog:closed", (event: MDCDialogCloseEvent) => {
-            this.component.invokeMethodAsync("MDCDialog:closed", event.detail.action);
+        this.listen(strings.CLOSED_EVENT, (event: MDCDialogCloseEvent) => {
+            this.component.invokeMethodAsync(strings.CLOSED_EVENT, event.detail.action);
         });
     }
 }

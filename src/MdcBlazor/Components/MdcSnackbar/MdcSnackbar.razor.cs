@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
@@ -17,7 +13,7 @@ namespace Exentials.MdcBlazor
         [Parameter] public bool Dismissable { get; set; }
         [Parameter] public int Timeout { get; set; } = 5000;
         [Parameter] public EventCallback<string> OnClosed { get; set; }
-        [Parameter] public object ButtonActionValue { get;set; }
+        [Parameter] public object ButtonActionValue { get; set; }
         [Parameter] public EventCallback<object> OnButtonAction { get; set; }
 
         protected override void OnInitialized()
@@ -66,7 +62,7 @@ namespace Exentials.MdcBlazor
             return JsInvokeAsync<bool>("isOpen");
         }
 
-        [JSInvokable("NativeClosed")]
+        [JSInvokable("MDCSnackbar:closed")]
         public async ValueTask NativeClosed(string reason)
         {
             if ((reason == "action") && (OnButtonAction.HasDelegate))

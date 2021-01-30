@@ -1,5 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
+<MdcSnackbarService />
+
 @if (drawerLayout == 0)
 {
     <MdcTopAppBarContainer>
@@ -77,8 +79,6 @@ else if (drawerLayout == 1 || drawerLayout == 2)
     </MdcTopAppBar>
 </MdcDrawerAppContent>
 }
-
-<MdcSnackbarService />
 
 @code  {
     internal int drawerLayout = 0;
