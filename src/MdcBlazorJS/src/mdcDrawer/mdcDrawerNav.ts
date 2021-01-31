@@ -1,11 +1,11 @@
 import { strings, MDCList, MDCListActionEvent } from "@material/list";
-import { mdcDestroy, mdcInit } from "../mdc/mdcBlazor";
+import { mdcDestroy, mdcInit, native_events } from "../mdc/mdcBlazor";
 
 class MdcDrawerNav extends MDCList {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
         this.wrapFocus = true;
-        this.listen("click", (event: MDCListActionEvent) => {
+        this.listen(native_events.CLICK, (event: MDCListActionEvent) => {
             this.component.invokeMethodAsync(strings.ACTION_EVENT, -1);
         });
         this.listen(strings.ACTION_EVENT, (event: MDCListActionEvent) => {

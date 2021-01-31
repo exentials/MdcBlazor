@@ -11,6 +11,7 @@ namespace Exentials.MdcBlazor
     {
         private int[] _selectedIndex = Array.Empty<int>();
         private bool _singleSelection;
+        internal readonly List<MdcListItem> Items = new List<MdcListItem>();
 
         [Parameter] public bool Dense { get; set; }
         [Parameter] public string Name { get; set; }
@@ -22,7 +23,7 @@ namespace Exentials.MdcBlazor
             get => _selectedIndex;
             set
             {
-                if (!Equals(_selectedIndex, value))
+                if (!Enumerable.SequenceEqual(SelectedIndex, value))
                 {
                     _selectedIndex = value;
                     if (SelectedIndexChanged.HasDelegate)
@@ -101,19 +102,17 @@ namespace Exentials.MdcBlazor
             return JsInvokeAsync<int[]>("getSelectedIndex");
         }
 
-
         private ValueTask JSSetSelectedIndex(int[] value)
         {
             return (_singleSelection) ? JsInvokeVoidAsync("setSelectedIndex", value?[0]) : JsInvokeVoidAsync("setSelectedIndex", value);
         }
 
         [JSInvokable("MDCList:action")]
-        public ValueTask ListAction(int[] index)
+        public ValueTask MDCListAction(int[] index)
         {
-            if (!Enumerable.SequenceEqual(SelectedIndex, index))
+            for (int i = 0, len = Items.Count; i < len; i++)
             {
-                SelectedIndex = index;
-                StateHasChanged();
+                Items[i].SetSelected(index.Contains(i));
             }
             return ValueTask.CompletedTask;
         }

@@ -12,6 +12,10 @@ class MdcList extends MDCList {
                 this.component.invokeMethodAsync(strings.ACTION_EVENT, [this.selectedIndex]);
             }
         });
+
+        this.listElements?.forEach((element, index) => {
+            element.setAttribute("tabindex", index.toString());
+        });
     }
 }
 

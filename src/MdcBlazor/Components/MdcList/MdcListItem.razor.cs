@@ -57,22 +57,35 @@ namespace Exentials.MdcBlazor
             get { return MdcList?.Name; }
         }
 
+        internal void SetSelected(bool value)
+        {
+            Selected = value;
+            StateHasChanged();
+        }
 
         internal string Role
         {
             get
             {
-                if (MdcList != null)
+                return MdcList?.Role switch
                 {
-                    switch (MdcList.Role)
-                    {
-                        case "listbox": return "option";
-                        case "radiogroup": return "radio";
-                        case "group": return "checkbox";
-                    }
-                }
-                return null;
+                    "listbox" => "option",
+                    "radiogroup" => "radio",
+                    "group" => "checkbox",
+                    _ => null,
+                };
             }
+        }
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+            MdcList?.Items.Add(this);
+        }
+
+        public override ValueTask DisposeAsync()
+        {
+            MdcList?.Items.Remove(this);
+            return base.DisposeAsync();
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -87,8 +100,23 @@ namespace Exentials.MdcBlazor
 
         protected ValueTask JsSetActive(bool value)
         {
+            if (MdcList.ListType == MdcListType.RadioGroup)
+            {
+                return JsSetChecked(value);
+            }
             return value ? JsInvokeVoidAsync("activate") : JsInvokeVoidAsync("deactivate");
         }
+
+        protected ValueTask<bool> JsGetChecked()
+        {
+            return JsInvokeAsync<bool>("getCheckd");
+        }
+
+        protected ValueTask JsSetChecked(bool value)
+        {
+            return JsInvokeVoidAsync("setChecked", value);
+        }
+
         protected ValueTask<bool> JsGetDisabled()
         {
             return JsInvokeAsync<bool>("getDisabled");
@@ -98,7 +126,6 @@ namespace Exentials.MdcBlazor
         {
             return JsInvokeVoidAsync("setDisabled", value);
         }
-
 
     }
 }

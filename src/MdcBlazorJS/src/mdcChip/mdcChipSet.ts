@@ -13,7 +13,6 @@ class MdcChipSet extends MDCComponent<MDCChipSetFoundation> {
             this.component.invokeMethodAsync(chipStrings.SELECTION_EVENT, event.detail.chipId, event.detail.selected);
         });
         this.listen(chipStrings.REMOVAL_EVENT, (event: MDCChipRemovalEvent) => {
-            event.cancelBubble = true;
             this.component.invokeMethodAsync(chipStrings.REMOVAL_EVENT, event.detail.chipId, event.detail.removedAnnouncement);
         });
         this.listen(chipStrings.TRAILING_ICON_INTERACTION_EVENT, (event: MDCChipTrailingActionInteractionEvent) => {

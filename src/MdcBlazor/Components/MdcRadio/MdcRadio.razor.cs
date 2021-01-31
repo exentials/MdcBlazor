@@ -31,7 +31,7 @@ namespace Exentials.MdcBlazor
                     {
                         MdcRadioGroup.SetValue(Value);
                     }
-                    InvokeAsync(async () => await JSSetChecked(_checked));
+                    InvokeAsync(async () => await JsSetChecked(_checked));
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace Exentials.MdcBlazor
 
         internal ValueTask Uncheck()
         {
-            return JSSetChecked(false);
+            return JsSetChecked(false);
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -69,17 +69,17 @@ namespace Exentials.MdcBlazor
                 {
                     await JsInvokeVoidAsync("initFormField", FormField.Ref);
                 }
-                await JSSetChecked(Checked);
+                await JsSetChecked(Checked);
                 await JSSetDisabled(Disabled);
             }
         }
 
-        protected ValueTask<bool> JSGetChecked()
+        protected ValueTask<bool> JsGetChecked()
         {
             return JsInvokeAsync<bool>("getChecked");
         }
 
-        protected ValueTask JSSetChecked(bool value)
+        protected ValueTask JsSetChecked(bool value)
         {
             return JsInvokeVoidAsync("setChecked", value);
         }
@@ -105,6 +105,6 @@ namespace Exentials.MdcBlazor
             }
             return ValueTask.CompletedTask;
         }
-       
+
     }
 }

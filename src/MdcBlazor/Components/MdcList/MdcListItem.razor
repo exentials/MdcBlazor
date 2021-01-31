@@ -23,7 +23,7 @@
     }
     else if (MdcList.ListType == MdcListType.RadioGroup)
     {
-    <span class="mdc-list-item__graphic">
+    <div class="mdc-list-item__graphic">
       <div class="mdc-radio">
         <input class="mdc-radio__native-control" type="radio" id="@InputId" name="@Name" value="@Value">
         <div class="mdc-radio__background">
@@ -31,12 +31,12 @@
           <div class="mdc-radio__inner-circle"></div>
         </div>
       </div>
-    </span>
+    </div>
     <label class="mdc-list-item__text" for="@InputId">@Label</label>
     }
     else if (MdcList.ListType == MdcListType.Checkbox)
     {
-    <span class="mdc-list-item__graphic">
+    <div class="mdc-list-item__graphic">
       <div class="mdc-checkbox">
         <input type="checkbox" class="mdc-checkbox__native-control" id="@InputId" />
         <div class="mdc-checkbox__background">
@@ -46,7 +46,7 @@
           <div class="mdc-checkbox__mixedmark"></div>
         </div>
       </div>
-    </span>
+    </div>
     <label class="mdc-list-item__text" for="@InputId">@Label</label>
     }
     @if (Has(IconButton))

@@ -34,7 +34,7 @@
                     <MdcDialogTitle Label="SIMPLE DIALOG" />
                 </Header>
                 <Content>
-                    <MdcList ListType="MdcListType.RadioGroup">
+                    <MdcList ListType="MdcListType.RadioGroup" @bind-SelectedIndex="opt">
                         <MdcListItem Label="Option 1" />
                         <MdcListItem Label="Option 2" />
                         <MdcListItem Label="Option 3" />
@@ -70,6 +70,7 @@
 
     string message;
     int activeTab;
+    int[] opt = Array.Empty<int>();
 
     bool[] isOpen = new bool[3];
 
