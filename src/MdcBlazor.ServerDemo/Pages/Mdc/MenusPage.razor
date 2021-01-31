@@ -2,8 +2,8 @@
 
 <MdcHeadline6>Menus</MdcHeadline6>
 <MdcMenuAnchor>
-    <MdcButton Label="Menu" OnClick="() => menu.Open()" />
-    <MdcMenu @ref="menu" OnSelected="(i) => { index = i; }">
+    <MdcButton Label="Menu" OnClick="() => isOpen = true" />
+    <MdcMenu @ref="menu" OnSelected="(i) => { index = i; isOpen = false; }" @bind-IsOpen="isOpen" AnchorCorner="@corner" >
         <MdcMenuItem Label="Item 1" />
         <MdcMenuItem Label="Item 2" />
         <MdcMenuItem Label="Item 3" Disabled="true" />
@@ -11,6 +11,13 @@
         <MdcMenuItem Label="Item 4" />
     </MdcMenu>
 </MdcMenuAnchor>
+
+<MdcRadioGroup Value="@cornerValue" ValueChanged="CornerValueChange ">
+    @foreach(var c in EnumHelpers.GetItems<MdcMenuAnchorCorner>())
+    {
+        <MdcRadio Value="@c.Key" Label="@c.Value" />
+    }
+</MdcRadioGroup>
 
 <p>
     Selected item: @index
@@ -20,4 +27,16 @@
 {
     MdcMenu menu;
     int index;
+    bool isOpen;
+
+    string cornerValue;
+
+    MdcMenuAnchorCorner corner;
+
+    void CornerValueChange(string value)
+    {
+        cornerValue = value; 
+        corner = Enum.Parse<MdcMenuAnchorCorner>(value); 
+    }
+
 }

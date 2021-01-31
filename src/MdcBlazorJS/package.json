@@ -43,6 +43,7 @@
     "@material/linear-progress": "^9.0.0",
     "@material/list": "^9.0.0",
     "@material/menu": "^9.0.0",
+    "@material/menu-surface": "^9.0.0",
     "@material/notched-outline": "^9.0.0",
     "@material/progress-indicator": "^9.0.0",
     "@material/radio": "^9.0.0",

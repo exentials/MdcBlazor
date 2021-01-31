@@ -11,9 +11,10 @@ namespace Exentials.MdcBlazor
     public partial class MdcMenu
     {
         private bool _isOpen;
-        [Parameter] public bool IsOpen 
+        [Parameter]
+        public bool IsOpen
         {
-            get => _isOpen; 
+            get => _isOpen;
             set
             {
                 if (_isOpen != value)
@@ -23,12 +24,13 @@ namespace Exentials.MdcBlazor
                     {
                         IsOpenChanged.InvokeAsync(_isOpen);
                     }
-                    InvokeAsync(async () => await JSSetOpen(_isOpen));
+                    InvokeAsync(async () => await JsSetOpen(_isOpen));
                 }
-            } 
+            }
         }
         [Parameter] public EventCallback<bool> IsOpenChanged { get; set; }
         [Parameter] public EventCallback<int> OnSelected { get; set; }
+        [Parameter] public MdcMenuAnchorCorner AnchorCorner { get; set; }
 
         public void Open()
         {
@@ -45,8 +47,9 @@ namespace Exentials.MdcBlazor
             await base.OnAfterRenderAsync(firstRender);
             if (firstRender)
             {
-                await JSSetOpen(IsOpen);
+                await JsSetOpen(IsOpen);
             }
+            await JsSetAnchorCorner(AnchorCorner);
         }
 
         private ValueTask<bool> JSGetOpen()
@@ -54,9 +57,14 @@ namespace Exentials.MdcBlazor
             return JsInvokeAsync<bool>("getOpen");
         }
 
-        private ValueTask JSSetOpen(bool value)
+        private ValueTask JsSetOpen(bool value)
         {
             return JsInvokeVoidAsync("setOpen", value);
+        }
+
+        private ValueTask JsSetAnchorCorner(MdcMenuAnchorCorner value)
+        {
+            return JsInvokeVoidAsync("setAnchorCorner", value);
         }
 
         public ValueTask SetFixedPosition(bool value)
@@ -64,15 +72,22 @@ namespace Exentials.MdcBlazor
             return JsInvokeVoidAsync("setFixedPosition", value);
         }
 
-        public ValueTask SetAbsolutePosition(int x,int y)
+        public ValueTask SetAbsolutePosition(int x, int y)
         {
-            return JsInvokeVoidAsync("setAbsolutePosition", x,y);
-        }        
+            return JsInvokeVoidAsync("setAbsolutePosition", x, y);
+        }
+       
+        [JSInvokable("MDCMenuSurface:closed")]
+        public Task MDCMenuSurfaceClosed()
+        {
+            IsOpen = false;
+            return Task.CompletedTask;
+        }
+
 
         [JSInvokable("MDCMenu:selected")]
         public Task MDCMenuSelected(int index)
         {
-            _isOpen = false;
             if (OnSelected.HasDelegate)
             {
                 return OnSelected.InvokeAsync(index);

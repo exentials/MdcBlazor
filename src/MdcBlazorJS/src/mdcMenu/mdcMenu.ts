@@ -1,15 +1,16 @@
-import { strings, MDCMenu } from '@material/menu';
+import { MDCMenu, Corner, MDCMenuFoundation } from '@material/menu';
+import { MDCMenuSurfaceFoundation } from '@material/menu-surface/foundation';
 import { MDCMenuItemComponentEvent } from '@material/menu/types';
 import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
 class MdcMenu extends MDCMenu {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
-        this.listen("close", (event) => {
-            console.log("Close:", event);
+        this.listen(MDCMenuSurfaceFoundation.strings.CLOSED_EVENT, (event) => {
+            this.component.invokeMethodAsync(MDCMenuSurfaceFoundation.strings.CLOSED_EVENT);
         });
-        this.listen(strings.SELECTED_EVENT, (event: MDCMenuItemComponentEvent) => {
-            this.component.invokeMethodAsync(strings.SELECTED_EVENT, event.detail.index)
+        this.listen(MDCMenuFoundation.strings.SELECTED_EVENT, (event: MDCMenuItemComponentEvent) => {
+            this.component.invokeMethodAsync(MDCMenuFoundation.strings.SELECTED_EVENT, event.detail.index)
         });
     }
 }
@@ -28,6 +29,10 @@ export function getOpen(ref: Element): boolean {
 
 export function setOpen(ref: Element, value: boolean): void {
     mdc<MdcMenu>(ref).open = value;
+}
+
+export function setAnchorCorner(ref: Element, value: Corner): void {
+    mdc<MdcMenu>(ref).setAnchorCorner(value);
 }
 
 export function setFixedPosition(ref: Element, value:boolean): void {
