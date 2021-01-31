@@ -30,7 +30,11 @@ namespace Exentials.MdcBlazor
                     {
                         SelectedIndexChanged.InvokeAsync(_selectedIndex);
                     }
-                    InvokeAsync(async () => await JSSetSelectedIndex(_selectedIndex));
+                    for (int i = 0, len = Items.Count; i < len; i++)
+                    {
+                        Items[i].SetSelected(_selectedIndex.Contains(i));
+                    }
+                    // InvokeAsync(async () => await JSSetSelectedIndex(_selectedIndex));
                 }
             }
         }
@@ -110,10 +114,7 @@ namespace Exentials.MdcBlazor
         [JSInvokable("MDCList:action")]
         public ValueTask MDCListAction(int[] index)
         {
-            for (int i = 0, len = Items.Count; i < len; i++)
-            {
-                Items[i].SetSelected(index.Contains(i));
-            }
+            SelectedIndex = index;
             return ValueTask.CompletedTask;
         }
 
