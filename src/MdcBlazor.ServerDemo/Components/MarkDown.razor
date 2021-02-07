@@ -1,0 +1,10 @@
+﻿@GetContent()
+
+@code {
+    [Parameter] public string Url { get; set; }
+
+    private MarkupString GetContent()
+    {
+        return new MarkupString(Markdown.ParseFromUrl(Url));
+    }
+}

@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Westwind.AspNetCore.Markdown" Version="3.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MdcBlazor.Tools\MdcBlazor.Tools.csproj" />
     <ProjectReference Include="..\MdcBlazor\MdcBlazor.csproj" />
   </ItemGroup>
