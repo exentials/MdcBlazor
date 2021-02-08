@@ -1,10 +1,25 @@
-﻿@GetContent()
+﻿<article>
+    @GetContent()
+</article>
 
 @code {
+    [Inject] IJSRuntime JSRuntime { get; set; }
     [Parameter] public string Url { get; set; }
 
     private MarkupString GetContent()
     {
-        return new MarkupString(Markdown.ParseFromUrl(Url));
+        var md = Markdown.ParseFromUrl(Url);
+        return new MarkupString(md);
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("highlightCode");
+        }
+    }
+
 }
