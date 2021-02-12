@@ -28,10 +28,6 @@ export function setBuffer(ref: Element, value: number): void {
     mdc<MdcLinearProgress>(ref).buffer = value;
 }
 
-export function setReverse(ref: Element, value: boolean): void {
-    mdc<MdcLinearProgress>(ref).reverse = value;
-}
-
 export function open(ref: Element): void {
     mdc<MdcLinearProgress>(ref).open();
 }

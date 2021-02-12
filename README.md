@@ -7,7 +7,7 @@ ___
 ### Key features are:
 
 - Build on Dotnet 5.0
-- Wrap of Material Design Component Web 9.0
+- Wrap of Material Design Component Web 10.0
 - Source of javascript code build in Typescript
 - Embedded Google Roboto Fonts and Material Icons for scenarios with no Internet access
 ___
