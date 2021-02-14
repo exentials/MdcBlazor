@@ -9,7 +9,7 @@ class MdcCheckboxIndeterminate extends MDCCheckbox {
         super(ref);
 
         this.listen(native_events.CHANGE, (evt) => {
-            this.component.invokeMethodAsync(native_events.CHANGE, this.indeterminate ? null : this.checked);
+            this.component.invokeMethodAsync("MDCCheckbox:change", this.indeterminate ? null : this.checked);
         });
     }
 

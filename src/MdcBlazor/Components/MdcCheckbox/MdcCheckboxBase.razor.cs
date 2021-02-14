@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
 namespace Exentials.MdcBlazor
@@ -22,5 +23,12 @@ namespace Exentials.MdcBlazor
                 }
             }
         }
+
+        [JSInvokable("MDCCheckbox:change")]
+        public ValueTask MDCCheckboxChange(TValue value)
+        {
+            return Change(value);
+        }
+
     }
 }

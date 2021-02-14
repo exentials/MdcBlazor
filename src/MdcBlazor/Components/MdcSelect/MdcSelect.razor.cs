@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,12 @@ namespace Exentials.MdcBlazor
                         break;
                 }
             }
+        }
+
+        [JSInvokable("MDCSelect:change")]
+        public ValueTask MDCSelectChange(string value)
+        {
+            return Change(value);
         }
     }
 }

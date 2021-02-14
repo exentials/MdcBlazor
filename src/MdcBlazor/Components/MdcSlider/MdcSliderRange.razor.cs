@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +60,12 @@ namespace Exentials.MdcBlazor
             {
                 await JSSetValueStart(ValueStart);
             }
+        }
+
+        [JSInvokable("MDCSliderRange:change")]
+        public ValueTask MDCSliderRangeChange(int value)
+        {
+            return Change(value);
         }
     }
 }

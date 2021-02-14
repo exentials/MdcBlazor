@@ -1,17 +1,16 @@
 import { events, MDCSlider, MDCSliderChangeEventDetail } from '@material/slider';
-import { mdc, mdcDestroy, mdcInit} from '../mdc/mdcBlazor';
+import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
 class MdcSlider extends MDCSlider {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
-        this.listen(events.CHANGE, (event) => {
-            console.log(events.CHANGE, (<any>event));
-            // this.component.invokeMethodAsync(NATIVE_CHANGE, this.getValue());
+        this.listen(events.CHANGE, (event) => {            
+            this.component.invokeMethodAsync(events.CHANGE, this.getValue());
         });
 
-        //this.listen("input", (event) => {
-        //    this.component.invokeMethodAsync(NATIVE_INPUT, this.getValue());
-        //});
+        this.listen(events.INPUT, (event) => {
+            this.component.invokeMethodAsync(events.INPUT, this.getValue());
+        });
     }
 }
 
@@ -23,12 +22,12 @@ export function destroy(ref: Element): void {
     mdcDestroy(ref);
 }
 
-export function getValue(ref: Element): number{
+export function getValue(ref: Element): number {
     return mdc<MdcSlider>(ref).getValue();
 }
 
-export function setValue(ref: Element, value: number): void {
-    mdc<MdcSlider>(ref).setValue(value||0);
+export function setValue(ref: Element, value: number): void {    
+    mdc<MdcSlider>(ref).setValue(value || 0);
 }
 
 export function getValueStart(ref: Element): number {

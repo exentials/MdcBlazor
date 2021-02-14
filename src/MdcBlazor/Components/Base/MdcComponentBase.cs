@@ -54,6 +54,10 @@ namespace Exentials.MdcBlazor
         {
             return (value != 0);
         }
+        protected static bool Has<T>(T? value) where T : struct
+        {
+            return value.HasValue;
+        }
 
         protected static bool Has(bool? value)
         {

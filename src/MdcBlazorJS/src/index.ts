@@ -5,6 +5,7 @@ import * as MdcButton from "./mdcButton/mdcButton";
 import * as MdcCheckbox from "./mdcCheckbox/mdcCheckbox";
 import * as MdcCheckboxIndeterminate from "./mdcCheckbox/mdcCheckboxIndeterminate";
 import * as MdcChip from "./mdcChip/mdcChip";
+import * as MdcCircularProgress from "./mdcCircularProgress/mdcCircularProgress";
 import * as MdcChipset from "./mdcChip/mdcChipSet";
 import * as MdcDataTable from "./mdcDataTable/mdcDataTable";
 import * as MdcDialog from "./mdcDialog/mdcDialog";
@@ -17,11 +18,12 @@ import * as MdcIconButton from "./mdcIconButton/mdcIconButton";
 import * as MdcIconButtonToggle from "./mdcIconButton/mdcIconButtonToggle";
 import * as MdcList from "./mdcList/mdcList";
 import * as MdcListItem from "./mdcList/mdcListItem";
+import * as MdcLinearProgress from "./mdcLinearProgress/mdcLinearProgress";
 import * as MdcMenu from "./mdcMenu/mdcMenu";
-import * as MdcCircularProgress from "./mdcProgressIndicator/mdcCircularProgress";
-import * as MdcLinearProgress from "./mdcProgressIndicator/mdcLinearProgress";
 import * as MdcRadio from "./mdcRadio/mdcRadio";
 import * as MdcSelect from "./mdcSelect/mdcSelect";
+import * as MdcSegmentedButton from "./mdcSegmentedButton/mdcSegmentedButton";
+import * as MdcSegmentedButtonSegment from "./mdcSegmentedButton/mdcSegmentedButtonSegment";
 import * as MdcSlider from "./mdcSlider/mdcSlider";
 import * as MdcSnackbar from "./mdcSnackbar/mdcSnackbar";
 import * as MdcSwitch from "./mdcSwitch/mdcSwitch";
@@ -51,11 +53,13 @@ window.exentials.mdcBlazor = {
     MdcIcon,
     MdcIconButton,
     MdcIconButtonToggle,
+    MdcLinearProgress,
     MdcList,
     MdcListItem,
     MdcMenu,
-    MdcLinearProgress,
     MdcRadio,
+    MdcSegmentedButton,
+    MdcSegmentedButtonSegment,
     MdcSelect,
     MdcSlider,
     MdcSnackbar,

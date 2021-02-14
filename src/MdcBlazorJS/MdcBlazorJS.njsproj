@@ -79,9 +79,11 @@
     <Content Include="src\mdcList\mdcList.scss" />
     <Content Include="src\mdcList\mdcListItem.ts" />
     <Content Include="src\mdcMenu\mdcMenu.scss" />
-    <Content Include="src\mdcProgressIndicator\mdcCircularProgress.scss" />
-    <Content Include="src\mdcProgressIndicator\mdcLinearProgress.scss" />
+    <Content Include="src\mdcCircularProgress\mdcCircularProgress.scss" />
+    <Content Include="src\mdcLinearProgress\mdcLinearProgress.scss" />
     <Content Include="src\mdcRadio\mdcRadio.scss" />
+    <Content Include="src\mdcSegmentedButton\mdcSegmentedButton.scss" />
+    <Content Include="src\mdcSegmentedButton\mdcSegmentedButtonSegment.ts" />
     <Content Include="src\mdcSelect\mdcSelect.scss" />
     <Content Include="src\mdcSlider\mdcSlider.scss" />
     <Content Include="src\mdcSnackbar\mdcSnackbar.scss" />
@@ -119,7 +121,7 @@
     <Folder Include="src\mdcTabBar\" />
     <Folder Include="src\mdcSwitch\" />
     <Folder Include="src\mdcElevation\" />
-    <Folder Include="src\mdcProgressIndicator\" />
+    <Folder Include="src\mdcCircularProgress\" />
     <Folder Include="src\mdcSlider\" />
     <Folder Include="src\mdcRadio\" />
     <Folder Include="src\mdcFormField\" />
@@ -131,6 +133,8 @@
     <Folder Include="src\mdcLayoutGrid\" />
     <Folder Include="src\mdcMenu\" />
     <Folder Include="src\mdcIconButton\" />
+    <Folder Include="src\mdcLinearProgress\" />
+    <Folder Include="src\mdcSegmentedButton\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\mdcBanner\mdcBanner.ts" />
@@ -145,9 +149,10 @@
     <TypeScriptCompile Include="src\mdcFormField\mdcFormField.ts" />
     <TypeScriptCompile Include="src\mdcIcon\mdcIcon.ts" />
     <TypeScriptCompile Include="src\mdcMenu\mdcMenu.ts" />
-    <TypeScriptCompile Include="src\mdcProgressIndicator\mdcCircularProgress.ts" />
-    <TypeScriptCompile Include="src\mdcProgressIndicator\mdcLinearProgress.ts" />
+    <TypeScriptCompile Include="src\mdcCircularProgress\mdcCircularProgress.ts" />
+    <TypeScriptCompile Include="src\mdcLinearProgress\mdcLinearProgress.ts" />
     <TypeScriptCompile Include="src\mdcRadio\mdcRadio.ts" />
+    <TypeScriptCompile Include="src\mdcSegmentedButton\mdcSegmentedButton.ts" />
     <TypeScriptCompile Include="src\mdcSelect\mdcSelect.ts" />
     <TypeScriptCompile Include="src\mdcSlider\mdcSliderRange.ts" />
     <TypeScriptCompile Include="src\mdcSlider\mdcSlider.ts" />

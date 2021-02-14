@@ -84,8 +84,8 @@ namespace Exentials.MdcBlazor
             return JsInvokeVoidAsync("setChecked", value);
         }
 
-        [JSInvokable("click")]
-        public ValueTask Click(bool isChecked)
+        [JSInvokable("MDCRadio:change")]
+        public ValueTask MDCRadioChange(bool isChecked)
         {
             if (Checked != isChecked)
             {
@@ -105,6 +105,5 @@ namespace Exentials.MdcBlazor
             }
             return ValueTask.CompletedTask;
         }
-
     }
 }

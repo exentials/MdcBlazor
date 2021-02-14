@@ -25,7 +25,7 @@ namespace Exentials.MdcBlazor
                     {
                         ValueChanged.InvokeAsync(_value);
                     }
-                    InvokeAsync(async () => await JSSetInputValue(_value));
+                    InvokeAsync(async () => await JSSetValue(_value));
                 }
             }
         }
@@ -44,12 +44,12 @@ namespace Exentials.MdcBlazor
             }
         }
 
-        protected ValueTask<TValue> JSGetInputValue()
+        protected ValueTask<TValue> JSGetValue()
         {
             return JsInvokeAsync<TValue>("getValue");
         }
 
-        protected ValueTask JSSetInputValue(TValue value)
+        protected ValueTask JSSetValue(TValue value)
         {
             return JsInvokeVoidAsync("setValue", value);
         }
@@ -69,13 +69,17 @@ namespace Exentials.MdcBlazor
             await base.OnAfterRenderAsync(firstRender);
             if (firstRender)
             {
+                await JSSetValue(Value);
                 await JSSetDisabled(Disabled);
-                await JSSetInputValue(Value);
             }
         }
 
-        [JSInvokable("change")]
-        public ValueTask Change(TValue value)
+        /// <summary>
+        /// Change method that should be invoked by the native javascript component
+        /// </summary>
+        /// <param name="value">the new value</param>
+        /// <returns></returns>
+        protected ValueTask Change(TValue value)
         {
             if (!EqualityComparer<TValue>.Default.Equals(Value, value))
             {

@@ -1,6 +1,6 @@
 {
   "name": "mdc-blazor-js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Material Design Component for Exentials.MdcBlazor",
   "scripts": {
     "build": "webpack --mode=production && webpack --mode=development",
@@ -48,6 +48,7 @@
     "@material/progress-indicator": "^10.0.0",
     "@material/radio": "^10.0.0",
     "@material/ripple": "^10.0.0",
+    "@material/segmented-button": "^10.0.0",
     "@material/select": "^10.0.0",
     "@material/shape": "^10.0.0",
     "@material/slider": "^10.0.0",

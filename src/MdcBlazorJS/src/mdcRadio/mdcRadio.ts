@@ -9,7 +9,7 @@ class MdcRadio extends MDCRadio {
         super(ref);
 
         this.listen(native_events.CLICK, (evt) => {
-            this.component.invokeMethodAsync(native_events.CLICK, this.checked);
+            this.component.invokeMethodAsync("MDCRadio:change", this.checked);
         });
     }
 

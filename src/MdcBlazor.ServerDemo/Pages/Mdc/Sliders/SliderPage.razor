@@ -1,0 +1,59 @@
+﻿@page "/sliders"
+
+<MdcHeadline6>Sliders</MdcHeadline6>
+
+<DemoComponent>
+    <TopBar>
+        <MdcTabBar @bind-ActiveTab="tab">
+            <MdcTab Label="Slider" />
+            <MdcTab Label="Slider Range" />
+        </MdcTabBar>
+    </TopBar>
+    <Content>
+        <DemoComponentContainer @ref="demo">
+            @if (tab == 0)
+            {
+                <MdcSlider @bind-Value="sliderValue" Disabled="Disabled" SliderType="sliderType" />
+                <p>
+                    Value: @sliderValue
+                </p>
+            }
+            else if (tab == 1)
+            {
+
+            }
+        </DemoComponentContainer>
+    </Content>
+    <TopOption>
+        Options
+    </TopOption>
+    <Options>
+        @*<MdcCheckbox Label="Discrete" @bind-Value="Discrete" />
+        <MdcCheckbox Label="Disabled" @bind-Value="Disabled" />*@
+    </Options>
+</DemoComponent>
+
+@code {
+    int tab = 0;
+    bool _discrete;
+    bool _disabled;
+    int _step = 1;
+
+    bool Discrete { get => _discrete; set { _discrete = value; Update(); } }
+    bool Disabled { get => _disabled; set { _disabled = value; Update(); } }
+    int Step { get => _step; set { _step = value; Update(); } }
+
+    DemoComponentContainer demo;
+
+
+    MdcSliderType sliderType;
+
+    private int sliderValue;
+
+    void Update()
+    {
+        sliderType = (Discrete) ? MdcSliderType.Discrete : MdcSliderType.Continuous;
+        demo.Refresh();
+    }
+
+}

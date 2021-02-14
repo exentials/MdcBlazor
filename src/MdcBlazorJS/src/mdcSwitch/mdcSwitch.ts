@@ -5,7 +5,7 @@ class Switch extends MDCSwitch {
     constructor(ref: Element, private component: DotNet.DotNetObject) {
         super(ref);
         this.listen(native_events.CHANGE, (event) => {
-            this.component.invokeMethodAsync<void>(native_events.CHANGE, this.checked);
+            this.component.invokeMethodAsync("MDCSwitch:change", this.checked);
         });        
     }
 }

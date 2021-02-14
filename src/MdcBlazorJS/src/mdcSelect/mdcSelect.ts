@@ -1,5 +1,5 @@
 import { strings, MDCSelect, MDCSelectEvent } from '@material/select';
-import { mdc, mdcDestroy, mdcInit, native_events } from '../mdc/mdcBlazor';
+import { mdc, mdcDestroy, mdcInit } from '../mdc/mdcBlazor';
 
 class MdcSelect extends MDCSelect {
 
@@ -7,7 +7,7 @@ class MdcSelect extends MDCSelect {
         super(ref);
 
         this.listen(strings.CHANGE_EVENT, (event: MDCSelectEvent) => {
-            this.component.invokeMethodAsync(native_events.CHANGE, event.detail.value);
+            this.component.invokeMethodAsync(strings.CHANGE_EVENT, event.detail.value);
         });
     }
 }
