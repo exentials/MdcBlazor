@@ -1,4 +1,4 @@
-# <img src="./MdcBlazor-icon.png" width="48" />  Exentials.MdcBlazor & Exentials.MdcBlazor.Tools
+# <img src="https://github.com/exentials/MdcBlazor/blob/main/MdcBlazor-icon.png" width="48" />  Exentials.MdcBlazor & Exentials.MdcBlazor.Tools
 Library for Blazor based on [Material Design Component]
 
 [![Nuget](https://img.shields.io/nuget/v/Exentials.MdcBlazor?label=nuget%20Exentials.MdcBlazor)](https://www.nuget.org/packages/Exentials.MdcBlazor)
