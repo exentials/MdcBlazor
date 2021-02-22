@@ -26,6 +26,7 @@ namespace Exentials.MdcBlazor
                 }
             }
         }
+
         [Parameter] public EventCallback<EventArgs> OnClick { get; set; }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)

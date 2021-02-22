@@ -7,6 +7,7 @@ namespace Exentials.MdcBlazor
     {
         [Parameter] public string Label { get; set; }
         [Parameter] public bool Sticky { get; set; }
+        [Parameter] public RenderFragment Pager { get; set; }
 
         protected override void OnInitialized()
         {

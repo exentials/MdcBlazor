@@ -1,0 +1,22 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcComponentBase
+<div class="mdc-data-table__pagination">
+    <div class="mdc-data-table__pagination-trailing">
+        <div class="mdc-data-table__pagination-rows-per-page">
+            <div class="mdc-data-table__pagination-rows-per-page-label">
+                @RowsPerPageLabel
+            </div>
+            <MdcDataTableRowsPerPageSelect @bind-Value="PageSize" />
+        </div>
+
+        <div class="mdc-data-table__pagination-navigation">
+            <div class="mdc-data-table__pagination-total">
+                @PaginationTotal
+            </div>
+            <MdcDataTablePaginationButton Disabled="FirstPageButtonDisabled" data-first-page="true" OnClick="FirstPageClick" Icon="first_page" />
+            <MdcDataTablePaginationButton Disabled="LeftPageButtonDisabled" data-prev-pag="true" OnClick="LeftPageClick" Icon="chevron_left" />
+            <MdcDataTablePaginationButton Disabled="RightPageButtonDisabled" data-next-page="true" OnClick="RightPageClick" Icon="chevron_right" />
+            <MdcDataTablePaginationButton Disabled="LastPageButtonDisabled" data-last-page="true" OnClick="LastPageClick" Icon="last_page" />
+        </div>
+    </div>
+</div>

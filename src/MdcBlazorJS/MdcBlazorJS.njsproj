@@ -59,6 +59,8 @@
     <Content Include="src\mdcChip\mdcChip.scss" />
     <Content Include="src\mdcChip\README.md" />
     <Content Include="src\mdcDataTable\mdcDataTable.scss" />
+    <Content Include="src\mdcDataTable\mdcDataTablePaginationButton.ts" />
+    <Content Include="src\mdcDataTable\mdcDataTableRowsPerPageSelect.ts" />
     <Content Include="src\mdcDialog\mdcDialog.scss" />
     <Content Include="src\mdcDrawer\mdcDrawer.ts">
       <SubType>Code</SubType>

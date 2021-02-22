@@ -8,6 +8,8 @@ import * as MdcChip from "./mdcChip/mdcChip";
 import * as MdcCircularProgress from "./mdcCircularProgress/mdcCircularProgress";
 import * as MdcChipset from "./mdcChip/mdcChipSet";
 import * as MdcDataTable from "./mdcDataTable/mdcDataTable";
+import * as MdcDataTablePaginationButton from "./mdcDataTable/mdcDataTablePaginationButton";
+import * as MdcDataTableRowsPerPageSelect from "./mdcDataTable/mdcDataTableRowsPerPageSelect";
 import * as MdcDialog from "./mdcDialog/mdcDialog";
 import * as MdcDrawer from "./mdcDrawer/mdcDrawer";
 import * as MdcDrawerNav from "./mdcDrawer/mdcDrawerNav";
@@ -45,6 +47,8 @@ window.exentials.mdcBlazor = {
     MdcChipset,
     MdcCircularProgress,
     MdcDataTable,
+    MdcDataTablePaginationButton,
+    MdcDataTableRowsPerPageSelect,
     MdcDialog,
     MdcDrawer,
     MdcDrawerNav,

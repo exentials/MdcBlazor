@@ -1,0 +1,34 @@
+﻿@namespace Exentials.MdcBlazor
+@inherits MdcComponentBase
+
+<div @ref="Ref" class="mdc-select mdc-select--outlined mdc-select--no-label mdc-data-table__pagination-rows-per-page-select">
+    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-labelledby="@_paginationSelectId" tabindex="0">
+        <span class="mdc-select__selected-text-container">
+            <span id="@_paginationSelectId" class="mdc-select__selected-text">10</span>
+        </span>
+        <span class="mdc-select__dropdown-icon">
+            <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5">
+                <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10" />
+                <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15" />
+            </svg>
+        </span>
+        <span class="mdc-notched-outline mdc-notched-outline--notched">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__trailing"></span>
+        </span>
+    </div>
+
+    <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth" role="listbox">
+        <ul class="mdc-list">
+            <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" role="option" data-value="10">
+                <span class="mdc-list-item__text">10</span>
+            </li>
+            <li class="mdc-list-item" role="option" data-value="25">
+                <span class="mdc-list-item__text">25</span>
+            </li>
+            <li class="mdc-list-item" role="option" data-value="100">
+                <span class="mdc-list-item__text">100</span>
+            </li>
+        </ul>
+    </div>
+</div>

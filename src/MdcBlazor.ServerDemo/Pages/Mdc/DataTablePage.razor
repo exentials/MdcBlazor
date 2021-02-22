@@ -27,10 +27,19 @@
 
 <MdcSubtitle1>Data table with DataSource</MdcSubtitle1>
 <MdcDataTable Sticky="true">
-    <DataTableColumnContainer DataSource="dataSource" Selector="true">    
-        <DataTableColumn Header="#" FieldName="Id" />
-        <DataTableColumn Header="Text" FieldName="StringValue" />
-        <DataTableColumn Header="Bool" FieldName="BoolValue" />
-        <DataTableColumn Header="Decimal" FieldName="DecimalValue" Format="#0.00" Numeric="true"/>
-    </DataTableColumnContainer>
+    <ChildContent>
+        <DataTableColumnContainer DataSource="dataSource" Selector="true">
+            <DataTableColumn Header="#" FieldName="Id" />
+            <DataTableColumn Header="Text" FieldName="StringValue" />
+            <DataTableColumn Header="Bool" FieldName="BoolValue" />
+            <DataTableColumn Header="Decimal" FieldName="DecimalValue" Format="#0.00" Numeric="true" />
+        </DataTableColumnContainer>
+    </ChildContent>
+    <Pager>
+        <MdcDataTablePagination @bind-Page="currentPage" ItemsCount="items.Count"  />
+    </Pager>
 </MdcDataTable>
+
+<p>
+    Current page is @currentPage
+</p>
