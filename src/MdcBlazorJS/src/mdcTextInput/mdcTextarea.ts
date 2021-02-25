@@ -6,7 +6,7 @@ class TextArea extends MDCTextField {
         super(ref);
 
         this.listen(native_events.CHANGE, (evt) => {
-            this.component.invokeMethodAsync(native_events.CHANGE, this.value);
+            this.component.invokeMethodAsync("MDCTextArea:change", this.value);
         });
     }
 }
