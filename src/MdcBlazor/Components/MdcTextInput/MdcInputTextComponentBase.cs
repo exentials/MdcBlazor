@@ -7,7 +7,7 @@ namespace Exentials.MdcBlazor
     {
         [Parameter] public bool Outlined { get; set; }
         [Parameter] public bool NoLabel { get; set; }
-        [Parameter] public int Maxlength { get; set; }
+        [Parameter] public int? Maxlength { get; set; }
         [Parameter] public bool ShowCounter { get; set; }
         [Parameter] public MdcTextFieldHelperType HelperType { get; set; }
         [Parameter] public string HelperMessage { get; set; }

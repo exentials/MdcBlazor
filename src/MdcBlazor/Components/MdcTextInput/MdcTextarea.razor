@@ -18,7 +18,7 @@
     {
     <span class="mdc-text-field__ripple"></span>
     @if (!NoLabel)
-        {
+    {
     <span class="mdc-floating-label" id="@LabelId">@Label</span>
     }
     }
@@ -26,24 +26,24 @@
     {
     <span class="mdc-text-field__resizer">
         <textarea class="mdc-text-field__input" rows="8" cols="40"
-        aria-label="@Label"
-        aria-labelledby="@(NoLabel? null: LabelId)"
-        aria-controls="@HelperId"
-        aria-describedby="@HelperId"
-        required="@Required"
-        maxlength="@Maxlength">            
+            aria-label="@Label"
+            aria-labelledby="@(NoLabel? null: LabelId)"
+            aria-controls="@HelperId"
+            aria-describedby="@HelperId"
+            required="@Required"
+            maxlength="@Maxlength">            
         </textarea>
     </span>
     }
     else
     {
     <textarea class="mdc-text-field__input" rows="8" cols="40"
-    aria-label="@Label"
-    aria-labelledby="@(NoLabel? null: LabelId)"
-    aria-controls="@HelperId"
-    aria-describedby="@HelperId"
-    required="@Required"
-    maxlength="@Maxlength">        
+        aria-label="@Label"
+        aria-labelledby="@(NoLabel? null: LabelId)"
+        aria-controls="@HelperId"
+        aria-describedby="@HelperId"
+        required="@Required"
+        maxlength="@Maxlength">        
     </textarea>
     }
     @if (ShowCounter)
