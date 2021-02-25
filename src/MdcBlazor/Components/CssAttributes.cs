@@ -10,16 +10,20 @@ namespace Exentials.MdcBlazor
 {
     public class CssAttributes
     {
-        private readonly List<string> cssAttributes;
+        private readonly HashSet<string> cssAttributes;
 
         public CssAttributes()
         {
-            cssAttributes = new List<string>();
+            cssAttributes = new HashSet<string>();
         }
 
         public void Add(string attribute)
         {
-            cssAttributes.Add(attribute);
+            if (!string.IsNullOrWhiteSpace(attribute))
+            {
+                var attributes = attribute.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                Add(attributes);
+            }
         }
 
         public void Add(params string[] attributes)
@@ -28,7 +32,7 @@ namespace Exentials.MdcBlazor
             {
                 foreach (var attribute in attributes)
                 {
-                    this.cssAttributes.Add(attribute);
+                    _ = cssAttributes.Add(attribute);
                 }
             }
         }

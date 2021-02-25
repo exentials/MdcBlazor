@@ -32,6 +32,7 @@ namespace Exentials.MdcBlazor
                     CssAttributes.Add("mdc-data-table__header-cell--sorted");
                 }
             }
+            CssAttributes.Add(CssClass);
         }
     }
 }
